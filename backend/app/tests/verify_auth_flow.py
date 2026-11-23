@@ -1,4 +1,4 @@
-"""登录注册流程端到端验证（真实 MySQL，端口 8011）。
+"""登录注册流程端到端验证（真实 MySQL，默认端口 8010）。
 
 覆盖：注册 201 / 重名 409 / 弱密码 422 / 条款 422 / 登录双令牌 / 记住我 7 天 /
 无 token 401 / refresh 轮换 / 连续失败锁定 423 / 找回密码三步 / 重置后旧令牌失效 / 登出撤销。
@@ -8,7 +8,7 @@ import uuid
 
 import httpx
 
-BASE = "http://127.0.0.1:8011/api/v1"
+BASE = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:8010/api/v1"
 API = f"{BASE}/auth"
 PWD = "Abcd1234"
 NEW_PWD = "NewPwd5678"

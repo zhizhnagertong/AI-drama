@@ -45,6 +45,8 @@ class Settings(BaseSettings):
     RESET_CODE_TTL_MINUTES: int = 10
     RESET_CODE_RESEND_SECONDS: int = 60
     RESET_CODE_MAX_ATTEMPTS: int = 5
+    # 仅本地调试开启：把验证码打到服务端日志（生产必须为 false，否则日志泄露即可重置任意账号）
+    LOG_RESET_CODE: bool = False
 
     # 产物存储目录（相对 backend）
     STORAGE_DIR: str = "storage"

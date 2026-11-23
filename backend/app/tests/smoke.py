@@ -1,7 +1,7 @@
 """端到端冒烟测试：注册 → 登录 → 创建项目 → generate-script → 轮询任务 → 任务列表。
 
 用法：python tests/smoke.py [base_url]
-默认 base_url=http://localhost:8000。
+默认 base_url=http://localhost:8010（与 start.ps1 启动的后端端口一致）。
 """
 import json
 import sys
@@ -10,7 +10,7 @@ import uuid
 
 import httpx
 
-BASE = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:8000"
+BASE = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:8010"
 API = f"{BASE}/api/v1"
 
 USERNAME = f"smoke{uuid.uuid4().hex[:8]}"

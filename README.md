@@ -4,6 +4,8 @@
 
 后端 FastAPI 负责项目/剧集/分镜数据与 AI 任务调度，前端 Vue 3 提供工作台、创作与编辑界面，AI 能力由 Agnes AI（文本/图像/视频）与阿里云 DashScope（TTS）提供，FFmpeg 负责音视频合成。
 
+[![tests](https://github.com/zhizhnagertong/AI-drama/actions/workflows/tests.yml/badge.svg)](https://github.com/zhizhnagertong/AI-drama/actions/workflows/tests.yml)
+
 ![四层架构](figures/architecture-4layers.png)
 
 ## 功能概览
@@ -86,6 +88,8 @@ Copy-Item backend\.env.example backend\.env
 | `AGNES_API_KEY` | AI 功能必填 | Agnes AI 密钥，文本/图像/视频生成依赖它 |
 | `DASHSCOPE_API_KEY` | TTS 必填 | 留空时语音合成相关接口返回 400 |
 | `JWT_SECRET` | 建议改 | 生产环境务必替换为随机串 |
+| `ACCESS_TOKEN_EXPIRE_MINUTES` | 否 | access token 有效期，默认 15 分钟 |
+| `LOG_RESET_CODE` | 否 | 本地调试设为 `true` 才会把找回密码验证码打到日志，**生产必须保持 false** |
 | `STORAGE_DIR` | 否 | 产物目录，默认 `backend/storage` |
 
 > 没填 AI Key 也能启动，界面与数据流程可用，只是 AI 生成类任务会失败。

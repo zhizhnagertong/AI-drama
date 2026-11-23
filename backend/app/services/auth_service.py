@@ -3,8 +3,11 @@
 业务规则集中于此，统一抛 AuthError(status_code, biz_code, message)，
 路由层按 biz_code 精确映射 HTTP 响应。
 """
+import logging
 import secrets
 from datetime import datetime, timedelta
+
+logger = logging.getLogger(__name__)
 
 from fastapi import Request
 from jose import jwt as jose_jwt
@@ -298,12 +301,16 @@ def send_code(db: Session, username: str) -> dict:
     db.commit()
     # 安全：验证码绝不能随 HTTP 响应回显（否则任何人可凭用户名重置任意账号）。
     # 无邮箱的历史账号（channel=none）无其他通道，保留站内回显走通流程；
-    # 邮箱通道仅输出到服务端日志，待接入邮件发送后移除该 print。
+    # 邮箱通道默认不输出验证码，仅当 LOG_RESET_CODE=true（本地调试）时打印到服务端日志，
+    # 待接入邮件发送后应彻底移除该分支。
     if channel == "none":
         code_hint = code
     else:
         code_hint = None
-        print(f"[auth] 找回密码验证码 username={user.username} code={code}")
+        if settings.LOG_RESET_CODE:
+            logger.warning(
+                "[auth] 找回密码验证码（调试模式）username=%s code=%s", user.username, code
+            )
     return {
         "sent": True,
         "channel": channel,

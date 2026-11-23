@@ -2,7 +2,7 @@
 
 > 文档版本：v1.4 ｜ 状态：评审稿 ｜ 更新日期：2026-09-04 ｜ 变更：产品定位由「C 端消费者平台（看剧+创作）」调整为**纯 AI 创作平台**，删除「剧库」模块及「我的」中的追更/收藏/历史等消费端概念，顶栏导航收敛为 3 项（工作台/创作/我的）；此前 V1.3 已升级为 Apple Dark 双主题、「设置」下沉「我的」、封面采用渐变占位
 > 技术栈：FastAPI + DeepAgents + 多模态大模型（Agnes AI）+ 阿里云 DashScope TTS + FFmpeg + MySQL 8 + Vue 3 + Element Plus
-> 配套设计：页面清单与线框图见 [`ui-pages-wireframes.md`](ui-pages-wireframes.md)；V1.4 高保真原型（Apple Dark 双主题）见 [`app.html`](app.html)（单文件整合版，登录后功能区：工作台/创作/我的）；V1.2 浅色版见 [`redesign-app.html`](redesign-app.html)；独立登录页见 [`ui-mockups/login.html`](ui-mockups/login.html)。
+> 配套设计：页面清单与线框图、V1.4 高保真原型（Apple Dark 双主题）、V1.2 浅色版及独立登录页原型均为早期设计稿，**未随本仓库提供**；当前实现以本仓库源码与 [README.md](README.md) 为准。
 
 ---
 

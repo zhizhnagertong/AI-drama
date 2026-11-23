@@ -35,7 +35,9 @@ app = FastAPI(title="AI 漫剧智能制作平台", version="1.0.0", lifespan=lif
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    # 鉴权走 Authorization 头而非 Cookie，因此不能开启 credentials：
+    # 按 Fetch 规范 allow_origins=["*"] 与 allow_credentials=True 是非法组合，浏览器会直接拒绝。
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
