@@ -49,8 +49,11 @@ def Session(engine, monkeypatch):
     return maker
 
 
-def _seed(Session):
-    """建一个用户 + 项目 + running 任务，返回 (project_id, task_id)。"""
+def _seed(Session, status=models.TaskStatus.queued):
+    """建一个用户 + 项目 + 任务，返回 (project_id, task_id)。
+
+    默认 queued：与真实入队状态一致，worker 通过条件 UPDATE 认领后才置 running。
+    """
     db = Session()
     u = models.User(username="u", password_hash="x", email="u@example.com")
     db.add(u)
@@ -61,8 +64,8 @@ def _seed(Session):
     t = models.GenTask(
         project_id=p.id,
         type=models.TaskType.cover,
-        status=models.TaskStatus.running,
-        progress=5,
+        status=status,
+        progress=0,
         payload={"retryable": True},
     )
     db.add(t)
@@ -170,7 +173,7 @@ def test_run_task_marks_failed_on_ordinary_error(Session, monkeypatch):
 
 
 def test_run_task_skips_when_row_deleted_before_start(Session):
-    """任务行在 worker 取到之前就已被删：db.get 返回 None，直接 return。"""
+    """任务行在 worker 取到之前就已被删：认领 UPDATE 影响 0 行，直接 return。"""
     pid, tid = _seed(Session)
     _delete_project(Session, pid)
 
@@ -178,4 +181,54 @@ def test_run_task_skips_when_row_deleted_before_start(Session):
 
     check = Session()
     assert check.get(models.GenTask, tid) is None
+    check.close()
+
+
+def test_run_task_claims_task_only_once(Session, monkeypatch):
+    """回归：同一 task 被重复入队时不得重复执行（防止重复调用付费接口）。
+
+    原实现是 SELECT-then-UPDATE，两个 worker 会同时把 queued 改成 running 并各跑一遍 handler。
+    """
+    _, tid = _seed(Session)
+    calls = []
+
+    def handler(db, task):
+        calls.append(task.id)
+        return {"ok": True}
+
+    monkeypatch.setitem(task_engine.HANDLERS, models.TaskType.cover, handler)
+    monkeypatch.setattr(task_engine, "_enqueue", lambda tid_: None)
+    monkeypatch.setattr(task_engine, "_publish", lambda t: None)
+
+    task_engine._run_task(tid)  # 第一次：认领成功
+    task_engine._run_task(tid)  # 第二次：已 succeeded，认领失败
+
+    assert calls == [tid]
+    check = Session()
+    assert check.get(models.GenTask, tid).status == models.TaskStatus.succeeded
+    check.close()
+
+
+def test_run_task_does_not_override_canceled(Session, monkeypatch):
+    """取消后 handler 才返回：终态写入必须被状态断言挡住，不能改写回 succeeded。"""
+    _, tid = _seed(Session)
+
+    def handler(db, task):
+        # 模拟执行期间用户在另一会话点了取消
+        other = Session()
+        other.query(models.GenTask).filter(models.GenTask.id == tid).update(
+            {"status": models.TaskStatus.canceled}, synchronize_session=False
+        )
+        other.commit()
+        other.close()
+        return {"ok": True}
+
+    monkeypatch.setitem(task_engine.HANDLERS, models.TaskType.cover, handler)
+    monkeypatch.setattr(task_engine, "_enqueue", lambda tid_: None)
+    monkeypatch.setattr(task_engine, "_publish", lambda t: None)
+
+    task_engine._run_task(tid)
+
+    check = Session()
+    assert check.get(models.GenTask, tid).status == models.TaskStatus.canceled
     check.close()

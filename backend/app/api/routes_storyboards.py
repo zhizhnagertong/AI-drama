@@ -7,7 +7,7 @@ from ..core.deps import get_current_user
 from ..core.db import get_db
 from .. import models, schemas
 from ..models import Storyboard, User
-from ..api.routes_projects import get_owned_project
+from ..api.routes_projects import get_owned_project, _sb_alive_clause
 from ..api.routes_episodes import get_owned_episode
 from ..services import task_engine
 
@@ -142,7 +142,7 @@ def list_storyboards(
     get_owned_project(db, user, project_id)
     items = (
         db.query(Storyboard)
-        .filter(Storyboard.project_id == project_id)
+        .filter(Storyboard.project_id == project_id, _sb_alive_clause())
         .order_by(Storyboard.seq)
         .all()
     )

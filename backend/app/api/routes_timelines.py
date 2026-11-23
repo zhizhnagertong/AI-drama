@@ -1,5 +1,6 @@
 """时间线与成片导出接口。"""
 from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy import or_, select
 from sqlalchemy.orm import Session
 
 from ..core.deps import get_current_user
@@ -51,6 +52,13 @@ def _auto_items(db: Session, project: models.Project, episode_id: int | None = N
         .filter(
             models.Storyboard.project_id == project.id,
             models.Shot.selected_version_id.isnot(None),
+            # 排除已软删除剧集下的分镜
+            or_(
+                models.Storyboard.episode_id.is_(None),
+                models.Storyboard.episode_id.in_(
+                    select(models.Episode.id).where(models.Episode.deleted.is_(False))
+                ),
+            ),
         )
     )
     if episode_id is not None:
@@ -91,6 +99,54 @@ def list_timelines(
     return {"items": [schemas.timeline_out(t) for t in items], "total": len(items)}
 
 
+def _validate_items(db: Session, project: models.Project, items: list[dict]) -> None:
+    """校验时间线片段：数量上限 + 素材地址必须属于本项目。
+
+    安全：media_url 会被合成器交给 ffmpeg 读取，远程地址还会被服务端下载。
+    若不校验，客户端可传 `/static/../../backend/app/core/config.py`（路径穿越）
+    或 `http://169.254.169.254/...`（SSRF）。这里只接受项目内已登记的素材地址。
+    """
+    if len(items) > 200:
+        raise HTTPException(status_code=400, detail="时间线片段过多，单次最多 200 个")
+
+    urls: set[str] = set()
+    for it in items:
+        for key in ("media_url", "audio_url"):
+            value = (it or {}).get(key)
+            if value:
+                urls.add(str(value))
+    if not urls:
+        return
+
+    known: set[str] = {
+        row[0]
+        for row in db.query(Asset.url).filter(Asset.project_id == project.id).all()
+        if row[0]
+    }
+    # 兼容历史数据：版本/镜头上直接记录的地址也算合法
+    for (image_url,) in db.query(ShotVersion.image_url).join(
+        models.Shot, ShotVersion.shot_id == models.Shot.id
+    ).join(models.Storyboard, models.Shot.storyboard_id == models.Storyboard.id).filter(
+        models.Storyboard.project_id == project.id
+    ):
+        if image_url:
+            known.add(image_url)
+    for (video_url,) in db.query(ShotVersion.video_url).join(
+        models.Shot, ShotVersion.shot_id == models.Shot.id
+    ).join(models.Storyboard, models.Shot.storyboard_id == models.Storyboard.id).filter(
+        models.Storyboard.project_id == project.id
+    ):
+        if video_url:
+            known.add(video_url)
+
+    unknown = urls - known
+    if unknown:
+        raise HTTPException(
+            status_code=400,
+            detail=f"时间线包含不属于本项目的素材地址：{sorted(unknown)[0][:120]}",
+        )
+
+
 @router.post("/projects/{project_id}/timelines")
 def create_timeline(
     project_id: int,
@@ -105,7 +161,10 @@ def create_timeline(
     project = get_owned_project(db, user, project_id)
     episode_id = body.episode_id if body else None
     if episode_id is not None:
-        get_owned_episode(db, user, episode_id)
+        ep = get_owned_episode(db, user, episode_id)
+        # 剧集必须属于本项目：否则可把时间线挂到别的项目的剧集 id 上
+        if ep.project_id != project.id:
+            raise HTTPException(status_code=400, detail="剧集不属于该项目")
     else:
         ep = (
             db.query(models.Episode)
@@ -119,6 +178,7 @@ def create_timeline(
         episode_id = ep.id if ep else None
     if body and body.items:
         items = [i.model_dump() for i in body.items]
+        _validate_items(db, project, items)
     else:
         items = _auto_items(db, project, episode_id)
     if not items:
@@ -145,6 +205,8 @@ def update_timeline(
     timeline = _get_owned_timeline(db, user, timeline_id)
     data = body.model_dump(exclude_unset=True)
     if "items" in data and data["items"] is not None:
+        project = db.get(models.Project, timeline.project_id)
+        _validate_items(db, project, data["items"])
         timeline.items = data["items"]
     if "composite_config" in data:
         timeline.composite_config = data["composite_config"]

@@ -306,17 +306,27 @@ def _run_task(task_id: int) -> None:
     """在独立会话中执行任务（运行于 to_thread 线程）。"""
     db = SessionLocal()
     try:
+        # 原子认领：只有 queued / failed（自动重试路径）能被领走。
+        # 原实现是 SELECT-then-UPDATE，同一 task 若被入队两次（自动重试与用户手动重试
+        # 撞在同一窗口），两个 worker 会并发执行 → 重复调用付费接口、重复计费。
+        claimed = (
+            db.query(models.GenTask)
+            .filter(
+                models.GenTask.id == task_id,
+                models.GenTask.status.in_(
+                    [models.TaskStatus.queued, models.TaskStatus.failed]
+                ),
+            )
+            .update(
+                {"status": models.TaskStatus.running, "progress": 1},
+                synchronize_session=False,
+            )
+        )
+        db.commit()
+        if not claimed:
+            return  # 已被其他 worker 领走 / 已取消 / 已成功 / 行已删除
         task = db.get(models.GenTask, task_id)
-        if task is None or task.status in (models.TaskStatus.succeeded, models.TaskStatus.canceled):
-            return
-        task.status = models.TaskStatus.running
-        if not task.progress:
-            task.progress = 1
-        try:
-            db.commit()
-        except StaleDataError:
-            # 排队期间项目被删、任务行已不存在：直接放弃，不推送也不重试
-            db.rollback()
+        if task is None:
             return
         _publish(task)
 
@@ -324,13 +334,14 @@ def _run_task(task_id: int) -> None:
         no_retry = False  # 配置缺失类错误：重试无意义
         # 终态写入时需要用到的值，先存下来：rollback 后 ORM 对象会过期
         payload = dict(task.payload or {})
+        task_type = task.type
         retries = task.retries or 0
         final_status: models.TaskStatus | None = None
         result_value = None
         error_text = ""
         try:
             if handler is None:
-                raise RuntimeError(f"未知任务类型: {task.type}")
+                raise RuntimeError(f"未知任务类型: {task_type}")
             result = handler(db, task)
             # handler 执行期间用户可能已取消（cancel_task 在另一会话写 canceled），
             # 写终态前重查最新状态，避免把 canceled 覆盖成 succeeded
@@ -363,23 +374,29 @@ def _run_task(task_id: int) -> None:
             retries += 1
             no_retry = isinstance(exc, ConfigError)
 
-        # rollback 后重新取对象再写终态：原 ORM 实例已过期，直接赋值不会持久化
-        if not _task_still_exists(db, task_id):
-            db.rollback()
-            return
-        fresh = db.get(models.GenTask, task_id)
-        fresh.status = final_status
+        # 终态写入同样带状态断言：只有仍处于 running 的行才允许写，
+        # 否则说明期间已被 cancel / 删除，不能把 canceled 覆盖回 succeeded。
+        values: dict = {"status": final_status}
         if final_status == models.TaskStatus.succeeded:
-            fresh.progress = 100
-            fresh.error = None
-            fresh.result = result_value
+            values.update(progress=100, error=None, result=result_value)
         elif final_status == models.TaskStatus.canceled:
-            fresh.error = None
+            values.update(error=None)
         else:
-            fresh.error = error_text
-            fresh.retries = retries
+            values.update(error=error_text, retries=retries)
+        written = (
+            db.query(models.GenTask)
+            .filter(
+                models.GenTask.id == task_id,
+                models.GenTask.status == models.TaskStatus.running,
+            )
+            .update(values, synchronize_session=False)
+        )
         db.commit()
-        _publish(fresh)
+        if not written:
+            return  # 已被取消/删除，终态由对方负责推送
+        fresh = db.get(models.GenTask, task_id)
+        if fresh is not None:
+            _publish(fresh)
 
         # 失败自动重试：payload.retryable 且重试次数 < 3 时重新入队
         if final_status == models.TaskStatus.failed and retries < 3 and not no_retry:

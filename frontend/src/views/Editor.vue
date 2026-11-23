@@ -136,10 +136,17 @@ function normTimeline(t) {
   return { ...t, items }
 }
 
+let loadSeq = 0
+
 async function loadAll() {
+  // 并发保护：loadAll 会被切换剧集、SSE 完成回调、手动刷新同时触发，
+  // 后返回的旧响应会覆盖新数据（出现“选中第 2 集却显示第 1 集分镜”），
+  // 用递增序号丢弃过期响应。
+  const seq = ++loadSeq
   refreshing.value = true
   try {
     const detail = unwrap(await api.get(`/projects/${projectId}`)) || {}
+    if (seq !== loadSeq) return
     project.value = detail.project ?? detail
 
     episodes.value = U.asList(detail.episodes ?? [], 'episodes', 'list', 'items')
@@ -160,31 +167,36 @@ async function loadAll() {
     if (!sbs.length) {
       try {
         const r = unwrap(await api.get(`/projects/${projectId}/storyboards`))
+        if (seq !== loadSeq) return
         sbs = U.asList(r, 'storyboards', 'list', 'items')
       } catch {
         /* 无独立分镜接口时忽略 */
       }
     }
+    if (seq !== loadSeq) return
     // 按当前集过滤（历史数据 episode_id 为空时归入第一集展示）
-    if (currentEpisodeId.value) {
-      sbs = sbs.filter((sb) => !sb.episode_id || sb.episode_id === currentEpisodeId.value)
+    const epForFilter = currentEpisodeId.value
+    if (epForFilter) {
+      sbs = sbs.filter((sb) => !sb.episode_id || sb.episode_id === epForFilter)
     }
     storyboards.value = sbs.map((sb, i) => U.normStoryboard(sb, i))
 
     let chars = U.asList(detail.characters ?? [], 'characters', 'list', 'items')
     try {
       const r = unwrap(await api.get('/characters', { params: { project_id: projectId } }))
+      if (seq !== loadSeq) return
       const fromApi = U.asList(r, 'characters', 'list', 'items')
       if (fromApi.length) chars = fromApi
     } catch {
       /* 忽略 */
     }
+    if (seq !== loadSeq) return
     characters.value = chars
 
     assets.value = U.asList(detail.assets ?? [], 'assets', 'list', 'items')
     let tls = U.asList(detail.timelines ?? [], 'timelines', 'list', 'items')
-    if (currentEpisodeId.value) {
-      tls = tls.filter((t) => !t.episode_id || t.episode_id === currentEpisodeId.value)
+    if (epForFilter) {
+      tls = tls.filter((t) => !t.episode_id || t.episode_id === epForFilter)
     }
     timelines.value = tls.map(normTimeline)
 
@@ -197,7 +209,8 @@ async function loadAll() {
     })
     loadPipeline()
   } finally {
-    refreshing.value = false
+    // 只有最新一次加载才负责收尾，避免旧请求把 loading 提前关掉
+    if (seq === loadSeq) refreshing.value = false
   }
 }
 
@@ -234,6 +247,8 @@ let es = null
 let reconnectTimer = null
 let refreshTimer = null
 
+let streamRetry = 0
+
 async function connectStream() {
   if (es) es.close()
   if (!auth.isLoggedIn) return
@@ -261,7 +276,17 @@ async function connectStream() {
   es.onerror = () => {
     es?.close()
     es = null
-    reconnectTimer = setTimeout(connectStream, 3000)
+    // 原实现无条件 3 秒重连：令牌失效或断网时会形成永久 401 重连风暴。
+    // 改为指数退避 + 次数上限，登录态失效即停。
+    if (!auth.isLoggedIn) return
+    if (streamRetry >= 6) return
+    const delay = Math.min(30000, 1000 * 2 ** streamRetry)
+    streamRetry += 1
+    clearTimeout(reconnectTimer)
+    reconnectTimer = setTimeout(connectStream, delay)
+  }
+  es.onopen = () => {
+    streamRetry = 0
   }
 }
 

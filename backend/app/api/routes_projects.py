@@ -1,6 +1,6 @@
 """项目接口：CRUD、生成剧本、一键流水线。"""
 from fastapi import APIRouter, Depends, HTTPException, Query
-from sqlalchemy import func, or_
+from sqlalchemy import func, or_, select
 from sqlalchemy.orm import Session
 
 from ..core.deps import get_current_user
@@ -85,17 +85,42 @@ def create_project(
     return schemas.project_out(project)
 
 
+def _live_episode_ids():
+    """未软删除的剧集 id 子查询。"""
+    return select(Episode.id).where(Episode.deleted.is_(False))
+
+
+def _sb_alive_clause():
+    """分镜可见条件：未挂集（项目级）或所属剧集未软删除。
+
+    剧集是软删除的，分镜行不会随之消失，因此所有按项目统计/查询分镜的查询
+    都必须带上该条件，否则已删剧集的分镜仍会出现在工作台并继续可操作。
+    """
+    return or_(
+        models.Storyboard.episode_id.is_(None),
+        models.Storyboard.episode_id.in_(_live_episode_ids()),
+    )
+
+
+def _tl_alive_clause():
+    """时间线可见条件：未挂集或所属剧集未软删除。"""
+    return or_(
+        models.Timeline.episode_id.is_(None),
+        models.Timeline.episode_id.in_(_live_episode_ids()),
+    )
+
+
 def _project_stats(db: Session, project: Project) -> dict:
     storyboard_count = (
         db.query(func.count(models.Storyboard.id))
-        .filter(models.Storyboard.project_id == project.id)
+        .filter(models.Storyboard.project_id == project.id, _sb_alive_clause())
         .scalar()
         or 0
     )
     shot_rows = (
         db.query(models.Shot.id, models.Shot.status, models.Shot.video_url)
         .join(models.Storyboard, models.Shot.storyboard_id == models.Storyboard.id)
-        .filter(models.Storyboard.project_id == project.id)
+        .filter(models.Storyboard.project_id == project.id, _sb_alive_clause())
         .all()
     )
     completed = sum(1 for _, s, _ in shot_rows if models.ShotStatus(s) == models.ShotStatus.ready)
@@ -162,7 +187,7 @@ def get_project(
     ]
     sbs = (
         db.query(models.Storyboard)
-        .filter(models.Storyboard.project_id == project.id)
+        .filter(models.Storyboard.project_id == project.id, _sb_alive_clause())
         .order_by(models.Storyboard.seq)
         .all()
     )
@@ -183,7 +208,7 @@ def get_project(
     data["timelines"] = [
         schemas.timeline_out(t)
         for t in db.query(models.Timeline)
-        .filter(models.Timeline.project_id == project.id)
+        .filter(models.Timeline.project_id == project.id, _tl_alive_clause())
         .order_by(models.Timeline.id.desc())
         .all()
     ]
