@@ -252,11 +252,14 @@ function closeStatusMenu() {
 }
 
 watch(statusMenuOpen, (open) => {
+  // 幂等：先删后加，避免多次打开时重复绑定
+  document.removeEventListener('click', closeStatusMenu)
   if (open) document.addEventListener('click', closeStatusMenu)
-  else document.removeEventListener('click', closeStatusMenu)
 })
 
-onBeforeUnmount(closeStatusMenu)
+// 注意：不能只写 onBeforeUnmount(closeStatusMenu)。watcher 在组件卸载后不再触发，
+// 那里的 removeEventListener 永远不会执行，监听器会一直持有已销毁的组件实例。
+onBeforeUnmount(() => document.removeEventListener('click', closeStatusMenu))
 
 /* 集卡片智能按钮：按 stats 推导下一步 */
 function epCta(ep) {
@@ -312,6 +315,12 @@ const coverGenerating = ref(false)
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
+// 组件卸载标志：封面轮询最长 4 分钟，用户离开页面后必须停止，否则会持续打接口
+let alive = true
+onBeforeUnmount(() => {
+  alive = false
+})
+
 async function generateCover() {
   if (coverGenerating.value) return
   coverGenerating.value = true
@@ -320,7 +329,14 @@ async function generateCover() {
     // 轮询任务状态直至完成/失败
     for (let i = 0; i < 120; i++) {
       await sleep(2000)
-      const t = unwrap(await api.get(`/tasks/${task_id}`))
+      if (!alive) return
+      let t = null
+      try {
+        t = unwrap(await api.get(`/tasks/${task_id}`))
+      } catch {
+        continue // 单次请求失败（网络抖动）不终止轮询
+      }
+      if (!alive) return
       if (t?.status === 'succeeded') {
         ElMessage.success('封面已生成')
         await load()
@@ -331,7 +347,7 @@ async function generateCover() {
         return
       }
     }
-    ElMessage.warning('封面生成超时，请稍后刷新查看')
+    if (alive) ElMessage.warning('封面生成超时，请稍后刷新查看')
   } finally {
     coverGenerating.value = false
   }

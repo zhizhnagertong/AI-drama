@@ -12,6 +12,8 @@ export const useStyleStore = defineStore('styles', {
     presets: [],
     loaded: false,
     loading: false,
+    /** 进行中的请求 Promise：并发调用共享同一个，避免后到者拿到空列表 */
+    _inflight: null,
     /** 'remote' = 后端数据可信（含合法的"空列表"）；'fallback' = 请求失败回退内置 */
     source: 'remote'
   }),
@@ -22,27 +24,36 @@ export const useStyleStore = defineStore('styles', {
     emptyRemote: (s) => s.loaded && s.source === 'remote' && s.presets.length === 0
   },
   actions: {
-    /** 拉取启用中的风格预设（force=true 时忽略缓存，管理页变更后调用以即时同步） */
+    /**
+     * 拉取启用中的风格预设（force=true 时忽略缓存，管理页变更后调用以即时同步）
+     *
+     * 并发调用必须复用同一个 in-flight Promise：原实现 `if (this.loading) return`
+     * 会让后到的调用立即返回、拿到的是空列表，调用方可能据此把项目风格置空。
+     */
     async fetch(force = false) {
-      if (this.loading) return
+      if (this._inflight) return this._inflight
       if (this.loaded && !force) return
       this.loading = true
-      try {
-        const data = unwrap(
-          await api.get('/styles', { params: { page: 1, page_size: 100, include_inactive: false } })
-        )
-        const list = asList(data, 'items', 'styles', 'list')
-        this.presets = list.filter((p) => p.is_active !== false)
-        this.source = 'remote'
-        this.loaded = true
-      } catch {
-        /* 仅请求失败时回退到内置常量；空列表是合法状态不回退 */
-        this.presets = fallbackPresets()
-        this.source = 'fallback'
-        this.loaded = true
-      } finally {
-        this.loading = false
-      }
+      this._inflight = (async () => {
+        try {
+          const data = unwrap(
+            await api.get('/styles', { params: { page: 1, page_size: 100, include_inactive: false } })
+          )
+          const list = asList(data, 'items', 'styles', 'list')
+          this.presets = list.filter((p) => p.is_active !== false)
+          this.source = 'remote'
+          this.loaded = true
+        } catch {
+          /* 仅请求失败时回退到内置常量；空列表是合法状态不回退 */
+          this.presets = fallbackPresets()
+          this.source = 'fallback'
+          this.loaded = true
+        } finally {
+          this.loading = false
+          this._inflight = null
+        }
+      })()
+      return this._inflight
     }
   }
 })

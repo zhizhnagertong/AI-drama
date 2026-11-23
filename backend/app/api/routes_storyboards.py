@@ -216,10 +216,22 @@ def reorder_storyboards(
     for sb in rows:
         if sb.project_id != project_id:
             raise HTTPException(status_code=404, detail=f"分镜 {sb.id} 不属于该项目")
-    for seq, sid in enumerate(body.ordered_ids, start=1):
-        sb = by_id.get(sid)
-        if sb is None:  # 并发下已被删除：跳过而非 500
-            continue
+    ordered = [by_id[sid] for sid in body.ordered_ids if sid in by_id]
+    # 作用域与首个分镜所属集一致（无分镜则为项目级），避免跨集重排
+    scope = db.query(Storyboard).filter(Storyboard.project_id == project_id)
+    if ordered:
+        first = ordered[0]
+        scope = (
+            scope.filter(Storyboard.episode_id == first.episode_id)
+            if first.episode_id is not None
+            else scope.filter(Storyboard.episode_id.is_(None))
+        )
+    else:
+        scope = scope.filter(Storyboard.episode_id.is_(None))
+    # 只重排传入的 id 会让未传入的分镜保留原 seq，与新序号撞号；
+    # 这里把作用域内全部分镜整体重编号：传入的按新顺序在前，其余按原 seq 接在后面。
+    rest = [sb for sb in scope.order_by(Storyboard.seq, Storyboard.id).all() if sb.id not in ids]
+    for seq, sb in enumerate(ordered + rest, start=1):
         sb.seq = seq
     db.commit()
     items = (

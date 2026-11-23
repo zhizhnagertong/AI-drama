@@ -200,17 +200,28 @@ async function createPipeline() {
     return
   }
   creating.value = true
+  let createdId = null
   try {
     const project = unwrap(
       await api.post('/projects', { ...form.value, inspiration: buildInspiration() })
     )
     const id = project?.id ?? project?.project?.id
     if (!id) throw new Error('创建项目失败')
-    await api.post(`/projects/${id}/pipeline`)
-    ElMessage.success('AI 流水线已启动，正在为你生成剧本…')
+    createdId = id
+    // 项目一旦创建成功就先进编辑器：流水线启动失败不能表现为"整个创建失败"，
+    // 否则用户会重复点击，堆出一堆空草稿项目。
     router.push(`/editor/${id}`)
+    try {
+      await api.post(`/projects/${id}/pipeline`)
+      ElMessage.success('AI 流水线已启动，正在为你生成剧本…')
+    } catch {
+      ElMessage.warning('项目已创建，但 AI 流水线启动失败，可在创作台手动重新生成')
+    }
   } catch {
     /* 错误提示由拦截器统一处理 */
+    if (!createdId) {
+      /* 项目未创建：停留在当前页，保留用户已填内容 */
+    }
   } finally {
     creating.value = false
   }

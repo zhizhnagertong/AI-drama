@@ -112,8 +112,12 @@ def audition(
     voice = char.voice or "longxiaochun"
     try:
         audio = dashscope.tts(AUDITION_TEXT, voice=voice, speed=char.voice_speed)
-    except RuntimeError as exc:
-        raise HTTPException(status_code=400, detail=str(exc))
+    except Exception as exc:  # noqa: BLE001
+        # 配置缺失属用户可修复问题（400），其余上游异常不对外暴露原文（503）
+        msg = str(exc)
+        if isinstance(exc, RuntimeError) and ("DASHSCOPE" in msg or "未配置" in msg or "api_key" in msg.lower()):
+            raise HTTPException(status_code=400, detail=msg)
+        raise HTTPException(status_code=503, detail="语音服务暂不可用，请稍后重试")
     url = storage.save_bytes(audio, "audio", ".mp3")
     db.add(
         Asset(

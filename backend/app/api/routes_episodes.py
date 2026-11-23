@@ -12,6 +12,9 @@ from ..services import task_engine
 
 router = APIRouter()
 
+# 单次批量出图/出视频的分镜上限：每个分镜都会创建一个付费 AI 任务
+MAX_BATCH_SIZE = 50
+
 
 def get_owned_episode(db: Session, user: User, episode_id: int) -> Episode:
     ep = db.get(Episode, episode_id)
@@ -51,6 +54,9 @@ def create_episode(
 ) -> dict:
     """新增一集：episode_number 取当前最大值 +1（软删的集不占号），并锁定生成配置快照。"""
     project = get_owned_project(db, user, project_id)
+    # 串行化同一项目的建集请求：episode_number = max+1 在并发下会算到同一个值。
+    # 行锁持有到事务提交（SQLite 忽略 FOR UPDATE，测试环境不受影响）。
+    db.query(models.Project).filter(models.Project.id == project.id).with_for_update().first()
     max_num = (
         db.query(func.max(Episode.episode_number))
         .filter(Episode.project_id == project.id, Episode.deleted.is_(False))
@@ -182,7 +188,13 @@ def batch_images(
     ep = get_owned_episode(db, user, episode_id)
     ids = body.storyboard_ids if body and body.storyboard_ids else None
     count = body.count if body else 2
+    # 规模上限 + 去重：每个分镜都会创建一个付费出图任务，重复 id 会重复扣费
     if ids:
+        ids = list(dict.fromkeys(ids))
+        if len(ids) > MAX_BATCH_SIZE:
+            raise HTTPException(
+                status_code=400, detail=f"单次最多批量处理 {MAX_BATCH_SIZE} 个分镜"
+            )
         sbs = (
             db.query(models.Storyboard)
             .filter(models.Storyboard.id.in_(ids), models.Storyboard.episode_id == ep.id)
@@ -203,6 +215,11 @@ def batch_images(
             if shot is None or not shot.selected_version_id:
                 keep.append(sb)
         sbs = keep
+        if len(sbs) > MAX_BATCH_SIZE:
+            raise HTTPException(
+                status_code=400,
+                detail=f"该集待出图分镜 {len(sbs)} 个，超过单次上限 {MAX_BATCH_SIZE}，请分批提交",
+            )
     task_ids = [
         task_engine.submit_task(
             db,
@@ -226,6 +243,12 @@ def batch_videos(
     ep = get_owned_episode(db, user, episode_id)
     seconds = body.seconds if body else "5"
     ids = body.storyboard_ids if body and body.storyboard_ids else None
+    if ids:
+        ids = list(dict.fromkeys(ids))
+        if len(ids) > MAX_BATCH_SIZE:
+            raise HTTPException(
+                status_code=400, detail=f"单次最多批量处理 {MAX_BATCH_SIZE} 个分镜"
+            )
     query = db.query(models.Storyboard).filter(models.Storyboard.episode_id == ep.id)
     if ids:
         query = query.filter(models.Storyboard.id.in_(ids))

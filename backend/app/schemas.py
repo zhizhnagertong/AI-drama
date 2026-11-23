@@ -111,6 +111,17 @@ class ResetPasswordRequest(BaseModel):
 class ProfileUpdate(BaseModel):
     nickname: str | None = Field(default=None, min_length=1, max_length=64)
 
+    @field_validator("nickname")
+    @classmethod
+    def _nickname_not_blank(cls, v: str | None) -> str | None:
+        # min_length 只看原始长度，纯空格能绕过，必须 strip 后再判空
+        if v is None:
+            return v
+        stripped = v.strip()
+        if not stripped:
+            raise ValueError("昵称不能为空")
+        return stripped
+
 
 class PasswordChange(BaseModel):
     old_password: str
@@ -208,7 +219,7 @@ class StoryboardCreate(BaseModel):
 class StoryboardUpdate(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
-    seq: int | None = Field(default=None, ge=1)
+    # seq 不在此暴露：排序必须走 reorder 接口，否则直写 seq 会与其它分镜撞号
     shot_size: str | None = Field(default=None, max_length=32)
     scene: str | None = None
     dialogue: str | None = None
@@ -271,10 +282,11 @@ class ShotVersionUpdate(BaseModel):
 class TimelineItem(BaseModel):
     shot_id: int | None = None
     version_id: int | None = None
-    media_url: str
-    duration_sec: float = 5
+    media_url: str = Field(min_length=1, max_length=500)
+    # 与合成器一致：单段 0.5~600 秒
+    duration_sec: float = Field(default=5, ge=0.5, le=600)
     subtitle: str | None = None
-    audio_url: str | None = None
+    audio_url: str | None = Field(default=None, max_length=500)
 
 
 class TimelineCreate(BaseModel):
