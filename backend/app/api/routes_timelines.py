@@ -236,6 +236,9 @@ def composite_timeline(
     timeline = _get_owned_timeline(db, user, timeline_id)
     if not timeline.items:
         raise HTTPException(status_code=400, detail="时间线为空，无法合成")
+    # 防止重复点击/并发请求把同一个 timeline 提交两次，两个 ffmpeg 同时写盘
+    if timeline.status == models.TimelineStatus.compositing:
+        raise HTTPException(status_code=409, detail="该时间线正在合成中，请稍候")
     task = task_engine.submit_task(
         db, timeline.project_id, models.TaskType.composite, {"timeline_id": timeline.id, "retryable": False}
     )

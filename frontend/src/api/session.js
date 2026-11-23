@@ -21,6 +21,13 @@ export const currentUser = ref(null)
 export const accessExpiresAt = ref(0)
 export const refreshExpiresAt = ref(0)
 
+/**
+ * 会话代际号：每次 clearSession 自增。
+ * 用于作废"登出/失效前发出、登出后才返回"的后台刷新结果——
+ * 否则它会把新令牌写回 storage，导致退出登录后又自动恢复登录态。
+ */
+export const sessionEpoch = ref(0)
+
 const listeners = new Set()
 
 /** 订阅会话失效事件，返回取消订阅函数 */
@@ -193,6 +200,7 @@ export function restoreSession() {
 }
 
 export function clearSession() {
+  sessionEpoch.value += 1
   accessToken.value = ''
   refreshToken.value = ''
   currentUser.value = null

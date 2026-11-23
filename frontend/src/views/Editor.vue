@@ -271,6 +271,11 @@ async function connectStream() {
     } catch {
       return
     }
+    // 建连时后端补发的进行中任务快照（SSE 无事件重放，断线期间事件会丢失）
+    if (data && data.type === 'snapshot' && Array.isArray(data.tasks)) {
+      data.tasks.forEach((t) => handleTaskEvent({ ...t, type: 'task_update' }))
+      return
+    }
     handleTaskEvent(data)
   }
   es.onerror = () => {

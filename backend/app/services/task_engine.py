@@ -234,11 +234,32 @@ def collect_storyboard_artifacts(
 
 
 # ---------------- worker ----------------
+def _task_payload_alive(db: Session, task: models.GenTask) -> bool:
+    """排队任务的关联数据是否还在（项目/分镜/镜头/时间线被删后为 False）。"""
+    payload = task.payload or {}
+    if db.get(models.Project, task.project_id) is None:
+        return False
+    checks = (
+        (models.Storyboard, payload.get("storyboard_id")),
+        (models.Shot, payload.get("shot_id")),
+        (models.Timeline, payload.get("timeline_id")),
+        (models.Character, payload.get("character_id")),
+    )
+    for model, ident in checks:
+        if ident is None:
+            continue
+        if db.get(model, ident) is None:
+            return False
+    return True
+
+
 def recover_pending_tasks() -> int:
     """启动时恢复内存队列丢失的任务（进程重启后 queued/running 无人接管）。
 
-    - queued：尚未开始，直接重新入队（无损）；
-    - running：已提交外部 API，重跑会重复计费，故标记 failed 让用户手动决定是否重试。
+    - running：已提交外部 API，重跑会重复计费，故标记 failed 让用户手动决定是否重试；
+    - queued：关联数据仍存在的重新入队，已被删除的标记 failed（避免无意义重试）；
+    - 业务表僵尸状态（storyboard=generating / shot_version=running / timeline=compositing）
+      一并复位，否则前端会一直显示"生成中"。
     返回重新入队数量。
     """
     db = SessionLocal()
@@ -252,20 +273,55 @@ def recover_pending_tasks() -> int:
             t.status = models.TaskStatus.failed
             t.error = "服务重启导致任务中断，请手动重试"
             t.retries = 3  # 阻断自动重试
+
+        # 复位业务表：handler 的 for/except/finally 在进程崩溃时不会执行，
+        # 这些中间态会永久残留，导致前端卡片一直转圈、相关操作被状态机挡住。
+        sb_reset = (
+            db.query(models.Storyboard)
+            .filter(models.Storyboard.status == models.StoryboardStatus.generating)
+            .update(
+                {"status": models.StoryboardStatus.pending}, synchronize_session=False
+            )
+        )
+        ver_reset = (
+            db.query(models.ShotVersion)
+            .filter(models.ShotVersion.status == models.ShotVersionStatus.running)
+            .update(
+                {"status": models.ShotVersionStatus.failed}, synchronize_session=False
+            )
+        )
+        tl_reset = (
+            db.query(models.Timeline)
+            .filter(models.Timeline.status == models.TimelineStatus.compositing)
+            .update(
+                {"status": models.TimelineStatus.failed}, synchronize_session=False
+            )
+        )
+
         queued = (
             db.query(models.GenTask)
             .filter(models.GenTask.status == models.TaskStatus.queued)
             .order_by(models.GenTask.id)
             .all()
         )
+        ids: list[int] = []
+        orphans = 0
+        for t in queued:
+            if _task_payload_alive(db, t):
+                ids.append(t.id)
+            else:
+                t.status = models.TaskStatus.failed
+                t.error = "任务关联的项目/分镜已被删除，无法继续执行"
+                t.retries = 3
+                orphans += 1
         db.commit()
-        ids = [t.id for t in queued]
         for tid in ids:
             QUEUE.put_nowait(tid)
-        if running or queued:
+        if running or queued or sb_reset or ver_reset or tl_reset:
             print(
                 f"[task_engine] 启动恢复：running→failed {len(running)} 个，"
-                f"queued 重新入队 {len(queued)} 个"
+                f"queued 重新入队 {len(ids)} 个、孤儿任务置 failed {orphans} 个，"
+                f"分镜/版本/时间线复位 {sb_reset}/{ver_reset}/{tl_reset} 条"
             )
         return len(ids)
     finally:

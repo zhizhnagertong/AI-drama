@@ -12,19 +12,53 @@ from sqlalchemy.orm import Session
 
 from ..core.db import get_db
 from ..core.security import decode_token
-from ..models import Project, User
+from .. import models
+from ..models import GenTask, Project, User
 from ..services import event_bus
 
 router = APIRouter()
 
 HEARTBEAT_INTERVAL = 15
 
+# 视为"进行中"的任务状态：连接建立时补发一次快照，避免断线期间的状态永远丢失
+ACTIVE_STATUSES = (
+    models.TaskStatus.pending,
+    models.TaskStatus.queued,
+    models.TaskStatus.running,
+)
 
-async def _event_generator(project_id: int):
+
+def _task_snapshot(db: Session, project_id: int) -> list[dict]:
+    rows = (
+        db.query(GenTask)
+        .filter(GenTask.project_id == project_id, GenTask.status.in_(ACTIVE_STATUSES))
+        .order_by(GenTask.id)
+        .all()
+    )
+    return [
+        {
+            "type": "task_update",
+            "task_id": t.id,
+            "task_type": t.type.value if hasattr(t.type, "value") else t.type,
+            "status": t.status.value if hasattr(t.status, "value") else t.status,
+            "progress": t.progress or 0,
+            "error": t.error,
+        }
+        for t in rows
+    ]
+
+
+async def _event_generator(project_id: int, snapshot: list[dict]):
     queue = event_bus.subscribe(project_id)
     try:
         connected = json.dumps({"type": "connected", "project_id": project_id}, ensure_ascii=False)
         yield f"data: {connected}\n\n"
+        # 补发进行中任务快照：SSE 没有事件重放，断线/重连期间的事件本来会永久丢失
+        if snapshot:
+            payload = json.dumps(
+                {"type": "snapshot", "tasks": snapshot}, ensure_ascii=False, default=str
+            )
+            yield f"data: {payload}\n\n"
         while True:
             try:
                 event = await asyncio.wait_for(queue.get(), timeout=HEARTBEAT_INTERVAL)
@@ -58,7 +92,7 @@ async def stream(
         raise HTTPException(status_code=404, detail="项目不存在")
 
     return StreamingResponse(
-        _event_generator(project_id),
+        _event_generator(project_id, _task_snapshot(db, project_id)),
         media_type="text/event-stream",
         headers={
             "Cache-Control": "no-cache",

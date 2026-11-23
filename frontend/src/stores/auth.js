@@ -64,15 +64,15 @@ export const useAuthStore = defineStore('auth', {
       persistUser(user)
     },
     async logout() {
-      try {
-        if (refreshToken.value) {
-          await api.post('/auth/logout', { refresh_token: refreshToken.value })
-        }
-      } catch {
-        /* 网络失败不阻塞本地登出 */
-      }
+      const rt = refreshToken.value
+      // 先本地登出：clearSession 会自增 sessionEpoch，作废所有在途刷新结果，
+      // 避免"后台刷新在登出后返回、把新令牌写回存储"导致退不出去。
       clearSession()
       router.push('/login')
+      // 再异步通知服务端撤销 refresh 令牌（失败不阻塞本地登出）
+      if (rt) {
+        api.post('/auth/logout', { refresh_token: rt }).catch(() => {})
+      }
     }
   }
 })

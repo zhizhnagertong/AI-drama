@@ -29,14 +29,7 @@ def engine():
         connect_args={"check_same_thread": False},
         poolclass=StaticPool,
     )
-    Base.metadata.create_all(
-        eng,
-        tables=[
-            models.User.__table__,
-            models.Project.__table__,
-            models.GenTask.__table__,
-        ],
-    )
+    Base.metadata.create_all(eng)  # 全量建表：恢复逻辑会扫 storyboards/shot_versions/timelines
     yield eng
     eng.dispose()
 
@@ -231,4 +224,29 @@ def test_run_task_does_not_override_canceled(Session, monkeypatch):
 
     check = Session()
     assert check.get(models.GenTask, tid).status == models.TaskStatus.canceled
+    check.close()
+
+
+# ---------------- 启动恢复 ----------------
+def test_recover_marks_orphan_queued_task_failed(Session, monkeypatch):
+    """关联项目已被删除的 queued 任务：不得重新入队，直接置 failed。"""
+    import asyncio
+
+    pid, tid = _seed(Session)  # queued
+    # 只删项目行，保留任务行（模拟"数据已被删、任务仍在队列"）
+    db = Session()
+    db.query(models.Project).filter(models.Project.id == pid).delete(synchronize_session=False)
+    db.commit()
+    db.close()
+
+    queue = asyncio.Queue()
+    monkeypatch.setattr(task_engine, "QUEUE", queue)
+    requeued = task_engine.recover_pending_tasks()
+
+    assert requeued == 0
+    assert queue.empty()
+    check = Session()
+    t = check.get(models.GenTask, tid)
+    assert t.status == models.TaskStatus.failed
+    assert "已被删除" in (t.error or "")
     check.close()

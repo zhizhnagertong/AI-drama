@@ -8,7 +8,8 @@ import {
   emitSessionExpired,
   updateTokens,
   isRefreshExpired,
-  deviceId
+  deviceId,
+  sessionEpoch
 } from './session'
 
 const api = axios.create({
@@ -40,6 +41,7 @@ export function refreshOnce() {
   if (!refreshToken.value || isRefreshExpired()) {
     return Promise.reject(new Error('NO_REFRESH'))
   }
+  const epochAtStart = sessionEpoch.value
   // 用裸 axios 绕过本拦截器，避免递归与误触发全局登出
   refreshing = axios
     .post('/api/v1/auth/refresh', { refresh_token: refreshToken.value }, {
@@ -48,6 +50,12 @@ export function refreshOnce() {
     .then((res) => {
       const data = res.data || {}
       if (!data.access_token) throw new Error('NO_REFRESH')
+      // 请求期间用户已登出/会话已失效：丢弃这批令牌，不能写回存储
+      if (epochAtStart !== sessionEpoch.value) {
+        const err = new Error('LOGGED_OUT')
+        err.refreshDefinitive = false
+        throw err
+      }
       updateTokens({
         access: data.access_token,
         refresh: data.refresh_token,

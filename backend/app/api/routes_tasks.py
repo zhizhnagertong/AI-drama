@@ -84,7 +84,14 @@ def retry_task(
     task.progress = 0
     db.commit()
     db.refresh(task)
-    task_engine.requeue(task.id)
+    try:
+        task_engine.requeue(task.id)
+    except Exception:  # noqa: BLE001
+        # 入队失败必须回滚状态：否则任务永久卡在 queued（无人执行也无人可重试）
+        task.status = models.TaskStatus.failed
+        task.error = "重新入队失败，请稍后再试"
+        db.commit()
+        raise HTTPException(status_code=503, detail="任务入队失败，请稍后再试")
     return schemas.task_out(task)
 
 
