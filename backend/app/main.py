@@ -10,7 +10,7 @@ from fastapi.responses import FileResponse, JSONResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from .api.router import api_router
-from .core.config import get_settings
+from .core.config import BACKEND_DIR, get_settings
 from .core.db import init_db
 from .core.security import STATIC_COOKIE_NAME, decode_token_strict
 from .services import event_bus, storage, task_engine
@@ -20,6 +20,13 @@ logger = logging.getLogger(__name__)
 
 settings = get_settings()
 storage.ensure_dirs()  # /static 挂载前确保目录存在
+
+# 配置文件自检：.env 不入库，新克隆的仓库必须自己创建
+if not (BACKEND_DIR / ".env").exists():
+    logger.warning(
+        "未找到 backend/.env，正在使用内置默认配置（数据库密码为空、无 AI Key）。"
+        "请先执行：Copy-Item backend/.env.example backend/.env，并填写 DB_PASSWORD / AGNES_API_KEY"
+    )
 
 # 弱密钥自检：JWT_SECRET 仍是模板默认值（或过短）时任何人可伪造令牌
 _WEAK_SECRETS = {"change-me", "please_change_me_to_a_random_string", ""}

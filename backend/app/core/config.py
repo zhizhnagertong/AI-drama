@@ -27,6 +27,11 @@ class Settings(BaseSettings):
     AGNES_BASE_URL: str = "https://apihub.agnes-ai.com"
     AGNES_VIDEO_BASE_URL: str = "https://api.agnes-ai.cn"
 
+    # 模型名（可在 .env 覆盖，无需改代码）
+    AGNES_TEXT_MODEL: str = "agnes-2.5-flash"
+    AGNES_IMAGE_MODEL: str = "agnes-image-2.1-flash"
+    AGNES_VIDEO_MODEL: str = "agnes-video-2.5-flash"
+
     # DashScope TTS（留空则 TTS 相关功能报 400）
     DASHSCOPE_API_KEY: str = ""
 

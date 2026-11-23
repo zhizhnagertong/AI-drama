@@ -8,9 +8,12 @@ import httpx
 from ...core.config import get_settings
 from .. import storage
 
-TEXT_MODEL = "agnes-2.5-flash"
-IMAGE_MODEL = "agnes-image-2.1-flash"
-VIDEO_MODEL = "agnes-video-2.5-flash"
+_settings = get_settings()
+
+# 模型名优先取 .env 中的配置，未配置时回退到内置默认值（无需改代码即可换模型）
+TEXT_MODEL = _settings.AGNES_TEXT_MODEL or "agnes-2.5-flash"
+IMAGE_MODEL = _settings.AGNES_IMAGE_MODEL or "agnes-image-2.1-flash"
+VIDEO_MODEL = _settings.AGNES_VIDEO_MODEL or "agnes-video-2.5-flash"
 
 VIDEO_DONE_STATES = {"completed", "succeed", "succeeded", "success", "done", "finish", "finished"}
 VIDEO_FAIL_STATES = {"failed", "error", "canceled", "cancelled", "terminated"}

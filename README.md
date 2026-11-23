@@ -86,6 +86,7 @@ Copy-Item backend\.env.example backend\.env
 | `DB_USER` / `DB_PASSWORD` | **是** | 你本机 MySQL 的账号密码 |
 | `DB_NAME` | 否 | 默认 `ai_manga_studio2`，**库不存在会自动创建** |
 | `AGNES_API_KEY` | AI 功能必填 | Agnes AI 密钥，文本/图像/视频生成依赖它 |
+| `AGNES_TEXT_MODEL` / `AGNES_IMAGE_MODEL` / `AGNES_VIDEO_MODEL` | 否 | 模型名，不填用内置默认值（`agnes-2.5-flash` / `agnes-image-2.1-flash` / `agnes-video-2.5-flash`），**换模型只改这里** |
 | `DASHSCOPE_API_KEY` | TTS 必填 | 留空时语音合成相关接口返回 400 |
 | `JWT_SECRET` | 建议改 | 生产环境务必替换为随机串 |
 | `ACCESS_TOKEN_EXPIRE_MINUTES` | 否 | access token 有效期，默认 15 分钟 |
