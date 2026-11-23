@@ -6,6 +6,7 @@
 import logging
 import secrets
 from datetime import datetime, timedelta
+from uuid import uuid4
 
 logger = logging.getLogger(__name__)
 
@@ -95,7 +96,13 @@ def _is_locked(user: User) -> bool:
     return user.locked_until is not None and user.locked_until > datetime.now()
 
 
-def _issue_tokens(db: Session, user: User, remember: bool, request: Request) -> dict:
+def _issue_tokens(
+    db: Session,
+    user: User,
+    remember: bool,
+    request: Request,
+    family_id: str | None = None,
+) -> dict:
     access = create_access_token(user.id)
     refresh, expires_at, refresh_expires_in = create_refresh_token(user.id, remember)
     jti = _jti(refresh)
@@ -104,6 +111,9 @@ def _issue_tokens(db: Session, user: User, remember: bool, request: Request) -> 
             RefreshToken(
                 user_id=user.id,
                 token_jti=jti,
+                # 同一次登录轮换出来的令牌共享 family_id：一旦检测到旧令牌被重放，
+                # 就吊销整条链，避免攻击者用被窃取的 refresh 无限续期。
+                family_id=family_id or uuid4().hex,
                 device_id=(request.headers.get("x-device-id") or "")[:128] or None,
                 ip_address=_client_ip(request),
                 user_agent=_user_agent(request),
@@ -222,8 +232,17 @@ def refresh(db: Session, refresh_token: str, request: Request) -> dict:
 
     jti = _jti(refresh_token)
     record = db.query(RefreshToken).filter_by(token_jti=jti).first() if jti else None
-    if record is None or record.revoked:
+    if record is None:
         raise AuthError(401, "REFRESH_REVOKED", "登录状态已失效，请重新登录")
+    if record.revoked:
+        # 重放检测：已轮换/已登出的令牌再次被使用，说明旧令牌被窃取。
+        # 立即吊销该令牌所属的整条轮换链（family），强制重新登录。
+        if record.family_id:
+            db.query(RefreshToken).filter_by(
+                family_id=record.family_id, revoked=False
+            ).update({RefreshToken.revoked: True}, synchronize_session=False)
+            db.commit()
+        raise AuthError(401, "REFRESH_REUSED", "检测到异常登录，请重新登录")
     if record.expires_at <= datetime.now():
         raise AuthError(401, "REFRESH_EXPIRED", "登录已过期，请重新登录")
 
@@ -234,7 +253,9 @@ def refresh(db: Session, refresh_token: str, request: Request) -> dict:
     # 轮换：旧 refresh 作废，签发新对（记住我策略按原有效期剩余时长继承）
     record.revoked = True
     remember = (record.expires_at - datetime.now()) > timedelta(days=1)
-    tokens = _issue_tokens(db, user, remember=remember, request=request)
+    tokens = _issue_tokens(
+        db, user, remember=remember, request=request, family_id=record.family_id
+    )
     db.commit()
     return {
         "access_token": tokens["access_token"],

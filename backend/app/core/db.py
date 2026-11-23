@@ -39,6 +39,8 @@ _ADD_COLUMN_MIGRATIONS: list[tuple[str, str, str]] = [
     ("users", "fail_count", "INT NOT NULL DEFAULT 0"),
     # 项目封面
     ("projects", "cover_url", "VARCHAR(500) NULL"),
+    # refresh 轮换链：重放检测时按 family_id 整链吊销
+    ("refresh_tokens", "family_id", "VARCHAR(64) NULL"),
 ]
 
 
@@ -46,6 +48,14 @@ def _ensure_indexes(conn) -> None:
     """为存量表补齐唯一索引（幂等：先查 information_schema 再 CREATE）。"""
     indexes = [
         ("users", "uq_users_email", "ALTER TABLE `users` ADD UNIQUE INDEX `uq_users_email` (`email`)"),
+        # 幂等键改为"项目内唯一"：全局唯一会让不同项目的同名 key 互相误命中。
+        # 存量库若存在重复 (project_id, idempotency_key) 会创建失败，此处忽略并提示。
+        (
+            "gen_tasks",
+            "uq_gen_tasks_project_idem",
+            "ALTER TABLE `gen_tasks` ADD UNIQUE INDEX `uq_gen_tasks_project_idem` "
+            "(`project_id`, `idempotency_key`)",
+        ),
     ]
     for table, name, ddl in indexes:
         exists = conn.execute(
@@ -70,6 +80,26 @@ def _ensure_columns(conn) -> None:
         ).scalar()
         if not exists:
             conn.execute(text(f"ALTER TABLE `{table}` ADD COLUMN `{column}` {ddl}"))
+
+
+def _drop_legacy_indexes(conn) -> None:
+    """删除历史遗留索引（幂等）。
+
+    早期 `idempotency_key` 是全局唯一索引，会阻止"不同项目使用同名 key"。
+    模型已改为 (project_id, idempotency_key) 复合唯一，这里清理旧索引；
+    MySQL 不允许同名索引共存，且旧索引存在时新索引虽然能建但语义仍被限制。
+    """
+    legacy = [("gen_tasks", "idempotency_key")]
+    for table, name in legacy:
+        exists = conn.execute(
+            text(
+                "SELECT COUNT(*) FROM information_schema.STATISTICS "
+                "WHERE TABLE_SCHEMA = :db AND TABLE_NAME = :t AND INDEX_NAME = :i"
+            ),
+            {"db": settings.DB_NAME, "t": table, "i": name},
+        ).scalar()
+        if exists:
+            conn.execute(text(f"ALTER TABLE `{table}` DROP INDEX `{name}`"))
 
 
 def _backfill_episodes(conn) -> None:
@@ -120,6 +150,7 @@ def init_db() -> None:
     Base.metadata.create_all(bind=engine)
     with engine.begin() as conn:
         _ensure_columns(conn)
+        _drop_legacy_indexes(conn)
         _ensure_indexes(conn)
         _backfill_episodes(conn)
 

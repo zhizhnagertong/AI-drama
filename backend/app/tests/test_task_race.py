@@ -250,3 +250,31 @@ def test_recover_marks_orphan_queued_task_failed(Session, monkeypatch):
     assert t.status == models.TaskStatus.failed
     assert "已被删除" in (t.error or "")
     check.close()
+
+
+def test_idempotency_key_is_scoped_to_project(Session, monkeypatch):
+    """幂等键只在项目内唯一：不同项目用同名 key 不应互相命中。"""
+    db = Session()
+    u = models.User(username="u2", password_hash="x", email="u2@example.com")
+    db.add(u)
+    db.commit()
+    p1 = models.Project(user_id=u.id, title="p1", style="s", aspect_ratio="9:16")
+    p2 = models.Project(user_id=u.id, title="p2", style="s", aspect_ratio="9:16")
+    db.add_all([p1, p2])
+    db.commit()
+    monkeypatch.setattr(task_engine, "_enqueue", lambda tid_: None)
+    monkeypatch.setattr(task_engine, "_publish", lambda t: None)
+
+    t1 = task_engine.submit_task(
+        db, p1.id, models.TaskType.cover, {"retryable": True}, idempotency_key="cover"
+    )
+    t2 = task_engine.submit_task(
+        db, p2.id, models.TaskType.cover, {"retryable": True}, idempotency_key="cover"
+    )
+    assert t1.id != t2.id
+    # 同项目同 key 命中已有任务
+    t3 = task_engine.submit_task(
+        db, p1.id, models.TaskType.cover, {"retryable": True}, idempotency_key="cover"
+    )
+    assert t3.id == t1.id
+    db.close()

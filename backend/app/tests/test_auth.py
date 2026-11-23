@@ -440,3 +440,19 @@ def test_stream_ticket_single_use_and_expiry():
     assert stream_ticket.consume(ticket) is None
     # 无效票据
     assert stream_ticket.consume("not-a-ticket") is None
+
+
+def test_refresh_reuse_revokes_whole_family(client):
+    """旧 refresh 被重放（已轮换后再次使用）时，必须吊销整条轮换链。"""
+    _register(client)
+    tokens = _login(client).json()
+    first = client.post(f"{API}/refresh", json={"refresh_token": tokens["refresh_token"]})
+    assert first.status_code == 200
+    second_rt = first.json()["refresh_token"]
+    # 重放旧令牌
+    replay = client.post(f"{API}/refresh", json={"refresh_token": tokens["refresh_token"]})
+    assert replay.status_code == 401
+    assert replay.json()["biz_code"] == "REFRESH_REUSED"
+    # 同链的新令牌一并失效
+    after = client.post(f"{API}/refresh", json={"refresh_token": second_rt})
+    assert after.status_code == 401

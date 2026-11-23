@@ -135,6 +135,8 @@ class RefreshToken(TimestampMixin, Base):
     user_agent: Mapped[str | None] = mapped_column(String(500), nullable=True)
     expires_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
     revoked: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    # 轮换链标识：同一条 refresh 链（登录→刷新→刷新…）共享；检测到重放时整链吊销
+    family_id: Mapped[str | None] = mapped_column(String(64), nullable=True, index=True)
 
 
 class LoginLog(TimestampMixin, Base):
@@ -357,7 +359,12 @@ class GenTask(TimestampMixin, Base):
     result: Mapped[dict | None] = mapped_column(JSON, nullable=True)
     error: Mapped[str | None] = mapped_column(Text, nullable=True)
     retries: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
-    idempotency_key: Mapped[str | None] = mapped_column(String(128), unique=True, nullable=True)
+    # 幂等键只在项目内唯一：全局唯一会让不同项目的同名 key（如 "cover"）互相误命中
+    idempotency_key: Mapped[str | None] = mapped_column(String(128), nullable=True)
+
+    __table_args__ = (
+        UniqueConstraint("project_id", "idempotency_key", name="uq_gen_tasks_project_idem"),
+    )
 
     project: Mapped[Project] = relationship(back_populates="tasks")
 

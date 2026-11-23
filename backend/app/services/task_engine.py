@@ -117,7 +117,11 @@ def submit_task(
 ) -> models.GenTask:
     """创建任务并入队；幂等键重复时直接返回已存在任务。"""
     if idempotency_key:
-        existing = db.query(models.GenTask).filter_by(idempotency_key=idempotency_key).first()
+        existing = (
+            db.query(models.GenTask)
+            .filter_by(project_id=project_id, idempotency_key=idempotency_key)
+            .first()
+        )
         if existing is not None:
             return existing
     task = models.GenTask(
@@ -137,7 +141,7 @@ def submit_task(
         if idempotency_key:
             existing = (
                 db.query(models.GenTask)
-                .filter_by(idempotency_key=idempotency_key)
+                .filter_by(project_id=project_id, idempotency_key=idempotency_key)
                 .first()
             )
             if existing is not None:
