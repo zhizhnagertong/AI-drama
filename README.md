@@ -197,4 +197,5 @@ pnpm test
 - `backend/.env`（配置与密钥）
 - `backend/.venv`、`frontend/node_modules`、`frontend-react/node_modules`（依赖，脚本会自动安装）
 - `backend/storage`、`output/`、`ppt_work/`、日志与缓存
+- `source/`（旧版源码归档副本，内容与根目录重复，仅本地保留）
 - Word / Excel / PPT 等办公文档（课程报告、答辩 PPT 等）
