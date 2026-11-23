@@ -64,7 +64,8 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          # pnpm 11 要求 Node >= 22.13，Node 20 会因缺少 node:sqlite 内置模块直接崩溃
+          node-version: "22"
           cache: pnpm
           cache-dependency-path: frontend-react/pnpm-lock.yaml
 
