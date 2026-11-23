@@ -417,3 +417,26 @@ def test_change_password_revokes_refresh_tokens(client, db_session):
     assert r2.status_code == 401
     # 新密码可正常登录
     assert _login(client, password="NewPwd1234").status_code == 200
+
+
+def test_verify_user_rate_limited(client):
+    """verify-user 会暴露用户名是否存在：必须限流，否则可批量枚举。"""
+    _register(client)
+    for _ in range(5):
+        assert client.post(f"{API}/verify-user", json={"username": "alice01"}).status_code == 200
+    r = client.post(f"{API}/verify-user", json={"username": "alice01"})
+    assert r.status_code == 429
+    assert r.json()["biz_code"] == "RATE_LIMITED"
+
+
+def test_stream_ticket_single_use_and_expiry():
+    """SSE 票据必须一次性核销，且不能跨项目使用。"""
+    from app.services import stream_ticket
+
+    ticket, ttl = stream_ticket.issue(project_id=7, user_id=3)
+    assert ttl > 0
+    assert stream_ticket.consume(ticket) == (7, 3)
+    # 第二次核销失败（一次性）
+    assert stream_ticket.consume(ticket) is None
+    # 无效票据
+    assert stream_ticket.consume("not-a-ticket") is None

@@ -10,11 +10,13 @@ from fastapi import APIRouter, Depends, Header, HTTPException
 from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
 
+from ..core.deps import get_current_user
 from ..core.db import get_db
 from ..core.security import decode_token
 from .. import models
 from ..models import GenTask, Project, User
 from ..services import event_bus
+from ..services import stream_ticket as stream_ticket_service
 
 router = APIRouter()
 
@@ -69,21 +71,47 @@ async def _event_generator(project_id: int, snapshot: list[dict]):
         event_bus.unsubscribe(project_id, queue)
 
 
+@router.post("/projects/{project_id}/stream-ticket")
+def stream_ticket(
+    project_id: int,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+) -> dict:
+    """签发一次性 SSE 票据：避免把 access token 放进 EventSource 的 URL。"""
+    project = db.get(Project, project_id)
+    if project is None or project.deleted or project.user_id != user.id:
+        raise HTTPException(status_code=404, detail="项目不存在")
+    ticket, ttl = stream_ticket_service.issue(project.id, user.id)
+    return {"ticket": ticket, "expires_in": ttl}
+
+
 @router.get("/projects/{project_id}/stream")
 async def stream(
     project_id: int,
+    ticket: str | None = None,
     token: str | None = None,
     authorization: str | None = Header(default=None),
     db: Session = Depends(get_db),
 ) -> StreamingResponse:
-    # 优先 Authorization: Bearer，其次 ?token= 查询参数
-    bearer = None
-    if authorization and authorization.lower().startswith("bearer "):
-        bearer = authorization[7:].strip()
-    token_value = token or bearer
-    user_id = decode_token(token_value) if token_value else None
-    if user_id is None:
-        raise HTTPException(status_code=401, detail="未登录或令牌无效")
+    # 优先：一次性 ticket（EventSource 推荐用法）
+    user_id = None
+    if ticket:
+        consumed = stream_ticket_service.consume(ticket)
+        if consumed is None:
+            raise HTTPException(status_code=401, detail="票据无效或已过期")
+        ticket_project_id, user_id = consumed
+        if ticket_project_id != project_id:
+            raise HTTPException(status_code=403, detail="票据与项目不匹配")
+    else:
+        # 兼容：Authorization: Bearer，其次 ?token=（令牌会进访问日志，已不推荐）
+        bearer = None
+        if authorization and authorization.lower().startswith("bearer "):
+            bearer = authorization[7:].strip()
+        token_value = token or bearer
+        user_id = decode_token(token_value) if token_value else None
+        if user_id is None:
+            raise HTTPException(status_code=401, detail="未登录或令牌无效")
+
     user = db.get(User, user_id)
     if user is None or not user.is_active:
         raise HTTPException(status_code=401, detail="用户不存在或已被禁用")

@@ -261,8 +261,18 @@ async function connectStream() {
     }
   }
   if (!auth.token) return
+  // EventSource 无法携带自定义 Header：先用 Authorization 换一次性票据（60s 有效），
+  // 避免把 access token 拼进 URL 而泄漏到浏览器历史与反代日志。
+  let ticket = ''
+  try {
+    const t = unwrap(await api.post(`/projects/${projectId}/stream-ticket`))
+    ticket = t?.ticket || ''
+  } catch {
+    return // 票据获取失败（未登录/无权限）由请求层统一提示
+  }
+  if (!ticket || !auth.isLoggedIn) return
   es = new EventSource(
-    `/api/v1/projects/${projectId}/stream?token=${encodeURIComponent(auth.token)}`
+    `/api/v1/projects/${projectId}/stream?ticket=${encodeURIComponent(ticket)}`
   )
   es.onmessage = (e) => {
     let data

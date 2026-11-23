@@ -8,6 +8,7 @@ from sqlalchemy.orm import Session
 
 from ..core.deps import get_current_user, get_optional_current_user
 from ..core.db import get_db
+from ..core.ratelimit import SlidingWindowLimiter
 from ..core.security import hash_password, verify_password
 from ..models import User
 from ..schemas import (
@@ -27,14 +28,38 @@ from ..services import auth_service
 
 router = APIRouter()
 
+# 未鉴权认证接口的防刷限流（内存版，单实例；多实例部署需换 Redis）
+_limiter = SlidingWindowLimiter()
+
+
+def _client_ip(request: Request) -> str:
+    """优先取反代传递的真实 IP，避免所有请求都算在网关地址上。"""
+    forwarded = request.headers.get("x-forwarded-for")
+    if forwarded:
+        return forwarded.split(",")[0].strip()
+    return request.client.host if request.client else "unknown"
+
+
+def _guard(request: Request, scope: str, identity: str, limit: int, window: int = 60) -> None:
+    """超限直接 429，带 retry_after 提示。"""
+    key = f"{scope}:{identity}"
+    if not _limiter.allow(key, limit, window):
+        wait = _limiter.retry_after(key, window)
+        raise auth_service.AuthError(
+            429, "RATE_LIMITED", f"操作过于频繁，请 {wait} 秒后重试"
+        )
+
 
 @router.post("/register", status_code=201)
 def register(body: RegisterRequest, request: Request, db: Session = Depends(get_db)) -> dict:
+    _guard(request, "register", _client_ip(request), limit=10, window=60)
     return auth_service.register(db, body, request)
 
 
 @router.post("/login")
 def login(body: LoginRequest, request: Request, db: Session = Depends(get_db)) -> dict:
+    # 账号锁定之外再加一层 IP 限流，抑制撞库与用户名枚举
+    _guard(request, "login", _client_ip(request), limit=20, window=60)
     return auth_service.login(db, body, request)
 
 
@@ -87,20 +112,36 @@ def change_password(
 
 # ---------------- 找回密码（三步） ----------------
 @router.post("/verify-user")
-def verify_user(body: VerifyUserRequest, db: Session = Depends(get_db)) -> dict:
+def verify_user(
+    body: VerifyUserRequest, request: Request, db: Session = Depends(get_db)
+) -> dict:
+    # 该接口会暴露用户名是否存在，必须限流，否则可批量枚举
+    _guard(request, "verify-user-ip", _client_ip(request), limit=10, window=60)
+    _guard(request, "verify-user-name", body.username, limit=5, window=60)
     return auth_service.verify_user(db, body.username)
 
 
 @router.post("/password/send-code")
-def send_code(body: SendCodeRequest, db: Session = Depends(get_db)) -> dict:
+def send_code(
+    body: SendCodeRequest, request: Request, db: Session = Depends(get_db)
+) -> dict:
+    _guard(request, "send-code-ip", _client_ip(request), limit=5, window=60)
+    _guard(request, "send-code-name", body.username, limit=3, window=60)
     return auth_service.send_code(db, body.username)
 
 
 @router.post("/password/verify-code")
-def verify_code(body: VerifyCodeRequest, db: Session = Depends(get_db)) -> dict:
+def verify_code(
+    body: VerifyCodeRequest, request: Request, db: Session = Depends(get_db)
+) -> dict:
+    _guard(request, "verify-code-ip", _client_ip(request), limit=15, window=60)
+    _guard(request, "verify-code-name", body.username, limit=10, window=60)
     return auth_service.verify_code(db, body.username, body.code)
 
 
 @router.post("/password/reset")
-def reset_password(body: ResetPasswordRequest, db: Session = Depends(get_db)) -> dict:
+def reset_password(
+    body: ResetPasswordRequest, request: Request, db: Session = Depends(get_db)
+) -> dict:
+    _guard(request, "reset-ip", _client_ip(request), limit=10, window=60)
     return auth_service.reset_password(db, body.username, body.code, body.new_password)
