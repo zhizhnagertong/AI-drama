@@ -36,6 +36,9 @@ pnpm-store/
 *.log
 uvicorn*.log
 
+# ===== 旧版源码归档副本（与根目录内容重复，仅本地保留） =====
+source/
+
 # ===== PPT 制作工作区（pptx 解包/中间产物） =====
 ppt_work/
 
