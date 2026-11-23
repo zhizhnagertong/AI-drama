@@ -134,6 +134,51 @@ npm run dev
 
 前端 `vite.config.js` 已把 `/api` 与 `/static` 反代到 `localhost:8010`，无需额外配置接口地址。
 
+## AI 模型配置
+
+所有 AI 相关配置都在 **`backend/.env`** —— 该文件不入库（含密钥），由 `backend/.env.example` 复制而来；Docker 部署时改在仓库根目录的 `.env` 里（compose 会把它注入容器环境变量）。
+
+### 1. 密钥与接口地址
+
+| 变量 | 默认值 | 是否必填 | 说明 |
+|---|---|---|---|
+| `AGNES_API_KEY` | 空 | **AI 功能必填** | Agnes AI 密钥，文本 / 图像 / 视频统一使用 |
+| `AGNES_BASE_URL` | `https://apihub.agnes-ai.com` | 否 | 文本与图像接口地址 |
+| `AGNES_VIDEO_BASE_URL` | `https://api.agnes-ai.cn` | 否 | 视频接口地址（与文本/图像不同域名） |
+| `DASHSCOPE_API_KEY` | 空 | 配音功能必填 | 阿里云百炼 Key；留空时「角色试音」「分镜配音」返回 400 |
+
+### 2. 模型名
+
+| 变量 | 默认值 | 影响功能 |
+|---|---|---|
+| `AGNES_TEXT_MODEL` | `agnes-2.5-flash` | 剧本生成、角色提取、分镜拆分 |
+| `AGNES_IMAGE_MODEL` | `agnes-image-2.1-flash` | 分镜出图、角色定妆照、项目封面 |
+| `AGNES_VIDEO_MODEL` | `agnes-video-2.5-flash` | 图生视频（参考图 → 视频） |
+
+**换模型只改这三行，不需要改代码**；留空则使用上表默认值。
+
+TTS 模型无需配置：程序按音色后缀自动选择 `cosyvoice-v2`（音色名以 `_v2` 结尾）或 `cosyvoice-v1`。
+
+### 3. 生效方式
+
+```powershell
+# 本地脚本部署
+powershell -ExecutionPolicy Bypass -File .\stop.ps1
+# 编辑 backend\.env 后重启
+powershell -ExecutionPolicy Bypass -File .\start.ps1
+
+# Docker 部署
+docker compose restart backend
+```
+
+改完必须重启后端——配置在进程启动时读取并缓存。启动日志若出现「未找到 backend/.env」，说明配置文件还没创建。
+
+### 4. 未配置时的表现
+
+- 应用**照常启动**，登录、项目管理、分镜编辑、时间线等非 AI 功能全部可用
+- 触发 AI 生成的任务会失败，原因写入任务的 `error` 字段（前端任务卡片可见）和 `backend/uvicorn.log`
+- 缺少 `DASHSCOPE_API_KEY` 时仅影响语音合成，其他 AI 功能不受影响
+
 ## 使用 Docker 部署
 
 无需在本机安装 Python / Node / MySQL，只要能跑 Docker 即可。
@@ -146,6 +191,10 @@ DB_PASSWORD=root
 JWT_SECRET=change-me-to-a-random-string
 AGNES_API_KEY=
 DASHSCOPE_API_KEY=
+# 模型名（可留空使用默认值）
+AGNES_TEXT_MODEL=agnes-2.5-flash
+AGNES_IMAGE_MODEL=agnes-image-2.1-flash
+AGNES_VIDEO_MODEL=agnes-video-2.5-flash
 EOF
 
 # 2. 构建并启动（前端 + 后端 + MySQL 三个容器）
