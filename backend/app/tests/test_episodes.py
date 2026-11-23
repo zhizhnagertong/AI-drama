@@ -178,9 +178,15 @@ def test_update_and_delete(db, user, project):
     from app import schemas
 
     upd = routes_episodes.update_episode(
-        ep["id"], schemas.EpisodeUpdate(title="改名", status="completed"), user=user, db=db
+        ep["id"], schemas.EpisodeUpdate(title="改名", status="script_ready"), user=user, db=db
     )
-    assert upd["title"] == "改名" and upd["status"] == "completed"
+    assert upd["title"] == "改名" and upd["status"] == "script_ready"
+    # 状态机：草稿不能直接跳到已完成
+    with pytest.raises(HTTPException) as exc:
+        routes_episodes.update_episode(
+            ep["id"], schemas.EpisodeUpdate(status="completed"), user=user, db=db
+        )
+    assert exc.value.status_code == 400
     with pytest.raises(HTTPException) as exc:
         routes_episodes.update_episode(
             ep["id"], schemas.EpisodeUpdate(status="nope"), user=user, db=db
@@ -547,10 +553,17 @@ def test_batch_images_default_picks_unselected(db, user, project, monkeypatch):
 
 def test_project_update_status_validates(db, user, project):
     from fastapi import HTTPException as H
+
     out = routes_projects.update_project(
-        project.id, schemas.ProjectUpdate(status="completed"), user=user, db=db
+        project.id, schemas.ProjectUpdate(status="script_ready"), user=user, db=db
     )
-    assert out["status"] == "completed"
+    assert out["status"] == "script_ready"
+    # 状态机：尚无已完成成片时不允许标记为已完成
+    with pytest.raises(H) as exc:
+        routes_projects.update_project(
+            project.id, schemas.ProjectUpdate(status="completed"), user=user, db=db
+        )
+    assert exc.value.status_code == 400
     with pytest.raises(H) as exc:
         routes_projects.update_project(
             project.id, schemas.ProjectUpdate(status="nope"), user=user, db=db

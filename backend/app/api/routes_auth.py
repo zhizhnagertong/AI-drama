@@ -3,13 +3,20 @@
 业务规则统一在 services/auth_service.py，本层只做 HTTP 映射；
 AuthError 由 main.py 全局异常处理器转成 {code, biz_code, message} 响应。
 """
-from fastapi import APIRouter, Depends, Request
+from fastapi import APIRouter, Depends, Request, Response
 from sqlalchemy.orm import Session
 
 from ..core.deps import get_current_user, get_optional_current_user
 from ..core.db import get_db
 from ..core.ratelimit import SlidingWindowLimiter
-from ..core.security import hash_password, verify_password
+from ..core.security import (
+    STATIC_COOKIE_NAME,
+    STATIC_TOKEN_HOURS,
+    create_static_token,
+    decode_token,
+    hash_password,
+    verify_password,
+)
 from ..models import User
 from ..schemas import (
     LoginRequest,
@@ -50,6 +57,18 @@ def _guard(request: Request, scope: str, identity: str, limit: int, window: int 
         )
 
 
+def _set_static_cookie(response: Response, user_id: int) -> None:
+    """/static 产物鉴权用的 HttpOnly cookie（<img>/<video> 无法带 Authorization 头）。"""
+    response.set_cookie(
+        STATIC_COOKIE_NAME,
+        create_static_token(user_id),
+        max_age=STATIC_TOKEN_HOURS * 3600,
+        httponly=True,
+        samesite="lax",
+        path="/",
+    )
+
+
 @router.post("/register", status_code=201)
 def register(body: RegisterRequest, request: Request, db: Session = Depends(get_db)) -> dict:
     _guard(request, "register", _client_ip(request), limit=10, window=60)
@@ -57,24 +76,42 @@ def register(body: RegisterRequest, request: Request, db: Session = Depends(get_
 
 
 @router.post("/login")
-def login(body: LoginRequest, request: Request, db: Session = Depends(get_db)) -> dict:
+def login(
+    body: LoginRequest,
+    request: Request,
+    response: Response,
+    db: Session = Depends(get_db),
+) -> dict:
     # 账号锁定之外再加一层 IP 限流，抑制撞库与用户名枚举
     _guard(request, "login", _client_ip(request), limit=20, window=60)
-    return auth_service.login(db, body, request)
+    data = auth_service.login(db, body, request)
+    user_id = (data.get("user") or {}).get("id")
+    if user_id:
+        _set_static_cookie(response, user_id)
+    return data
 
 
 @router.post("/refresh")
-def refresh(body: RefreshRequest, request: Request, db: Session = Depends(get_db)) -> dict:
-    return auth_service.refresh(db, body.refresh_token, request)
+def refresh(
+    body: RefreshRequest, request: Request, response: Response, db: Session = Depends(get_db)
+) -> dict:
+    data = auth_service.refresh(db, body.refresh_token, request)
+    user_id = decode_token(data.get("access_token", ""))
+    if user_id:
+        _set_static_cookie(response, user_id)
+    return data
 
 
 @router.post("/logout")
 def logout(
     body: LogoutRequest,
+    response: Response,
     db: Session = Depends(get_db),
     user: User | None = Depends(get_optional_current_user),
 ) -> dict:
-    return auth_service.logout(db, user, body.refresh_token)
+    result = auth_service.logout(db, user, body.refresh_token)
+    response.delete_cookie(STATIC_COOKIE_NAME, path="/")
+    return result
 
 
 @router.get("/me")

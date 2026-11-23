@@ -494,6 +494,11 @@ function openEditSb(index) {
 }
 
 async function saveSb() {
+  // 前端先挡一次：画面描述为空时后端会 422，但提示不明确、弹窗也不关
+  if (!String(sbForm.description || '').trim()) {
+    ElMessage.warning('请填写画面描述')
+    return
+  }
   const payload = {
     shot_size: sbForm.shot_type,
     scene: sbForm.description,
@@ -501,19 +506,25 @@ async function saveSb() {
     emotion: sbForm.emotion,
     duration_sec: Math.max(1, Math.round(Number(sbForm.duration) || 3))
   }
-  if (sbForm.id) {
-    await api.put(`/storyboards/${sbForm.id}`, payload)
-    const idx = storyboards.value.findIndex((s) => s.id === sbForm.id)
-    if (idx >= 0) Object.assign(storyboards.value[idx], { ...sbForm })
-    ElMessage.success('分镜已更新')
-  } else {
-    // 带当前集 id：否则后端回退默认集，在非第 1 集新增会落错集
-    await api.post(
-      `/projects/${projectId}/storyboards`,
-      currentEpisodeId.value ? { ...payload, episode_id: currentEpisodeId.value } : payload
-    )
-    ElMessage.success('分镜已新增')
-    await loadAll()
+  try {
+    if (sbForm.id) {
+      await api.put(`/storyboards/${sbForm.id}`, payload)
+      const idx = storyboards.value.findIndex((s) => s.id === sbForm.id)
+      if (idx >= 0) Object.assign(storyboards.value[idx], { ...sbForm })
+      ElMessage.success('分镜已更新')
+    } else {
+      // 带当前集 id：否则后端回退默认集，在非第 1 集新增会落错集
+      await api.post(
+        `/projects/${projectId}/storyboards`,
+        currentEpisodeId.value ? { ...payload, episode_id: currentEpisodeId.value } : payload
+      )
+      ElMessage.success('分镜已新增')
+      await loadAll()
+    }
+  } catch (err) {
+    // 失败保持弹窗打开，避免用户输入丢失
+    ElMessage.error(err?.friendlyMessage || '保存失败，请重试')
+    return
   }
   sbEditVisible.value = false
 }
@@ -583,22 +594,31 @@ function openEditChar(c) {
 
 async function saveChar() {
   const payload = {
-    name: charForm.name,
+    name: String(charForm.name || '').trim(),
     description: charForm.description,
     prompt_template: charForm.prompt_template,
     voice: charForm.voice
   }
-  if (charForm.id) {
-    await api.put(`/characters/${charForm.id}`, payload)
-    const idx = characters.value.findIndex((c) => c.id === charForm.id)
-    if (idx >= 0) {
-      Object.assign(characters.value[idx], payload)
+  if (!payload.name) {
+    ElMessage.warning('请填写角色名称')
+    return
+  }
+  try {
+    if (charForm.id) {
+      await api.put(`/characters/${charForm.id}`, payload)
+      const idx = characters.value.findIndex((c) => c.id === charForm.id)
+      if (idx >= 0) {
+        Object.assign(characters.value[idx], payload)
+      }
+      ElMessage.success('角色已更新')
+    } else {
+      const created = unwrap(await api.post(`/projects/${projectId}/characters`, payload))
+      characters.value.push(created)
+      ElMessage.success('角色已新增')
     }
-    ElMessage.success('角色已更新')
-  } else {
-    const created = unwrap(await api.post(`/projects/${projectId}/characters`, payload))
-    characters.value.push(created)
-    ElMessage.success('角色已新增')
+  } catch (err) {
+    ElMessage.error(err?.friendlyMessage || '保存失败，请重试')
+    return
   }
   charEditVisible.value = false
 }

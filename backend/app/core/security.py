@@ -74,6 +74,27 @@ def decode_token(token: str) -> int | None:
     return user_id
 
 
+STATIC_TOKEN_HOURS = 12
+
+
+def create_static_token(user_id: int, hours: int = STATIC_TOKEN_HOURS) -> str:
+    """产物文件（/static）专用令牌，写入 HttpOnly cookie。
+
+    <img>/<video> 无法携带 Authorization 头，因此静态资源用 cookie 鉴权。
+    与 access token 分开：有效期更长，避免 access 每 15 分钟轮换导致图片加载 401。
+    """
+    payload = {
+        "sub": str(user_id),
+        "typ": "static",
+        "iat": datetime.now(timezone.utc),
+        "exp": datetime.now(timezone.utc) + timedelta(hours=hours),
+    }
+    return jwt.encode(payload, settings.JWT_SECRET, algorithm=settings.JWT_ALG)
+
+
+STATIC_COOKIE_NAME = "static_sess"
+
+
 def decode_token_strict(token: str, typ: str) -> tuple[int | None, str | None]:
     """严格解析 JWT 并校验类型声明。
 

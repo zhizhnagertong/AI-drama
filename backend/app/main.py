@@ -3,16 +3,16 @@ import asyncio
 import logging
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, Request
+from fastapi import Cookie, FastAPI, Header, HTTPException, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
-from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse, JSONResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from .api.router import api_router
 from .core.config import get_settings
 from .core.db import init_db
+from .core.security import STATIC_COOKIE_NAME, decode_token_strict
 from .services import event_bus, storage, task_engine
 from .services.auth_service import AuthError
 
@@ -54,7 +54,36 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.mount("/static", StaticFiles(directory=str(settings.storage_path)), name="static")
+@app.get("/static/{file_path:path}", include_in_schema=False)
+def serve_static(
+    file_path: str,
+    authorization: str | None = Header(default=None),
+    static_sess: str | None = Cookie(default=None),
+):
+    """受保护的产物文件服务。
+
+    原来用 StaticFiles 裸挂载，任何拿到 URL 的人都能下载他人分镜图/成片。
+    现在要求鉴权：优先 Authorization（脚本/接口调用），否则读 HttpOnly cookie
+    （<img>/<video> 无法带自定义头，所以登录时下发 static_sess）。
+    """
+    token = None
+    if authorization and authorization.lower().startswith("bearer "):
+        token = authorization[7:].strip()
+    elif static_sess:
+        token = static_sess
+    user_id, _ = decode_token_strict(token, "static") if token else (None, "invalid")
+    if user_id is None:
+        raise HTTPException(status_code=401, detail="未登录或令牌无效")
+
+    try:
+        path = storage.local_path(f"/static/{file_path}")
+    except ValueError:
+        raise HTTPException(status_code=404, detail="文件不存在")
+    if not path.is_file():
+        raise HTTPException(status_code=404, detail="文件不存在")
+    return FileResponse(path)
+
+
 app.include_router(api_router)
 
 

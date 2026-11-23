@@ -395,6 +395,40 @@ def update_episode(
             data["status"] = models.EpisodeStatus(raw)
         except ValueError:
             raise HTTPException(status_code=400, detail=f"非法的剧集状态: {raw}")
+        target = data["status"]
+        if target != ep.status:
+            # 与项目一致的最小状态机：已完成只能回到制作中/失败，不能被直接打回草稿
+            allowed = {
+                models.EpisodeStatus.draft: {
+                    models.EpisodeStatus.script_ready,
+                    models.EpisodeStatus.producing,
+                    models.EpisodeStatus.failed,
+                },
+                models.EpisodeStatus.script_ready: {
+                    models.EpisodeStatus.draft,
+                    models.EpisodeStatus.producing,
+                    models.EpisodeStatus.failed,
+                },
+                models.EpisodeStatus.producing: {
+                    models.EpisodeStatus.script_ready,
+                    models.EpisodeStatus.completed,
+                    models.EpisodeStatus.failed,
+                },
+                models.EpisodeStatus.completed: {
+                    models.EpisodeStatus.producing,
+                    models.EpisodeStatus.failed,
+                },
+                models.EpisodeStatus.failed: {
+                    models.EpisodeStatus.draft,
+                    models.EpisodeStatus.script_ready,
+                    models.EpisodeStatus.producing,
+                },
+            }.get(ep.status, set())
+            if target not in allowed:
+                raise HTTPException(
+                    status_code=400,
+                    detail=f"不允许的状态流转：{ep.status.value} → {target.value}",
+                )
     for field, value in data.items():
         setattr(ep, field, value)
     db.commit()

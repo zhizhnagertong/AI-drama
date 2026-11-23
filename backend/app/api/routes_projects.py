@@ -229,6 +229,62 @@ def generate_cover(
     return {"task_id": task.id}
 
 
+# 允许的状态流转：防止把已完成的项目直接打回草稿、或跳过制作直接标完成
+_PROJECT_TRANSITIONS: dict[models.ProjectStatus, set[models.ProjectStatus]] = {
+    models.ProjectStatus.draft: {
+        models.ProjectStatus.script_ready,
+        models.ProjectStatus.producing,
+        models.ProjectStatus.failed,
+    },
+    models.ProjectStatus.script_ready: {
+        models.ProjectStatus.draft,
+        models.ProjectStatus.producing,
+        models.ProjectStatus.failed,
+    },
+    models.ProjectStatus.producing: {
+        models.ProjectStatus.script_ready,
+        models.ProjectStatus.completed,
+        models.ProjectStatus.failed,
+    },
+    models.ProjectStatus.completed: {
+        models.ProjectStatus.producing,
+        models.ProjectStatus.failed,
+    },
+    models.ProjectStatus.failed: {
+        models.ProjectStatus.draft,
+        models.ProjectStatus.script_ready,
+        models.ProjectStatus.producing,
+    },
+}
+
+
+def _validate_project_status(
+    db: Session, project: Project, target: models.ProjectStatus
+) -> None:
+    if target == project.status:
+        return
+    allowed = _PROJECT_TRANSITIONS.get(project.status, set())
+    if target not in allowed:
+        raise HTTPException(
+            status_code=400,
+            detail=f"不允许的状态流转：{project.status.value} → {target.value}",
+        )
+    if target == models.ProjectStatus.completed:
+        from ..models import Timeline, TimelineStatus
+
+        has_final = (
+            db.query(Timeline.id)
+            .filter(
+                Timeline.project_id == project.id,
+                Timeline.status == TimelineStatus.completed,
+                Timeline.output_url.isnot(None),
+            )
+            .first()
+        )
+        if has_final is None:
+            raise HTTPException(status_code=400, detail="尚无已完成的成片，无法标记为已完成")
+
+
 @router.put("/{project_id}")
 def update_project(
     project_id: int,
@@ -244,6 +300,7 @@ def update_project(
             data["status"] = models.ProjectStatus(raw)
         except ValueError:
             raise HTTPException(status_code=400, detail=f"非法的项目状态: {raw}")
+        _validate_project_status(db, project, data["status"])
     for field, value in data.items():
         setattr(project, field, value)
     db.commit()
