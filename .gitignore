@@ -53,5 +53,28 @@ Thumbs.db
 .vscode/
 *.swp
 
-# ===== 课程报告文档（二进制，按需取消忽略） =====
-# *.docx
+# ===== 办公文档（Word / Excel / PowerPoint 等二进制文件） =====
+*.doc
+*.docx
+*.docm
+*.dot
+*.dotx
+*.xls
+*.xlsx
+*.xlsm
+*.xlsb
+*.ppt
+*.pptx
+*.pptm
+*.pps
+*.ppsx
+*.odt
+*.ods
+*.odp
+*.rtf
+*.pages
+*.numbers
+*.key
+# Office 打开文件时生成的临时锁文件
+~$*
+.~lock.*#
