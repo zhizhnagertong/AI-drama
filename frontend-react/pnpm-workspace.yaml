@@ -1,3 +1,8 @@
+# 本目录同时是 pnpm 的 workspace 根：必须声明 packages，
+# 否则 pnpm 直接报 "packages field missing or empty"（pnpm 9 在此硬失败）。
+packages:
+  - "."
+
 # pnpm 11 起，原 package.json 的 "pnpm" 字段迁到这里。
 # esbuild 带 postinstall（校验并落二进制），默认被拦截；显式放行。
 # nodeLinker: hoisted —— 采用 npm 式扁平布局，避免 isolated 布局下
@@ -6,3 +11,5 @@ onlyBuiltDependencies:
   - esbuild
 nodeLinker: hoisted
 verifyDepsBeforeRun: false
+allowBuilds:
+  esbuild: set this to true or false

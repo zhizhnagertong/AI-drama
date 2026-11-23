@@ -59,7 +59,8 @@ jobs:
 
       - uses: pnpm/action-setup@v4
         with:
-          version: 9
+          # 与本项目 pnpm-workspace.yaml 的语义对齐（pnpm 11 起配置项迁至该文件）
+          version: 11
 
       - uses: actions/setup-node@v4
         with:
@@ -69,7 +70,9 @@ jobs:
 
       - name: 安装依赖
         working-directory: frontend-react
-        run: pnpm install --frozen-lockfile
+        # 跳过生命周期脚本：esbuild 的二进制来自 @esbuild/* 可选依赖，无需 postinstall，
+        # 而 CI 里放行构建脚本会因 strictDepBuilds 直接中断安装。
+        run: pnpm install --frozen-lockfile --ignore-scripts
 
       - name: 类型检查 + 单元测试
         working-directory: frontend-react
