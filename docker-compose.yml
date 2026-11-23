@@ -1,0 +1,77 @@
+# AI 漫剧智能制作平台 —— 容器编排
+#
+# 用法：
+#   docker compose up -d --build        # 构建并后台启动
+#   docker compose logs -f backend      # 查看后端日志
+#   docker compose down                 # 停止（保留数据卷）
+#   docker compose down -v              # 停止并删除数据库/产物数据
+#
+# 密钥通过根目录 .env（已被 .gitignore 忽略）或宿主环境变量注入，例如：
+#   AGNES_API_KEY=xxx DASHSCOPE_API_KEY=yyy docker compose up -d --build
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: drama-mysql
+    restart: unless-stopped
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
+      MYSQL_DATABASE: ${DB_NAME:-ai_manga_studio2}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      # 宿主 3307 → 容器 3306，避免与本机已装的 MySQL(3306) 冲突
+      - "${MYSQL_HOST_PORT:-3307}:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-p${DB_PASSWORD:-root}"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: drama-backend
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      DB_HOST: mysql
+      DB_PORT: "3306"
+      DB_USER: root
+      DB_PASSWORD: ${DB_PASSWORD:-root}
+      DB_NAME: ${DB_NAME:-ai_manga_studio2}
+      AGNES_API_KEY: ${AGNES_API_KEY:-}
+      AGNES_BASE_URL: ${AGNES_BASE_URL:-https://apihub.agnes-ai.com}
+      AGNES_VIDEO_BASE_URL: ${AGNES_VIDEO_BASE_URL:-https://api.agnes-ai.cn}
+      DASHSCOPE_API_KEY: ${DASHSCOPE_API_KEY:-}
+      JWT_SECRET: ${JWT_SECRET:-please-change-me-in-production}
+      ACCESS_TOKEN_EXPIRE_MINUTES: ${ACCESS_TOKEN_EXPIRE_MINUTES:-15}
+      LOG_RESET_CODE: ${LOG_RESET_CODE:-false}
+      STORAGE_DIR: /app/storage
+    volumes:
+      - backend_storage:/app/storage
+    ports:
+      - "${BACKEND_HOST_PORT:-8010}:8010"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: drama-frontend
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "${FRONTEND_HOST_PORT:-5173}:80"
+
+volumes:
+  mysql_data:
+  backend_storage:

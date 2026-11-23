@@ -133,6 +133,57 @@ npm run dev
 
 前端 `vite.config.js` 已把 `/api` 与 `/static` 反代到 `localhost:8010`，无需额外配置接口地址。
 
+## 使用 Docker 部署
+
+无需在本机安装 Python / Node / MySQL，只要能跑 Docker 即可。
+
+```bash
+# 1. 准备密钥（可选；不填也能启动，但 AI 功能不可用）
+#    在仓库根目录创建 .env（该文件已被 .gitignore 忽略）
+cat > .env <<'EOF'
+DB_PASSWORD=root
+JWT_SECRET=change-me-to-a-random-string
+AGNES_API_KEY=
+DASHSCOPE_API_KEY=
+EOF
+
+# 2. 构建并启动（前端 + 后端 + MySQL 三个容器）
+docker compose up -d --build
+
+# 3. 查看状态与日志
+docker compose ps
+docker compose logs -f backend
+
+# 4. 停止 / 销毁
+docker compose down          # 保留数据卷
+docker compose down -v       # 连同数据库与产物一起删除
+```
+
+启动后访问：
+
+| 地址 | 说明 |
+|---|---|
+| http://localhost:5173 | 前端（Nginx 托管构建产物，`/api` 与 `/static` 反代到后端） |
+| http://localhost:8010/health | 后端健康检查 |
+| http://localhost:8010/docs | Swagger API 文档 |
+| localhost:3307 | MySQL（宿主机端口，避免与本机 3306 冲突） |
+
+编排文件 [docker-compose.yml](docker-compose.yml) 的要点：
+
+- **依赖顺序**：`mysql` 健康检查通过后才启动 `backend`，`backend` 健康后才启动 `frontend`
+- **数据库自动初始化**：后端启动时自动 `CREATE DATABASE` 并建表，无需手工导入
+- **数据持久化**：`mysql_data` 卷存数据库，`backend_storage` 卷存分镜图/成片等产物
+- **配置注入**：全部通过环境变量传入，容器内不落地 `.env` 文件
+- **端口可改**：`BACKEND_HOST_PORT`、`FRONTEND_HOST_PORT`、`MYSQL_HOST_PORT` 三个变量可覆盖宿主端口
+- **镜像**：后端 `python:3.12-slim`，前端 `node:20-alpine` 构建 + `nginx:alpine` 运行，MySQL 8.0
+
+手动构建单个镜像：
+
+```bash
+docker build -t drama-backend ./backend
+docker build -t drama-frontend ./frontend
+```
+
 ## React 版前端
 
 `frontend-react/` 是并行的 React 重写版本，与 Vue 版共用同一后端（同样反代 8010）：
