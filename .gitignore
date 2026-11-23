@@ -36,6 +36,9 @@ pnpm-store/
 *.log
 uvicorn*.log
 
+# ===== PPT 制作工作区（pptx 解包/中间产物） =====
+ppt_work/
+
 # ===== 运行时产物 / 临时文件 =====
 .tmp/
 tmp/
