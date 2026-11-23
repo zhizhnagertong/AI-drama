@@ -1,0 +1,91 @@
+<slide>
+  <style>
+    <fill><fillColor color="rgb(242,244,248)"/></fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="80" topLeftY="50" width="600" height="40">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true"><p>第一部分　个人介绍与项目介绍</p></content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="80" width="800" height="50">
+      <content textType="title" fontSize="28" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>项目背景：传统漫剧制作的六个痛点</p></content>
+    </shape>
+    <line startX="80" startY="135" endX="120" endY="135"><border color="rgba(37,99,235,1)" width="3"/></line>
+    <shape type="text" topLeftX="80" topLeftY="150" width="800" height="28">
+      <content textType="body" fontSize="14" color="rgba(83,97,116,1)" fontFamily="思源黑体"><p>一个环节一个人力，一条产线五拨人</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="195" width="260" height="75" presetHandlers="6">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(200,210,225,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="205" width="230" height="25">
+      <content textType="body" fontSize="15" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>剧本创作</p></content>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="232" width="230" height="35">
+      <content textType="caption" fontSize="11" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.4"><p>编剧成本高、周期长，一个人的产能就是天花板</p></content>
+    </shape>
+    <shape type="rect" topLeftX="355" topLeftY="195" width="260" height="75" presetHandlers="6">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(200,210,225,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="370" topLeftY="205" width="230" height="25">
+      <content textType="body" fontSize="15" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>分镜绘制</p></content>
+    </shape>
+    <shape type="text" topLeftX="370" topLeftY="232" width="230" height="35">
+      <content textType="caption" fontSize="11" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.4"><p>原画师人力成本高，画风还难统一</p></content>
+    </shape>
+    <shape type="rect" topLeftX="630" topLeftY="195" width="260" height="75" presetHandlers="6">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(200,210,225,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="645" topLeftY="205" width="230" height="25">
+      <content textType="body" fontSize="15" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>角色一致性</p></content>
+    </shape>
+    <shape type="text" topLeftX="645" topLeftY="232" width="230" height="35">
+      <content textType="caption" fontSize="11" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.4"><p>跨镜头角色容易"崩脸"，越到后面越不像</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="285" width="260" height="75" presetHandlers="6">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(200,210,225,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="295" width="230" height="25">
+      <content textType="body" fontSize="15" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>动效制作</p></content>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="322" width="230" height="35">
+      <content textType="caption" fontSize="11" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.4"><p>需要动画师逐帧处理，单条内容产能极低</p></content>
+    </shape>
+    <shape type="rect" topLeftX="355" topLeftY="285" width="260" height="75" presetHandlers="6">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(200,210,225,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="370" topLeftY="295" width="230" height="25">
+      <content textType="body" fontSize="15" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>配音合成</p></content>
+    </shape>
+    <shape type="text" topLeftX="370" topLeftY="322" width="230" height="35">
+      <content textType="caption" fontSize="11" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.4"><p>依赖声优录制，周期长、改一句要重录</p></content>
+    </shape>
+    <shape type="rect" topLeftX="630" topLeftY="285" width="260" height="75" presetHandlers="6">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(200,210,225,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="645" topLeftY="295" width="230" height="25">
+      <content textType="body" fontSize="15" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>剪辑成片</p></content>
+    </shape>
+    <shape type="text" topLeftX="645" topLeftY="322" width="230" height="35">
+      <content textType="caption" fontSize="11" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.4"><p>剪辑师手工拼接，批量产能受限，改一版等于重做</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="385" width="810" height="100" presetHandlers="6">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="100" topLeftY="400" width="770" height="30">
+      <content textType="headline" fontSize="18" color="rgba(255,255,255,1)" fontFamily="思源黑体" bold="true"><p>核心矛盾</p></content>
+    </shape>
+    <shape type="text" topLeftX="100" topLeftY="432" width="770" height="45">
+      <content textType="body" fontSize="14" color="rgba(191,215,255,1)" fontFamily="思源黑体" lineSpacing="multiple:1.5"><p>漫剧内容需求爆发式增长 vs 传统制作人力密集、周期长、成本高、质量不稳定 —— 必须用 AI 重构生产流水线</p></content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>这一页是全篇的"立论"。讲法：先讲人力成本，再讲质量不稳定（崩脸），最后落到产能——这三点正好对应我们后面的方案：自动化、一致性策略、批量能力。</p>
+    </content>
+  </note>
+</slide>

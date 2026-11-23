@@ -1,0 +1,57 @@
+# ===== Python (backend) =====
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# ===== Node / frontend =====
+node_modules/
+dist/
+dist-ssr/
+.vite/
+coverage/
+*.tsbuildinfo
+.pnpm-store/
+pnpm-store/
+
+# ===== 环境变量与密钥 =====
+.env
+.env.*
+!.env.example
+
+# ===== 日志 =====
+*.log
+uvicorn*.log
+
+# ===== 运行时产物 / 临时文件 =====
+.tmp/
+tmp/
+storage/
+output/
+logs/
+*.pid
+.DS_Store
+Thumbs.db
+
+# ===== 编辑器 / AI 工具本地状态 =====
+.trae/
+.workbuddy/
+.idea/
+.vscode/
+*.swp
+
+# ===== 课程报告文档（二进制，按需取消忽略） =====
+# *.docx

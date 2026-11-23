@@ -1,0 +1,36 @@
+<slide>
+  <style><fill><fillColor color="rgb(242,244,248)"/></fill></style>
+  <data>
+    <shape type="text" topLeftX="80" topLeftY="50" width="600" height="40">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true"><p>第二部分　项目中的重点模块</p></content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="80" width="800" height="50">
+      <content textType="title" fontSize="28" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>产品界面总览：导演工作台</p></content>
+    </shape>
+    <line startX="80" startY="135" endX="120" endY="135"><border color="rgba(37,99,235,1)" width="3"/></line>
+    <shape type="rect" topLeftX="80" topLeftY="160" width="560" height="340" presetHandlers="8">
+      <fill><fillColor color="rgba(220,228,240,1)"/></fill>
+      <border color="rgba(180,195,220,1)" width="1" dashArray="dash"/>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="300" width="560" height="60">
+      <content textType="body" fontSize="14" color="rgba(120,135,160,1)" fontFamily="思源黑体" textAlign="center" verticalAlign="middle" lineSpacing="multiple:1.6">
+        <p>【项目界面截图占位】</p>
+        <p>导演工作台主界面：左侧 6 步流水线 + 顶栏集成度切换</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="670" topLeftY="165" width="220" height="28">
+      <content textType="headline" fontSize="15" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>截图要点</p></content>
+    </shape>
+    <line startX="670" startY="198" endX="880" endY="198"><border color="rgba(200,210,225,1)" width="1"/></line>
+    <shape type="text" topLeftX="670" topLeftY="210" width="220" height="280">
+      <content textType="body" fontSize="12" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.9">
+        <p>左侧 6 步流水线导航</p>
+        <p>三态：完成打勾 / 进行中 / 待处理</p>
+        <p>顶栏实时进度与失败聚合</p>
+        <p>智能主按钮自动跳转下一环节</p>
+        <p>项目 → 剧集 → 分镜层级入口</p>
+      </content>
+    </shape>
+  </data>
+  <note><content textType="body"><p>这一页用一张工作台全景截图建立整体印象。讲解时顺着左侧流水线从左到右走一遍，说明每个环节的完成状态是后端统一计算的，后面的模块逐个展开。</p></content></note>
+</slide>

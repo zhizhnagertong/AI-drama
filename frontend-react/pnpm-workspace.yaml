@@ -1,0 +1,8 @@
+# pnpm 11 起，原 package.json 的 "pnpm" 字段迁到这里。
+# esbuild 带 postinstall（校验并落二进制），默认被拦截；显式放行。
+# nodeLinker: hoisted —— 采用 npm 式扁平布局，避免 isolated 布局下
+# 被拦截的依赖留下断链（.ignored_*），让 vite/esbuild 能直接解析到平台二进制。
+onlyBuiltDependencies:
+  - esbuild
+nodeLinker: hoisted
+verifyDepsBeforeRun: false

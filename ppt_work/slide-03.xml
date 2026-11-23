@@ -1,0 +1,70 @@
+<slide>
+  <style>
+    <fill><fillColor color="rgb(242,244,248)"/></fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="80" topLeftY="50" width="600" height="40">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true">
+        <p>第一部分　个人介绍与项目介绍</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="80" width="700" height="50">
+      <content textType="title" fontSize="30" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true">
+        <p>自我介绍</p>
+      </content>
+    </shape>
+    <line startX="80" startY="135" endX="120" endY="135"><border color="rgba(37,99,235,1)" width="3"/></line>
+    <shape type="rect" topLeftX="580" topLeftY="160" width="260" height="260" presetHandlers="8">
+      <fill><fillColor color="rgba(220,228,240,1)"/></fill>
+      <border color="rgba(180,195,220,1)" width="1" dashArray="dash"/>
+    </shape>
+    <shape type="text" topLeftX="580" topLeftY="270" width="260" height="40">
+      <content textType="body" fontSize="14" color="rgba(120,135,160,1)" fontFamily="思源黑体" textAlign="center">
+        <p>【个人照片占位】</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="165" width="460" height="30">
+      <content textType="headline" fontSize="18" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true">
+        <p>我是谁</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="195" width="460" height="50">
+      <content textType="body" fontSize="14" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.6">
+        <p>【姓名】 / 【专业班级】，主攻方向【后端开发 / 全栈 / AI 应用】</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="255" width="460" height="30">
+      <content textType="headline" fontSize="18" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true">
+        <p>技术画像</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="285" width="460" height="50">
+      <content textType="body" fontSize="14" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.6">
+        <p>Python（FastAPI）+ Vue 3 全栈；熟悉大模型 API 集成与音视频工程</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="345" width="460" height="30">
+      <content textType="headline" fontSize="18" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true">
+        <p>我负责</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="375" width="460" height="50">
+      <content textType="body" fontSize="14" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.6">
+        <p>【后端架构 / 智能体编排 / 前端工作台 / 全栈，按实际填写】</p>
+      </content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="440" width="760" height="60" presetHandlers="6">
+      <fill><fillColor color="rgba(37,99,235,0.08)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="100" topLeftY="450" width="720" height="40">
+      <content textType="body" fontSize="14" color="rgba(13,19,38,1)" fontFamily="思源黑体" verticalAlign="middle">
+        <p><span bold="true">为什么是我：</span>这个项目让我把"会调 API"变成了"会设计一个能跑起来的 AI 生产系统"</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>不要背简历。一句话带过经历，把时间留给"我在这个项目里具体做了哪几块"，最好能指到后面第二、三部分对应的页。</p>
+    </content>
+  </note>
+</slide>

@@ -1,0 +1,36 @@
+<slide>
+  <style><fill><fillColor color="rgb(242,244,248)"/></fill></style>
+  <data>
+    <shape type="text" topLeftX="80" topLeftY="50" width="600" height="40">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true"><p>第五部分　项目演示 · 界面展示</p></content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="80" width="800" height="50">
+      <content textType="title" fontSize="28" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>配音试听与成片合成导出</p></content>
+    </shape>
+    <line startX="80" startY="135" endX="120" endY="135"><border color="rgba(37,99,235,1)" width="3"/></line>
+    <shape type="rect" topLeftX="80" topLeftY="160" width="560" height="340" presetHandlers="8">
+      <fill><fillColor color="rgba(220,228,240,1)"/></fill>
+      <border color="rgba(180,195,220,1)" width="1" dashArray="dash"/>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="300" width="560" height="60">
+      <content textType="body" fontSize="14" color="rgba(120,135,160,1)" fontFamily="思源黑体" textAlign="center" verticalAlign="middle" lineSpacing="multiple:1.6">
+        <p>【项目界面截图占位】</p>
+        <p>配音试听 / 合成预检 → 一键合成 → 成片预览与导出（1080×1920 / 30fps）</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="670" topLeftY="165" width="220" height="28">
+      <content textType="headline" fontSize="15" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>截图要点</p></content>
+    </shape>
+    <line startX="670" startY="198" endX="880" endY="198"><border color="rgba(200,210,225,1)" width="1"/></line>
+    <shape type="text" topLeftX="670" topLeftY="210" width="220" height="280">
+      <content textType="body" fontSize="12" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.9">
+        <p>分镜级配音试听</p>
+        <p>音色 / 语速可调整</p>
+        <p>合成预检：缺素材阻断</p>
+        <p>合成进度实时可见</p>
+        <p>成片预览与下载导出</p>
+      </content>
+    </shape>
+  </data>
+  <note><content textType="body"><p>这一页作为演示环节的预热。合成预检是一个值得强调的细节：缺画面、缺配音的镜头会在合成前被明确阻断，而不是合成出黑屏静音的废片。</p></content></note>
+</slide>

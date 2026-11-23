@@ -1,0 +1,80 @@
+<slide>
+  <style><fill><fillColor color="rgb(242,244,248)"/></fill></style>
+  <data>
+    <shape type="text" topLeftX="80" topLeftY="50" width="600" height="40">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true"><p>第四部分　项目完成后的收获 ★</p></content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="80" width="800" height="50">
+      <content textType="title" fontSize="26" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>产品与业务认知 + 不足与下一步</p></content>
+    </shape>
+    <line startX="80" startY="135" endX="120" endY="135"><border color="rgba(37,99,235,1)" width="3"/></line>
+    <shape type="text" topLeftX="80" topLeftY="150" width="380" height="24">
+      <content textType="headline" fontSize="15" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>技术之外的收获</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="180" width="380" height="55" presetHandlers="4">
+      <fill><fillColor color="rgba(37,99,235,0.08)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="180" width="350" height="55">
+      <content textType="caption" fontSize="11" color="rgba(83,97,116,1)" fontFamily="思源黑体" verticalAlign="middle" lineSpacing="multiple:1.3"><p><span bold="true" color="rgba(13,19,38,1)">AI 生成天然不确定：</span>产品必须是"人机协作"——AI 出初稿，人做挑选与把关，不追求全自动黑箱</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="245" width="380" height="55" presetHandlers="4">
+      <fill><fillColor color="rgba(37,99,235,0.08)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="245" width="350" height="55">
+      <content textType="caption" fontSize="11" color="rgba(83,97,116,1)" fontFamily="思源黑体" verticalAlign="middle" lineSpacing="multiple:1.3"><p><span bold="true" color="rgba(13,19,38,1)">效率的关键：</span>不在"单次生成多快"，而在"批量能力 + 失败可恢复"</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="310" width="380" height="55" presetHandlers="4">
+      <fill><fillColor color="rgba(37,99,235,0.08)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="310" width="350" height="55">
+      <content textType="caption" fontSize="11" color="rgba(83,97,116,1)" fontFamily="思源黑体" verticalAlign="middle" lineSpacing="multiple:1.3"><p><span bold="true" color="rgba(13,19,38,1)">成本是产品约束：</span>项目预算 + 用户额度 + 并发上限三级治理，抽卡版本数默认控制在 2-4</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="375" width="380" height="55" presetHandlers="4">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="375" width="350" height="55">
+      <content textType="caption" fontSize="11" color="rgba(191,215,255,1)" fontFamily="思源黑体" verticalAlign="middle" lineSpacing="multiple:1.3"><p><span bold="true" color="rgba(255,255,255,1)">数据安全高于功能：</span>任何"重新生成"都要先告诉用户会删掉什么 —— 功能可以后补，用户成果丢了找不回来</p></content>
+    </shape>
+    <shape type="text" topLeftX="490" topLeftY="150" width="390" height="24">
+      <content textType="headline" fontSize="15" color="rgba(201,48,44,1)" fontFamily="思源黑体" bold="true"><p>不足与下一步规划</p></content>
+    </shape>
+    <shape type="rect" topLeftX="490" topLeftY="180" width="390" height="48" presetHandlers="4">
+      <fill><fillColor color="rgba(201,48,44,0.06)"/></fill>
+      <border color="rgba(201,48,44,0.2)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="505" topLeftY="180" width="360" height="48">
+      <content textType="caption" fontSize="11" color="rgba(83,97,116,1)" fontFamily="思源黑体" verticalAlign="middle" lineSpacing="multiple:1.3"><p><span bold="true">不足一：</span>任务队列进程内，重启不持久化 → 计划接入 Redis / 成熟任务队列</p></content>
+    </shape>
+    <shape type="rect" topLeftX="490" topLeftY="238" width="390" height="48" presetHandlers="4">
+      <fill><fillColor color="rgba(201,48,44,0.06)"/></fill>
+      <border color="rgba(201,48,44,0.2)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="505" topLeftY="238" width="360" height="48">
+      <content textType="caption" fontSize="11" color="rgba(83,97,116,1)" fontFamily="思源黑体" verticalAlign="middle" lineSpacing="multiple:1.3"><p><span bold="true">不足二：</span>角色与分镜靠"文本匹配角色名"关联，较脆弱 → 计划做结构化多对多关联</p></content>
+    </shape>
+    <shape type="rect" topLeftX="490" topLeftY="296" width="390" height="48" presetHandlers="4">
+      <fill><fillColor color="rgba(201,48,44,0.06)"/></fill>
+      <border color="rgba(201,48,44,0.2)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="505" topLeftY="296" width="360" height="48">
+      <content textType="caption" fontSize="11" color="rgba(83,97,116,1)" fontFamily="思源黑体" verticalAlign="middle" lineSpacing="multiple:1.3"><p><span bold="true">不足三：</span>模型与密钥硬编码在配置里 → 计划做配置入库 + 设置页 + 连通性测试</p></content>
+    </shape>
+    <shape type="rect" topLeftX="490" topLeftY="354" width="390" height="48" presetHandlers="4">
+      <fill><fillColor color="rgba(201,48,44,0.06)"/></fill>
+      <border color="rgba(201,48,44,0.2)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="505" topLeftY="354" width="360" height="48">
+      <content textType="caption" fontSize="11" color="rgba(83,97,116,1)" fontFamily="思源黑体" verticalAlign="middle" lineSpacing="multiple:1.3"><p><span bold="true">不足四：</span>缺少缩略图管线与磁盘回收，素材目录已增长到 300MB 以上 → 计划补缩略图与磁盘清理</p></content>
+    </shape>
+    <shape type="rect" topLeftX="490" topLeftY="412" width="390" height="88" presetHandlers="6">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="505" topLeftY="420" width="360" height="24">
+      <content textType="body" fontSize="13" color="rgba(255,255,255,1)" fontFamily="思源黑体" bold="true"><p>下一步优先级</p></content>
+    </shape>
+    <shape type="text" topLeftX="505" topLeftY="446" width="360" height="48">
+      <content textType="caption" fontSize="11" color="rgba(191,215,255,1)" fontFamily="思源黑体" lineSpacing="multiple:1.4"><p>① 配置入库 ② 结构化角色关联（直接提升成片一致性）③ 缩略图与磁盘治理 ④ 队列持久化</p></content>
+    </shape>
+  </data>
+  <note><content textType="body"><p>主动说不足反而是加分项，但一定要紧跟着给"优先级和理由"，否则就变成自我批评。最后一句可以收在："所以这个项目对我不是结束，是一份清晰的待办清单。"</p></content></note>
+</slide>

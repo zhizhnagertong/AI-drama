@@ -1,0 +1,3384 @@
+<presentation id="WwEAsaP4Zl5oDqdFYMdcgClyn5c" xmlns="https://www.larkoffice.com/sml/2.0" width="960" height="540">
+  <title>AI漫剧智能制作平台-项目答辩</title>
+  <theme>
+    <textStyles>
+      <headline fontColor="rgba(31, 35, 41, 1)"/>
+      <sub-headline fontColor="rgba(31, 35, 41, 1)"/>
+      <body fontColor="rgba(31, 35, 41, 1)"/>
+      <caption fontColor="rgba(155, 158, 162, 1)" fontSize="14"/>
+    </textStyles>
+  </theme>
+  <slide id="pYY">
+    <style>
+      <fill id="fYY">
+        <fillColor color="linear-gradient(135deg,rgba(13, 19, 38, 1) 0%,rgba(20, 30, 60, 1) 60%,rgba(37, 99, 235, 1) 100%)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="800" height="80" topLeftX="80" topLeftY="140" type="text" id="bbA">
+        <content textType="title" fontSize="48" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" letterSpacing="2">
+          <p>AI 漫剧智能制作平台</p>
+        </content>
+      </shape>
+      <shape width="600" height="40" topLeftX="80" topLeftY="230" type="text" id="bbh">
+        <content textType="sub-headline" fontSize="22" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" bold="true">
+          <p>从一句灵感，到一部成片</p>
+        </content>
+      </shape>
+      <line id="bbF" startX="80" startY="290" endX="200.00416659433122" endY="290">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="800" height="30" topLeftX="80" topLeftY="320" type="text" id="bbe">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(200, 210, 230, 1)">
+          <p>汇报人：【姓名】　｜　专业班级：【XXX】　｜　指导教师：【XXX】</p>
+        </content>
+      </shape>
+      <shape width="800" height="30" topLeftX="80" topLeftY="360" type="text" id="bbv">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(160, 175, 200, 1)">
+          <p>项目答辩汇报　｜　2026 年 9 月</p>
+        </content>
+      </shape>
+      <shape width="800" height="24" topLeftX="80" topLeftY="470" type="text" id="bbr">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(120, 140, 170, 1)">
+          <p>把漫剧制作从&quot;人力密集&quot;变成&quot;AI 编排 + 人工把关&quot;的流水线</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bbb">
+      <content>
+        <p>开场别念稿。用一个画面感的问题开场：&quot;如果我想把一个念头变成一部竖屏漫剧，以前需要编剧、原画、动画、配音、剪辑五拨人；现在，只需要一句话。&quot;</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYV">
+    <style>
+      <fill id="fYV">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="400" height="50" topLeftX="80" topLeftY="60" type="text" id="bbk">
+        <content textType="title" fontSize="32" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>目录</p>
+        </content>
+      </shape>
+      <line id="bbP" startX="80" startY="115" endX="120.01249804748511" endY="115">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="60" height="40" topLeftX="80" topLeftY="150" type="text" id="bbE">
+        <content textType="headline" fontSize="28" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>01</p>
+        </content>
+      </shape>
+      <shape width="350" height="35" topLeftX="150" topLeftY="150" type="text" id="bbW">
+        <content textType="headline" fontSize="20" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>个人介绍与项目介绍</p>
+        </content>
+      </shape>
+      <shape width="350" height="24" topLeftX="150" topLeftY="185" type="text" id="bbR">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>我是谁 → 为什么做 → 做了什么</p>
+        </content>
+      </shape>
+      <line id="bbt" startX="80" startY="220" endX="880.0006249997559" endY="220">
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+      </line>
+      <shape width="60" height="40" topLeftX="80" topLeftY="235" type="text" id="bbl">
+        <content textType="headline" fontSize="28" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>02</p>
+        </content>
+      </shape>
+      <shape width="350" height="35" topLeftX="150" topLeftY="235" type="text" id="bbZ">
+        <content textType="headline" fontSize="20" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>项目中的重点模块</p>
+        </content>
+      </shape>
+      <shape width="350" height="24" topLeftX="150" topLeftY="270" type="text" id="bbp">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>八大模块，重点展开任务引擎与角色一致性</p>
+        </content>
+      </shape>
+      <line id="bbw" startX="80" startY="305" endX="880.0006249997559" endY="305">
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+      </line>
+      <shape width="60" height="40" topLeftX="80" topLeftY="320" type="text" id="bbB">
+        <content textType="headline" fontSize="28" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>03</p>
+        </content>
+      </shape>
+      <shape width="350" height="35" topLeftX="150" topLeftY="320" type="text" id="bbX">
+        <content textType="headline" fontSize="20" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>问题及解决方案</p>
+        </content>
+      </shape>
+      <shape width="350" height="24" topLeftX="150" topLeftY="355" type="text" id="bbq">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>八个坑，现象 → 根因 → 方案 → 效果</p>
+        </content>
+      </shape>
+      <line id="bbu" startX="80" startY="390" endX="880.0006249997559" endY="390">
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+      </line>
+      <shape width="60" height="40" topLeftX="500" topLeftY="150" type="text" id="bbI">
+        <content textType="headline" fontSize="28" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>04</p>
+        </content>
+      </shape>
+      <shape width="350" height="35" topLeftX="570" topLeftY="150" type="text" id="bbd">
+        <content textType="headline" fontSize="20" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>项目完成后的收获</p>
+        </content>
+      </shape>
+      <shape width="350" height="24" topLeftX="570" topLeftY="185" type="text" id="bba">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>技术能力 → 工程协作 → 产品认知</p>
+        </content>
+      </shape>
+      <line id="bbY" startX="500" startY="220" endX="880.0013157871956" endY="220">
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+      </line>
+      <shape width="60" height="40" topLeftX="500" topLeftY="235" type="text" id="bbG">
+        <content textType="headline" fontSize="28" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>05</p>
+        </content>
+      </shape>
+      <shape width="350" height="35" topLeftX="570" topLeftY="235" type="text" id="bbS">
+        <content textType="headline" fontSize="20" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>项目演示</p>
+        </content>
+      </shape>
+      <shape width="350" height="24" topLeftX="570" topLeftY="270" type="text" id="bbN">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>七步走，从灵感到成片的完整闭环</p>
+        </content>
+      </shape>
+      <line id="bbK" startX="500" startY="305" endX="880.0013157871956" endY="305">
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+      </line>
+    </data>
+    <note id="bbH">
+      <content>
+        <p>只念标题、不停留。可以顺带说一句：&quot;重点在第三部分，我会讲一个 AI 应用最真实的坑，以及我们怎么填的。&quot;</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYz">
+    <style>
+      <fill id="fYz">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="bbs">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第一部分　个人介绍与项目介绍</p>
+        </content>
+      </shape>
+      <shape width="700" height="50" topLeftX="80" topLeftY="80" type="text" id="bbc">
+        <content textType="title" fontSize="30" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>自我介绍</p>
+        </content>
+      </shape>
+      <line id="bbO" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="260" height="260" topLeftX="580" topLeftY="160" presetHandlers="8" type="rect" id="bbV">
+        <fill>
+          <fillColor color="rgba(220, 228, 240, 1)"/>
+        </fill>
+        <border color="rgba(180, 195, 220, 1)" dashArray="dash" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="260" height="40" topLeftX="580" topLeftY="270" type="text" id="bbT">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(120, 135, 160, 1)" textAlign="center">
+          <p>【个人照片占位】</p>
+        </content>
+      </shape>
+      <shape width="460" height="30" topLeftX="80" topLeftY="165" type="text" id="bbj">
+        <content textType="headline" fontSize="18" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>我是谁</p>
+        </content>
+      </shape>
+      <shape width="460" height="50" topLeftX="80" topLeftY="195" type="text" id="bbn">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.6">
+          <p>【姓名】 / 【专业班级】，主攻方向【后端开发 / 全栈 / AI 应用】</p>
+        </content>
+      </shape>
+      <shape width="460" height="30" topLeftX="80" topLeftY="255" type="text" id="bbf">
+        <content textType="headline" fontSize="18" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>技术画像</p>
+        </content>
+      </shape>
+      <shape width="460" height="50" topLeftX="80" topLeftY="285" type="text" id="bbJ">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.6">
+          <p>Python（FastAPI）+ Vue 3 全栈；熟悉大模型 API 集成与音视频工程</p>
+        </content>
+      </shape>
+      <shape width="460" height="30" topLeftX="80" topLeftY="345" type="text" id="bbM">
+        <content textType="headline" fontSize="18" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>我负责</p>
+        </content>
+      </shape>
+      <shape width="460" height="50" topLeftX="80" topLeftY="375" type="text" id="bby">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.6">
+          <p>【后端架构 / 智能体编排 / 前端工作台 / 全栈，按实际填写】</p>
+        </content>
+      </shape>
+      <shape width="760" height="60" topLeftX="80" topLeftY="440" presetHandlers="6" type="rect" id="bbi">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.08)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="720" height="40" topLeftX="100" topLeftY="450" type="text" id="bbz">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)">
+          <p><strong>为什么是我：</strong>这个项目让我把&quot;会调 API&quot;变成了&quot;会设计一个能跑起来的 AI 生产系统&quot;</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bbx">
+      <content>
+        <p>不要背简历。一句话带过经历，把时间留给&quot;我在这个项目里具体做了哪几块&quot;，最好能指到后面第二、三部分对应的页。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYE">
+    <style>
+      <fill id="fYE">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="bex">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第一部分　个人介绍与项目介绍</p>
+        </content>
+      </shape>
+      <shape width="800" height="50" topLeftX="80" topLeftY="80" type="text" id="beV">
+        <content textType="title" fontSize="28" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>项目背景：传统漫剧制作的六个痛点</p>
+        </content>
+      </shape>
+      <line id="bbC" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="800" height="28" topLeftX="80" topLeftY="150" type="text" id="bbD">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>一个环节一个人力，一条产线五拨人</p>
+        </content>
+      </shape>
+      <shape width="260" height="75" topLeftX="80" topLeftY="195" presetHandlers="6" type="rect" id="bee">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="230" height="25" topLeftX="95" topLeftY="205" type="text" id="beh">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>剧本创作</p>
+        </content>
+      </shape>
+      <shape width="230" height="35" topLeftX="95" topLeftY="232" type="text" id="beM">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>编剧成本高、周期长，一个人的产能就是天花板</p>
+        </content>
+      </shape>
+      <shape width="260" height="75" topLeftX="355" topLeftY="195" presetHandlers="6" type="rect" id="bes">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="230" height="25" topLeftX="370" topLeftY="205" type="text" id="bec">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>分镜绘制</p>
+        </content>
+      </shape>
+      <shape width="230" height="35" topLeftX="370" topLeftY="232" type="text" id="bbL">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>原画师人力成本高，画风还难统一</p>
+        </content>
+      </shape>
+      <shape width="260" height="75" topLeftX="630" topLeftY="195" presetHandlers="6" type="rect" id="bbQ">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="230" height="25" topLeftX="645" topLeftY="205" type="text" id="beb">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>角色一致性</p>
+        </content>
+      </shape>
+      <shape width="230" height="35" topLeftX="645" topLeftY="232" type="text" id="bej">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>跨镜头角色容易&quot;崩脸&quot;，越到后面越不像</p>
+        </content>
+      </shape>
+      <shape width="260" height="75" topLeftX="80" topLeftY="285" presetHandlers="6" type="rect" id="ben">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="230" height="25" topLeftX="95" topLeftY="295" type="text" id="bey">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>动效制作</p>
+        </content>
+      </shape>
+      <shape width="230" height="35" topLeftX="95" topLeftY="322" type="text" id="bei">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>需要动画师逐帧处理，单条内容产能极低</p>
+        </content>
+      </shape>
+      <shape width="260" height="75" topLeftX="355" topLeftY="285" presetHandlers="6" type="rect" id="bbg">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="230" height="25" topLeftX="370" topLeftY="295" type="text" id="bbo">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>配音合成</p>
+        </content>
+      </shape>
+      <shape width="230" height="35" topLeftX="370" topLeftY="322" type="text" id="bev">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>依赖声优录制，周期长、改一句要重录</p>
+        </content>
+      </shape>
+      <shape width="260" height="75" topLeftX="630" topLeftY="285" presetHandlers="6" type="rect" id="beF">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="230" height="25" topLeftX="645" topLeftY="295" type="text" id="beO">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>剪辑成片</p>
+        </content>
+      </shape>
+      <shape width="230" height="35" topLeftX="645" topLeftY="322" type="text" id="bef">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>剪辑师手工拼接，批量产能受限，改一版等于重做</p>
+        </content>
+      </shape>
+      <shape width="810" height="100" topLeftX="80" topLeftY="385" presetHandlers="6" type="rect" id="bbU">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="770" height="30" topLeftX="100" topLeftY="400" type="text" id="bbm">
+        <content textType="headline" fontSize="18" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>核心矛盾</p>
+        </content>
+      </shape>
+      <shape width="770" height="45" topLeftX="100" topLeftY="432" type="text" id="beA">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)">
+          <p>漫剧内容需求爆发式增长 vs 传统制作人力密集、周期长、成本高、质量不稳定 —— 必须用 AI 重构生产流水线</p>
+        </content>
+      </shape>
+    </data>
+    <note id="ber">
+      <content>
+        <p>这一页是全篇的&quot;立论&quot;。讲法：先讲人力成本，再讲质量不稳定（崩脸），最后落到产能——这三点正好对应我们后面的方案：自动化、一致性策略、批量能力。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYS">
+    <style>
+      <fill id="fYS">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="beq">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第一部分　个人介绍与项目介绍</p>
+        </content>
+      </shape>
+      <shape width="800" height="50" topLeftX="80" topLeftY="80" type="text" id="beN">
+        <content textType="title" fontSize="28" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>项目定位：输入是灵感，输出是成片</p>
+        </content>
+      </shape>
+      <line id="beU" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="810" height="70" topLeftX="80" topLeftY="160" presetHandlers="6" type="rect" id="beR">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.08)"/>
+        </fill>
+        <border color="rgba(37, 99, 235, 0.3)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="770" height="50" topLeftX="100" topLeftY="172" type="text" id="bel">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)">
+          <p><strong>一句话定位：</strong>一个 AI 漫剧智能制作平台——输入一句话灵感 / 一段小说，自动产出剧本、分镜、角色、画面、动效、配音与最终成片</p>
+        </content>
+      </shape>
+      <shape width="380" height="28" topLeftX="80" topLeftY="250" type="text" id="beI">
+        <content textType="headline" fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>产品形态</p>
+        </content>
+      </shape>
+      <shape width="380" height="50" topLeftX="80" topLeftY="278" type="text" id="beg">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>SaaS 化的 Web「导演工作台」，多用户可上线，支持单项目半自动 / 全自动生产</p>
+        </content>
+      </shape>
+      <shape width="390" height="28" topLeftX="500" topLeftY="250" type="text" id="bez">
+        <content textType="headline" fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>核心主张</p>
+        </content>
+      </shape>
+      <shape width="390" height="50" topLeftX="500" topLeftY="278" type="text" id="bek">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>AI 负责批量生产初稿，人负责抽卡、挑选与把关 —— 人机协作，而不是全自动黑箱</p>
+        </content>
+      </shape>
+      <shape width="800" height="28" topLeftX="80" topLeftY="350" type="text" id="bep">
+        <content textType="headline" fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>单集闭环流水线</p>
+        </content>
+      </shape>
+      <shape width="95" height="50" topLeftX="80" topLeftY="385" presetHandlers="4" type="rect" id="beL">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="95" height="50" topLeftX="80" topLeftY="385" type="text" id="bea">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>灵感</p>
+        </content>
+      </shape>
+      <line id="beG" startX="178" startY="410" endX="195.0293863659264" endY="410">
+        <border color="rgba(37, 99, 235, 1)"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="95" height="50" topLeftX="198" topLeftY="385" presetHandlers="4" type="rect" id="beE">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.85)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="95" height="50" topLeftX="198" topLeftY="385" type="text" id="beC">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>剧本</p>
+        </content>
+      </shape>
+      <line id="beT" startX="296" startY="410" endX="313.0293863659264" endY="410">
+        <border color="rgba(37, 99, 235, 1)"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="95" height="50" topLeftX="316" topLeftY="385" presetHandlers="4" type="rect" id="beX">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.7)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="95" height="50" topLeftX="316" topLeftY="385" type="text" id="beS">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>角色</p>
+        </content>
+      </shape>
+      <line id="beK" startX="414" startY="410" endX="431.0293863659264" endY="410">
+        <border color="rgba(37, 99, 235, 1)"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="95" height="50" topLeftX="434" topLeftY="385" presetHandlers="4" type="rect" id="beJ">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.55)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="95" height="50" topLeftX="434" topLeftY="385" type="text" id="bet">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>分镜画面</p>
+        </content>
+      </shape>
+      <line id="beu" startX="532" startY="410" endX="549.0293863659264" endY="410">
+        <border color="rgba(37, 99, 235, 1)"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="95" height="50" topLeftX="552" topLeftY="385" presetHandlers="4" type="rect" id="bed">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.45)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="95" height="50" topLeftX="552" topLeftY="385" type="text" id="beH">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>动效</p>
+        </content>
+      </shape>
+      <line id="beZ" startX="650" startY="410" endX="667.0293863659264" endY="410">
+        <border color="rgba(37, 99, 235, 1)"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="95" height="50" topLeftX="670" topLeftY="385" presetHandlers="4" type="rect" id="bew">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.35)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="95" height="50" topLeftX="670" topLeftY="385" type="text" id="beQ">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>配音</p>
+        </content>
+      </shape>
+      <line id="beY" startX="768" startY="410" endX="785.0293863659264" endY="410">
+        <border color="rgba(37, 99, 235, 1)"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="102" height="50" topLeftX="788" topLeftY="385" presetHandlers="4" type="rect" id="beP">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="102" height="50" topLeftX="788" topLeftY="385" type="text" id="beW">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>FFmpeg合成</p>
+        </content>
+      </shape>
+      <shape width="810" height="24" topLeftX="80" topLeftY="455" type="text" id="beD">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(120, 135, 160, 1)">
+          <p>质检贯穿全流程，每环节支持抽卡选版与回滚</p>
+        </content>
+      </shape>
+    </data>
+    <note id="beB">
+      <content>
+        <p>&quot;人机协作&quot;这句一定要说，这是评委会追问的设计立场。可以补一句：&quot;AI 生成天生有不确定性，所以我们不假装它能一次到位，而是把它设计成可抽卡、可挑拣、可回滚。&quot;</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYI">
+    <style>
+      <fill id="fYI">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="bAh">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第一部分　个人介绍与项目介绍</p>
+        </content>
+      </shape>
+      <shape width="700" height="50" topLeftX="80" topLeftY="80" type="text" id="bAM">
+        <content textType="title" fontSize="28" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>技术架构总览</p>
+        </content>
+      </shape>
+      <line id="bAy" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="500" height="340" topLeftX="80" topLeftY="155" presetHandlers="8" type="rect" id="beo">
+        <fill>
+          <fillColor color="rgba(220, 228, 240, 1)"/>
+        </fill>
+        <border color="rgba(180, 195, 220, 1)" dashArray="dash" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="500" height="40" topLeftX="80" topLeftY="300" type="text" id="bAv">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(120, 135, 160, 1)" textAlign="center">
+          <p>【架构图占位】</p>
+          <p>四层结构：前端 / 应用 / 编排执行 / 生成与存储</p>
+        </content>
+      </shape>
+      <shape width="280" height="28" topLeftX="610" topLeftY="155" type="text" id="bAj">
+        <content textType="headline" fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>前端层</p>
+        </content>
+      </shape>
+      <shape width="280" height="40" topLeftX="610" topLeftY="183" type="text" id="bAn">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>Vue 3 + Element Plus + Pinia，Axios 拦截器 + EventSource 消费实时进度</p>
+        </content>
+      </shape>
+      <shape width="280" height="28" topLeftX="610" topLeftY="230" type="text" id="bem">
+        <content textType="headline" fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>应用层</p>
+        </content>
+      </shape>
+      <shape width="280" height="40" topLeftX="610" topLeftY="258" type="text" id="bAA">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>FastAPI：业务 API / JWT 认证 / SSE 推送；无状态可多副本</p>
+        </content>
+      </shape>
+      <shape width="280" height="28" topLeftX="610" topLeftY="305" type="text" id="bAF">
+        <content textType="headline" fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>编排执行层</p>
+        </content>
+      </shape>
+      <shape width="280" height="40" topLeftX="610" topLeftY="333" type="text" id="bAO">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>自研任务引擎（asyncio 队列 + 4 Worker + 线程池）；智能体编排负责决策与提示词组装</p>
+        </content>
+      </shape>
+      <shape width="280" height="28" topLeftX="610" topLeftY="380" type="text" id="bAe">
+        <content textType="headline" fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>生成 Provider 层</p>
+        </content>
+      </shape>
+      <shape width="280" height="40" topLeftX="610" topLeftY="408" type="text" id="bAr">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>Agnes（文本 / 图像 / 视频）+ 阿里云 DashScope TTS + FFmpeg 合成器，统一抽象接口</p>
+        </content>
+      </shape>
+      <shape width="810" height="24" topLeftX="80" topLeftY="505" type="text" id="bAx">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(120, 135, 160, 1)">
+          <p>存储层：MySQL 8（18 张业务表）+ 对象存储（素材 / 成片）+ Redis（队列 / 缓存预留）</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bAb">
+      <content>
+        <p>讲架构别念框图。建议按&quot;一次请求怎么走完&quot;讲：前端提交 → API 落库入队立即返回 → Worker 异步调模型并轮询 → 回写结果 → SSE 推给前端。这条链路串起后面所有重点模块。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYu">
+    <style>
+      <fill id="fYu">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="bAH">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第一部分　个人介绍与项目介绍</p>
+        </content>
+      </shape>
+      <shape width="700" height="50" topLeftX="80" topLeftY="80" type="text" id="bAk">
+        <content textType="title" fontSize="28" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>技术选型与理由</p>
+        </content>
+      </shape>
+      <line id="bAZ" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="800" height="24" topLeftX="80" topLeftY="150" type="text" id="bAp">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>选型即取舍，说清为什么不是别的</p>
+        </content>
+      </shape>
+      <table id="bAs" width="810" height="310" topLeftX="80" topLeftY="185">
+        <colgroup>
+          <col span="1" width="140"/>
+          <col span="1" width="340"/>
+          <col span="1" width="330"/>
+        </colgroup>
+        <tr height="36">
+          <td id="bAc">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>技术选型</p>
+            </content>
+          </td>
+          <td id="bAt">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>选择理由</p>
+            </content>
+          </td>
+          <td id="bAl">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>取舍与代价</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="55">
+          <td id="bAu">
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+              <p>FastAPI</p>
+            </content>
+          </td>
+          <td id="bAi">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3" textAlign="left">
+              <p>原生 async 契合长耗时 I/O，自动生成 OpenAPI 文档，接口自测成本低</p>
+            </content>
+          </td>
+          <td id="bAz">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3" textAlign="left">
+              <p>无状态设计，可多副本水平扩展</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="55">
+          <td id="bAJ">
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+              <p>自研任务引擎</p>
+            </content>
+          </td>
+          <td id="bAR">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3" textAlign="left">
+              <p>单机 MVP 阶段不引入消息中间件，asyncio + 线程池解决长耗时 I/O</p>
+            </content>
+          </td>
+          <td id="bAX">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(201, 48, 44, 1)" lineSpacing="multiple:1.3" textAlign="left">
+              <p>代价已知：队列不持久化、无法多机，已列入改进项</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="55">
+          <td id="bAq">
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+              <p>Provider 抽象层</p>
+            </content>
+          </td>
+          <td id="bAS">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3" textAlign="left">
+              <p>统一 submit / query / result 接口，屏蔽 Agnes 与阿里云差异，便于换供应商</p>
+            </content>
+          </td>
+          <td id="bAV">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3" textAlign="left">
+              <p>未来可做多供应商热切换与降级</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="55">
+          <td id="bAf">
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+              <p>生成式与确定性分离</p>
+            </content>
+          </td>
+          <td id="bAY">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3" textAlign="left">
+              <p>画面 / 动效 / 配音交给生成式模型（需抽卡质检），成片拼接交给 FFmpeg</p>
+            </content>
+          </td>
+          <td id="bAG">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3" textAlign="left">
+              <p>确定性部分可复现、可测试；生成式部分接受不确定性</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="54">
+          <td id="bAP">
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+              <p>MySQL 8</p>
+            </content>
+          </td>
+          <td id="bAT">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3" textAlign="left">
+              <p>关系模型清晰，便于审计与统计；SQLAlchemy + Alembic 管理演进</p>
+            </content>
+          </td>
+          <td id="bAB">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3" textAlign="left">
+              <p>18 张业务表，覆盖全业务域</p>
+            </content>
+          </td>
+        </tr>
+      </table>
+    </data>
+    <note id="bAa">
+      <content>
+        <p>这页体现工程判断力。如果评委问&quot;为什么不用 Celery&quot;，标准答法在这里就埋好了：不是不知道，是阶段性取舍，而且代价我们写进了文档。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYQ">
+    <style>
+      <fill id="fYQ">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="bvu">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第二部分　项目中的重点模块</p>
+        </content>
+      </shape>
+      <shape width="700" height="50" topLeftX="80" topLeftY="80" type="text" id="bvA">
+        <content textType="title" fontSize="28" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>重点模块总览</p>
+        </content>
+      </shape>
+      <line id="bvn" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="800" height="24" topLeftX="80" topLeftY="150" type="text" id="bvJ">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>八大模块地图，重点展开任务引擎、Provider 抽象层与角色一致性</p>
+        </content>
+      </shape>
+      <shape width="390" height="52" topLeftX="80" topLeftY="190" presetHandlers="4" type="rect" id="bvT">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="30" height="42" topLeftX="95" topLeftY="195" type="text" id="bvX">
+        <content textType="headline" fontSize="20" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>1</p>
+        </content>
+      </shape>
+      <shape width="330" height="22" topLeftX="130" topLeftY="197" type="text" id="bvS">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>多集内容生产体系</p>
+        </content>
+      </shape>
+      <shape width="330" height="20" topLeftX="130" topLeftY="219" type="text" id="bve">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>项目→剧集→分镜三层模型，角色项目级共享</p>
+        </content>
+      </shape>
+      <shape width="390" height="52" topLeftX="490" topLeftY="190" presetHandlers="4" type="rect" id="bvx">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="30" height="42" topLeftX="505" topLeftY="195" type="text" id="bvO">
+        <content textType="headline" fontSize="20" fontFamily="思源黑体" color="rgba(100, 110, 130, 1)" bold="true">
+          <p>2</p>
+        </content>
+      </shape>
+      <shape width="330" height="22" topLeftX="540" topLeftY="197" type="text" id="bvP">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>AI 智能体编排</p>
+        </content>
+      </shape>
+      <shape width="330" height="20" topLeftX="540" topLeftY="219" type="text" id="bvM">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>编剧智能体从灵感产出结构化分镜与角色草稿</p>
+        </content>
+      </shape>
+      <shape width="390" height="52" topLeftX="80" topLeftY="252" presetHandlers="4" type="rect" id="bvc">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.15)"/>
+        </fill>
+        <border color="rgba(37, 99, 235, 0.5)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="30" height="42" topLeftX="95" topLeftY="257" type="text" id="bvY">
+        <content textType="headline" fontSize="20" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>3</p>
+        </content>
+      </shape>
+      <shape width="330" height="22" topLeftX="130" topLeftY="259" type="text" id="bvZ">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>异步任务引擎 ★</p>
+        </content>
+      </shape>
+      <shape width="330" height="20" topLeftX="130" topLeftY="281" type="text" id="bvN">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>幂等/重试/取消/重启恢复的任务状态机</p>
+        </content>
+      </shape>
+      <shape width="390" height="52" topLeftX="490" topLeftY="252" presetHandlers="4" type="rect" id="bvj">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="30" height="42" topLeftX="505" topLeftY="257" type="text" id="bvi">
+        <content textType="headline" fontSize="20" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>4</p>
+        </content>
+      </shape>
+      <shape width="330" height="22" topLeftX="540" topLeftY="259" type="text" id="bvH">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>多模态 Provider 抽象层</p>
+        </content>
+      </shape>
+      <shape width="330" height="20" topLeftX="540" topLeftY="281" type="text" id="bvl">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>隐藏模型差异的统一调用接口</p>
+        </content>
+      </shape>
+      <shape width="390" height="52" topLeftX="80" topLeftY="314" presetHandlers="4" type="rect" id="bvE">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.15)"/>
+        </fill>
+        <border color="rgba(37, 99, 235, 0.5)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="30" height="42" topLeftX="95" topLeftY="319" type="text" id="bvF">
+        <content textType="headline" fontSize="20" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>5</p>
+        </content>
+      </shape>
+      <shape width="330" height="22" topLeftX="130" topLeftY="321" type="text" id="bvf">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>角色一致性与抽卡选版 ★</p>
+        </content>
+      </shape>
+      <shape width="330" height="20" topLeftX="130" topLeftY="343" type="text" id="bvR">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>五层策略锁住角色长相</p>
+        </content>
+      </shape>
+      <shape width="390" height="52" topLeftX="490" topLeftY="314" presetHandlers="4" type="rect" id="bvq">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="30" height="42" topLeftX="505" topLeftY="319" type="text" id="bvp">
+        <content textType="headline" fontSize="20" fontFamily="思源黑体" color="rgba(100, 110, 130, 1)" bold="true">
+          <p>6</p>
+        </content>
+      </shape>
+      <shape width="330" height="22" topLeftX="540" topLeftY="321" type="text" id="bvr">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>FFmpeg 成片合成</p>
+        </content>
+      </shape>
+      <shape width="330" height="20" topLeftX="540" topLeftY="343" type="text" id="bvV">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>确定性音视频工程</p>
+        </content>
+      </shape>
+      <shape width="390" height="52" topLeftX="80" topLeftY="376" presetHandlers="4" type="rect" id="bvB">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="30" height="42" topLeftX="95" topLeftY="381" type="text" id="bvG">
+        <content textType="headline" fontSize="20" fontFamily="思源黑体" color="rgba(100, 110, 130, 1)" bold="true">
+          <p>7</p>
+        </content>
+      </shape>
+      <shape width="330" height="22" topLeftX="130" topLeftY="383" type="text" id="bvh">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>SSE 实时进度与创作工作台</p>
+        </content>
+      </shape>
+      <shape width="330" height="20" topLeftX="130" topLeftY="405" type="text" id="bvs">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>6 步流水线人机协作界面</p>
+        </content>
+      </shape>
+      <shape width="390" height="52" topLeftX="490" topLeftY="376" presetHandlers="4" type="rect" id="bva">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="30" height="42" topLeftX="505" topLeftY="381" type="text" id="bvk">
+        <content textType="headline" fontSize="20" fontFamily="思源黑体" color="rgba(100, 110, 130, 1)" bold="true">
+          <p>8</p>
+        </content>
+      </shape>
+      <shape width="330" height="22" topLeftX="540" topLeftY="383" type="text" id="bvv">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>账号权限与内容安全</p>
+        </content>
+      </shape>
+      <shape width="330" height="20" topLeftX="540" topLeftY="405" type="text" id="bvy">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>JWT 双令牌、RBAC、内容审核降级</p>
+        </content>
+      </shape>
+      <shape width="810" height="40" topLeftX="80" topLeftY="450" type="text" id="bvz">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(120, 135, 160, 1)" lineSpacing="multiple:1.4">
+          <p>★ 标记为重点展开模块。每个模块统一按三段讲：职责是什么 → 关键设计 → 效果/数据</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bvt">
+      <content>
+        <p>这一页当目录用。讲的时候明确说：&quot;我会重点展开任务引擎、Provider 抽象层和角色一致性，其余快速带过。&quot;给评委一个心理预期，也保护你的时间。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYn">
+    <style>
+      <fill id="fYn">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="bAN">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第二部分　重点模块</p>
+        </content>
+      </shape>
+      <shape width="800" height="50" topLeftX="80" topLeftY="80" type="text" id="bAd">
+        <content textType="title" fontSize="26" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>模块一：多集内容生产体系</p>
+        </content>
+      </shape>
+      <line id="bAg" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="800" height="24" topLeftX="80" topLeftY="150" type="text" id="bAm">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>从两层升级到三层，且不破坏存量数据</p>
+        </content>
+      </shape>
+      <shape width="380" height="140" topLeftX="80" topLeftY="185" presetHandlers="6" type="rect" id="bAE">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="350" height="24" topLeftX="95" topLeftY="195" type="text" id="bAK">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>三层模型</p>
+        </content>
+      </shape>
+      <shape width="350" height="95" topLeftX="95" topLeftY="222" type="text" id="bAU">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.6">
+          <p>项目（Project）→ 剧集（Episode）→ 分镜（Storyboard）</p>
+          <p>时间线也归属到集</p>
+          <p>角色在项目级共享，定妆照与音色跨集复用</p>
+        </content>
+      </shape>
+      <shape width="390" height="140" topLeftX="490" topLeftY="185" presetHandlers="6" type="rect" id="bAW">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="24" topLeftX="505" topLeftY="195" type="text" id="bAC">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>零迁移成本</p>
+        </content>
+      </shape>
+      <shape width="360" height="95" topLeftX="505" topLeftY="222" type="text" id="bAD">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.6">
+          <p>episode_id 设计为可空外键，存量数据不迁移即可上线</p>
+          <p>启动回填补齐，老接口自动路由到&quot;默认集&quot;</p>
+          <p>老前端与脚本完全无感知</p>
+        </content>
+      </shape>
+      <shape width="800" height="80" topLeftX="80" topLeftY="345" presetHandlers="6" type="rect" id="bAQ">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.08)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="760" height="24" topLeftX="100" topLeftY="355" type="text" id="bvb">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>实测结果</p>
+        </content>
+      </shape>
+      <shape width="760" height="35" topLeftX="100" topLeftY="382" type="text" id="bAI">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>22 个存量活跃项目全部自动回填成功；34 个&quot;孤儿分镜&quot;核查后属于已软删项目，符合预期</p>
+        </content>
+      </shape>
+      <shape width="800" height="60" topLeftX="80" topLeftY="445" presetHandlers="6" type="rect" id="bAw">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="760" height="40" topLeftX="100" topLeftY="455" type="text" id="bAL">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" lineSpacing="multiple:1.4">
+          <p><strong><span color="rgba(255, 255, 255, 1)">设计亮点：</span></strong>增量扩展不破坏存量 —— 上线前库里有 20 多个真实项目和 300 多条分镜，不是清库重来，而是做了幂等回填</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bAo">
+      <content>
+        <p>这页的亮点是&quot;增量扩展不破坏存量&quot;。可以主动说：&quot;上线前库里有 20 多个真实项目和 300 多条分镜，我们不是清库重来，而是做了幂等回填。&quot;评委很吃这一套。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYC">
+    <style>
+      <fill id="fYC">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="bvC">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第二部分　重点模块</p>
+        </content>
+      </shape>
+      <shape width="800" height="50" topLeftX="80" topLeftY="80" type="text" id="bvm">
+        <content textType="title" fontSize="26" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>模块二：AI 智能体编排</p>
+        </content>
+      </shape>
+      <line id="bhA" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="800" height="24" topLeftX="80" topLeftY="150" type="text" id="bhF">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>把&quot;写小说&quot;变成&quot;可入库的结构化数据&quot;</p>
+        </content>
+      </shape>
+      <shape width="800" height="50" topLeftX="80" topLeftY="185" presetHandlers="4" type="rect" id="bvI">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.08)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="760" height="50" topLeftX="100" topLeftY="185" type="text" id="bvd">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)">
+          <p><strong>职责：</strong>编剧智能体接收灵感 + 风格 + 集梗概，产出分镜脚本与角色草稿</p>
+        </content>
+      </shape>
+      <shape width="800" height="28" topLeftX="80" topLeftY="250" type="text" id="bvU">
+        <content textType="headline" fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>关键难点与三层保障</p>
+        </content>
+      </shape>
+      <shape width="250" height="100" topLeftX="80" topLeftY="285" presetHandlers="4" type="rect" id="bvo">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(37, 99, 235, 0.3)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="220" height="22" topLeftX="95" topLeftY="295" type="text" id="bhv">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第一层 · 强约束</p>
+        </content>
+      </shape>
+      <shape width="220" height="55" topLeftX="95" topLeftY="320" type="text" id="bvw">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>系统提示词定义 JSON Schema，约束输出结构</p>
+        </content>
+      </shape>
+      <shape width="250" height="100" topLeftX="355" topLeftY="285" presetHandlers="4" type="rect" id="bvg">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(37, 99, 235, 0.3)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="220" height="22" topLeftX="370" topLeftY="295" type="text" id="bvQ">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第二层 · 提取校验</p>
+        </content>
+      </shape>
+      <shape width="220" height="55" topLeftX="370" topLeftY="320" type="text" id="bhb">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>字段缺失 / 类型错误直接判失败，不入库</p>
+        </content>
+      </shape>
+      <shape width="250" height="100" topLeftX="630" topLeftY="285" presetHandlers="4" type="rect" id="bhh">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(37, 99, 235, 0.3)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="220" height="22" topLeftX="645" topLeftY="295" type="text" id="bvW">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第三层 · 降温重试</p>
+        </content>
+      </shape>
+      <shape width="220" height="55" topLeftX="645" topLeftY="320" type="text" id="bvL">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>首轮 0.7 要创意，失败后降到 0.3 要稳定</p>
+        </content>
+      </shape>
+      <shape width="800" height="100" topLeftX="80" topLeftY="405" presetHandlers="6" type="rect" id="bvD">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="760" height="24" topLeftX="100" topLeftY="415" type="text" id="bhe">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>设计取舍与可观测</p>
+        </content>
+      </shape>
+      <shape width="760" height="55" topLeftX="100" topLeftY="443" type="text" id="bhr">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)">
+          <p>智能体只负责&quot;决策与提示词组装&quot;，不阻塞等待模型生成 —— 生成交给 Worker 异步执行</p>
+          <p>agent_runs 表记录每次运行的耗时、token 与费用，成本可查、问题可溯</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bvK">
+      <content>
+        <p>讲这一段要突出&quot;可控&quot;。如果评委问智能体框架用在哪，如实说：框架是可选的增强层，核心链路是结构化 JSON + 校验 + 重试，因为答辩和线上都需要可测、可复现。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYl">
+    <style>
+      <fill id="fYl">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="bhi">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第二部分　重点模块 ★ 核心</p>
+        </content>
+      </shape>
+      <shape width="800" height="50" topLeftX="80" topLeftY="80" type="text" id="bhz">
+        <content textType="title" fontSize="26" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>模块三：异步任务引擎</p>
+        </content>
+      </shape>
+      <line id="bhH" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="800" height="24" topLeftX="80" topLeftY="150" type="text" id="bhk">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>整个平台的心脏 —— 图像 10 秒起、视频轮询数分钟，同步接口必然超时</p>
+        </content>
+      </shape>
+      <shape width="380" height="155" topLeftX="80" topLeftY="185" presetHandlers="6" type="rect" id="bhM">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="350" height="24" topLeftX="95" topLeftY="195" type="text" id="bhs">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>架构</p>
+        </content>
+      </shape>
+      <shape width="350" height="110" topLeftX="95" topLeftY="222" type="text" id="bhc">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.6">
+          <p>模块级 asyncio 队列 + 4 个并发 Worker</p>
+          <p>asyncio.to_thread：阻塞式 HTTP 轮询丢进线程池，不卡事件循环</p>
+          <p>进程内事件总线推送 SSE，前端实时看进度</p>
+        </content>
+      </shape>
+      <shape width="390" height="155" topLeftX="490" topLeftY="185" presetHandlers="6" type="rect" id="bha">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="24" topLeftX="505" topLeftY="195" type="text" id="bhY">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>任务状态机</p>
+        </content>
+      </shape>
+      <shape width="360" height="30" topLeftX="505" topLeftY="225" type="text" id="bhG">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" textAlign="center">
+          <p>Pending → Queued → Running →</p>
+        </content>
+      </shape>
+      <shape width="360" height="30" topLeftX="505" topLeftY="255" type="text" id="bhx">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" textAlign="center">
+          <p>Succeeded / Failed / Canceled</p>
+        </content>
+      </shape>
+      <shape width="360" height="45" topLeftX="505" topLeftY="290" type="text" id="bhV">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4" textAlign="center">
+          <p>Failed 可限次重试（指数退避），Canceled 为协作式取消</p>
+        </content>
+      </shape>
+      <shape width="800" height="28" topLeftX="80" topLeftY="355" type="text" id="bhT">
+        <content textType="headline" fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>四个关键机制</p>
+        </content>
+      </shape>
+      <shape width="190" height="55" topLeftX="80" topLeftY="390" presetHandlers="4" type="rect" id="bhB">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="170" height="45" topLeftX="90" topLeftY="395" type="text" id="bhX">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" lineSpacing="multiple:1.3" textAlign="center">
+          <p><strong>幂等键去重</strong><br/>重复提交返回已有任务</p>
+        </content>
+      </shape>
+      <shape width="190" height="55" topLeftX="285" topLeftY="390" presetHandlers="4" type="rect" id="bhq">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="170" height="45" topLeftX="295" topLeftY="395" type="text" id="bhO">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" lineSpacing="multiple:1.3" textAlign="center">
+          <p><strong>限次重试</strong><br/>可重试错误 + 指数退避</p>
+        </content>
+      </shape>
+      <shape width="190" height="55" topLeftX="490" topLeftY="390" presetHandlers="4" type="rect" id="bhn">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="170" height="45" topLeftX="500" topLeftY="395" type="text" id="bhf">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" lineSpacing="multiple:1.3" textAlign="center">
+          <p><strong>协作式取消</strong><br/>长流程埋检查点，可终止</p>
+        </content>
+      </shape>
+      <shape width="185" height="55" topLeftX="695" topLeftY="390" presetHandlers="4" type="rect" id="bhJ">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="165" height="45" topLeftX="705" topLeftY="395" type="text" id="bhR">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" lineSpacing="multiple:1.3" textAlign="center">
+          <p><strong>重启恢复</strong><br/>排队重入队，运行中判失败</p>
+        </content>
+      </shape>
+      <shape width="800" height="50" topLeftX="80" topLeftY="460" presetHandlers="4" type="rect" id="bht">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="760" height="50" topLeftX="100" topLeftY="460" type="text" id="bhj">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)">
+          <p><strong><span color="rgba(255, 255, 255, 1)">效果：</span></strong>提交类接口只做&quot;鉴权 + 落任务表 + 入队 + 返回 task_id&quot;，响应从分钟级降到毫秒级</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bhy">
+      <content>
+        <p>这是全篇技术含量最高的一页，建议讲足 1 分钟。用&quot;如果没有它会发生什么&quot;反过来讲：接口超时、前端白屏、用户重复点击、失败任务永远卡住。如果评委追问&quot;线程池会不会有并发问题&quot;，答：事件从工作线程回主循环时用 call_soon_threadsafe 调度。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYM">
+    <style>
+      <fill id="fYM">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="bhS">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第二部分　重点模块</p>
+        </content>
+      </shape>
+      <shape width="800" height="50" topLeftX="80" topLeftY="80" type="text" id="bhN">
+        <content textType="title" fontSize="26" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>模块四：多模态 Provider 抽象层</p>
+        </content>
+      </shape>
+      <line id="bhK" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="800" height="24" topLeftX="80" topLeftY="150" type="text" id="bhU">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>换供应商不改业务代码 —— 把&quot;供应商的不确定性&quot;隔离在一层之内</p>
+        </content>
+      </shape>
+      <shape width="800" height="60" topLeftX="80" topLeftY="185" presetHandlers="6" type="rect" id="bhm">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.1)"/>
+        </fill>
+        <border color="rgba(37, 99, 235, 0.3)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="760" height="60" topLeftX="100" topLeftY="185" type="text" id="bhP">
+        <content textType="headline" fontSize="18" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" textAlign="center">
+          <p>统一接口：submit（提交）→ query（轮询）→ result（取结果）</p>
+        </content>
+      </shape>
+      <shape width="800" height="28" topLeftX="80" topLeftY="265" type="text" id="bhE">
+        <content textType="headline" fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>接入的生成能力</p>
+        </content>
+      </shape>
+      <table id="bhW" width="800" height="140" topLeftX="80" topLeftY="300">
+        <colgroup>
+          <col span="1" width="120"/>
+          <col span="1" width="280"/>
+          <col span="1" width="400"/>
+        </colgroup>
+        <tr height="32">
+          <td id="bre">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>模态</p>
+            </content>
+          </td>
+          <td id="bhZ">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>模型</p>
+            </content>
+          </td>
+          <td id="bhp">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>关键特性</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="36">
+          <td id="bhw">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+              <p>文本</p>
+            </content>
+          </td>
+          <td id="bhL">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+              <p>agnes-2.5-flash</p>
+            </content>
+          </td>
+          <td id="bhg">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" textAlign="left">
+              <p>512K 上下文，兼容 OpenAI 格式</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="36">
+          <td id="bhQ">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+              <p>图像</p>
+            </content>
+          </td>
+          <td id="brb">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+              <p>agnes-image-2.1-flash</p>
+            </content>
+          </td>
+          <td id="bhl">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" textAlign="left">
+              <p>1K-4K 分辨率，支持参考图模式</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="36">
+          <td id="bhu">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+              <p>视频</p>
+            </content>
+          </td>
+          <td id="bhI">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+              <p>agnes-video-2.5-flash</p>
+            </content>
+          </td>
+          <td id="bhd">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" textAlign="left">
+              <p>720P，4-12 秒，&quot;建单 + 轮询&quot;异步模式</p>
+            </content>
+          </td>
+        </tr>
+      </table>
+      <shape width="800" height="55" topLeftX="80" topLeftY="455" presetHandlers="4" type="rect" id="bhC">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="760" height="55" topLeftX="100" topLeftY="455" type="text" id="bhD">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" lineSpacing="multiple:1.4">
+          <p><strong><span color="rgba(255, 255, 255, 1)">关键设计：</span></strong>Agnes 视频是异步&quot;建单+轮询&quot;，抽象层包装成统一生命周期；查询限流(429)视为&quot;仍在处理中&quot;而非失败。新增供应商只需实现同一契约，业务代码零改动。</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bho">
+      <content>
+        <p>如果评委对模型细节感兴趣，就展开讲&quot;视频是异步的，查询接口还可能因为限流返回 429，我们把它视为&apos;仍在处理中&apos;而不是失败&quot;——这个细节很能说明你真跑过。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYB">
+    <style>
+      <fill id="fYB">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="brs">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第二部分　重点模块 ★ 核心</p>
+        </content>
+      </shape>
+      <shape width="800" height="50" topLeftX="80" topLeftY="80" type="text" id="bra">
+        <content textType="title" fontSize="26" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>模块五：角色一致性与抽卡选版</p>
+        </content>
+      </shape>
+      <line id="brG" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="800" height="24" topLeftX="80" topLeftY="150" type="text" id="brF">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>AI 生成的头号顽疾 —— 五层策略把&quot;看运气&quot;变成可复现的工程流程</p>
+        </content>
+      </shape>
+      <shape width="160" height="130" topLeftX="80" topLeftY="185" presetHandlers="6" type="rect" id="brV">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.15)"/>
+        </fill>
+        <border color="rgba(37, 99, 235, 0.4)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="160" height="30" topLeftX="80" topLeftY="195" type="text" id="brB">
+        <content textType="headline" fontSize="24" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" textAlign="center">
+          <p>1</p>
+        </content>
+      </shape>
+      <shape width="140" height="24" topLeftX="90" topLeftY="230" type="text" id="brq">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" textAlign="center">
+          <p>结构化提示词</p>
+        </content>
+      </shape>
+      <shape width="140" height="50" topLeftX="90" topLeftY="256" type="text" id="brj">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3" textAlign="center">
+          <p>角色设定落库为模板，出图按角色名自动注入，描述词组逐字一致</p>
+        </content>
+      </shape>
+      <shape width="160" height="130" topLeftX="255" topLeftY="185" presetHandlers="6" type="rect" id="brf">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.12)"/>
+        </fill>
+        <border color="rgba(37, 99, 235, 0.35)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="160" height="30" topLeftX="255" topLeftY="195" type="text" id="brR">
+        <content textType="headline" fontSize="24" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" textAlign="center">
+          <p>2</p>
+        </content>
+      </shape>
+      <shape width="140" height="24" topLeftX="265" topLeftY="230" type="text" id="brl">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" textAlign="center">
+          <p>风格词包</p>
+        </content>
+      </shape>
+      <shape width="140" height="50" topLeftX="265" topLeftY="256" type="text" id="brM">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3" textAlign="center">
+          <p>正/负向词包作为可复用预设叠加，锁定画风不漂移</p>
+        </content>
+      </shape>
+      <shape width="160" height="130" topLeftX="430" topLeftY="185" presetHandlers="6" type="rect" id="bri">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.1)"/>
+        </fill>
+        <border color="rgba(37, 99, 235, 0.3)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="160" height="30" topLeftX="430" topLeftY="195" type="text" id="brH">
+        <content textType="headline" fontSize="24" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" textAlign="center">
+          <p>3</p>
+        </content>
+      </shape>
+      <shape width="140" height="24" topLeftX="440" topLeftY="230" type="text" id="brx">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" textAlign="center">
+          <p>多角度参考图</p>
+        </content>
+      </shape>
+      <shape width="140" height="50" topLeftX="440" topLeftY="256" type="text" id="brc">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3" textAlign="center">
+          <p>先产定妆照，视频阶段以图为准（参考图模式），让模型&quot;照着画&quot;</p>
+        </content>
+      </shape>
+      <shape width="160" height="130" topLeftX="605" topLeftY="185" presetHandlers="6" type="rect" id="brY">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.08)"/>
+        </fill>
+        <border color="rgba(37, 99, 235, 0.25)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="160" height="30" topLeftX="605" topLeftY="195" type="text" id="brA">
+        <content textType="headline" fontSize="24" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" textAlign="center">
+          <p>4</p>
+        </content>
+      </shape>
+      <shape width="140" height="24" topLeftX="615" topLeftY="230" type="text" id="brO">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" textAlign="center">
+          <p>固定 seed</p>
+        </content>
+      </shape>
+      <shape width="140" height="50" topLeftX="615" topLeftY="256" type="text" id="brT">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3" textAlign="center">
+          <p>关键镜头记录 seed，结果可复现、可对比、可回滚</p>
+        </content>
+      </shape>
+      <shape width="100" height="130" topLeftX="780" topLeftY="185" presetHandlers="6" type="rect" id="brX">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="100" height="30" topLeftX="780" topLeftY="195" type="text" id="brv">
+        <content textType="headline" fontSize="24" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>5</p>
+        </content>
+      </shape>
+      <shape width="90" height="24" topLeftX="785" topLeftY="230" type="text" id="brn">
+        <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>抽卡选版</p>
+        </content>
+      </shape>
+      <shape width="90" height="50" topLeftX="785" topLeftY="256" type="text" id="brJ">
+        <content textType="caption" fontSize="9" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" lineSpacing="multiple:1.3" textAlign="center">
+          <p>同镜头批量出 2-4 版，人工挑选或自动淘汰崩坏结果</p>
+        </content>
+      </shape>
+      <shape width="370" height="170" topLeftX="80" topLeftY="335" presetHandlers="8" type="rect" id="brt">
+        <fill>
+          <fillColor color="rgba(220, 228, 240, 1)"/>
+        </fill>
+        <border color="rgba(180, 195, 220, 1)" dashArray="dash" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="370" height="40" topLeftX="80" topLeftY="400" type="text" id="brh">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(120, 135, 160, 1)" textAlign="center">
+          <p>【角色一致性对比图占位】</p>
+          <p>左：未使用策略 / 右：五层策略后</p>
+        </content>
+      </shape>
+      <shape width="405" height="170" topLeftX="475" topLeftY="335" presetHandlers="6" type="rect" id="bry">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="365" height="28" topLeftX="495" topLeftY="350" type="text" id="brz">
+        <content textType="headline" fontSize="16" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>核心思路</p>
+        </content>
+      </shape>
+      <shape width="365" height="120" topLeftX="495" topLeftY="380" type="text" id="brk">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)">
+          <p>把视觉特征从&quot;文字描述&quot;转成&quot;视觉锚点&quot;</p>
+          <p>文生图模型对文字理解是概率性的，纯文本无法锁定视觉特征</p>
+          <p>每个镜头独立生成缺少共享锚点 → 用定妆照+参考图建立锚点</p>
+          <p><strong><span color="rgba(255, 255, 255, 1)">效果：角色可用率显著提升，从&quot;抽十张能用两三张&quot;到&quot;批量出片可挑选&quot;</span></strong></p>
+        </content>
+      </shape>
+    </data>
+    <note id="brr">
+      <content>
+        <p>一致性是漫剧的命门，这页一定要讲。可以用对比感强的说法收尾：&quot;一次生成对一个能看的，是从抽卡开始的。&quot;</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYH">
+    <style>
+      <fill id="fYH">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="bFa">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第三部分　项目中遇到的问题及解决方案</p>
+        </content>
+      </shape>
+      <shape width="700" height="50" topLeftX="80" topLeftY="80" type="text" id="brN">
+        <content textType="title" fontSize="28" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>问题地图：八个坑，一张表看清</p>
+        </content>
+      </shape>
+      <line id="brU" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="800" height="24" topLeftX="80" topLeftY="150" type="text" id="bFA">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>现象 → 根因 → 方案 → 效果，四步缺一不可</p>
+        </content>
+      </shape>
+      <table id="bFr" width="800" height="310" topLeftX="80" topLeftY="185">
+        <colgroup>
+          <col span="1" width="36"/>
+          <col span="1" width="200"/>
+          <col span="1" width="80"/>
+          <col span="1" width="484"/>
+        </colgroup>
+        <tr height="35">
+          <td id="bFy">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>#</p>
+            </content>
+          </td>
+          <td id="bFz">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>问题</p>
+            </content>
+          </td>
+          <td id="brP">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>类型</p>
+            </content>
+          </td>
+          <td id="brW">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>一句话方案</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="35">
+          <td id="brD">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>1</p>
+            </content>
+          </td>
+          <td id="bFh">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)">
+              <p>角色跨镜头不一致</p>
+            </content>
+          </td>
+          <td id="bFf">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(201, 48, 44, 1)">
+              <p>模型层</p>
+            </content>
+          </td>
+          <td id="brZ">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+              <p>五层一致性策略（提示词/风格词/参考图/seed/抽卡）</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="35">
+          <td id="brw">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>2</p>
+            </content>
+          </td>
+          <td id="brQ">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)">
+              <p>长耗时任务阻塞接口</p>
+            </content>
+          </td>
+          <td id="bFj">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)">
+              <p>工程层</p>
+            </content>
+          </td>
+          <td id="bFV">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+              <p>自研异步任务引擎 + 线程池 + SSE 实时进度</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="35">
+          <td id="bru">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>3</p>
+            </content>
+          </td>
+          <td id="brd">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)">
+              <p>重复提交/失败/重启丢任务</p>
+            </content>
+          </td>
+          <td id="bro">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)">
+              <p>工程层</p>
+            </content>
+          </td>
+          <td id="bFF">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+              <p>幂等键 + 限次重试 + 协作式取消 + 启动恢复</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="35">
+          <td id="bFx">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>4</p>
+            </content>
+          </td>
+          <td id="bFc">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)">
+              <p>成片音画不同步、黑屏静音</p>
+            </content>
+          </td>
+          <td id="brS">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)">
+              <p>工程层</p>
+            </content>
+          </td>
+          <td id="brK">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+              <p>每段时长严格对齐（补帧/补静音/裁剪）</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="35">
+          <td id="brm">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>5</p>
+            </content>
+          </td>
+          <td id="bFM">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)">
+              <p>免费额度限流 + 内容审核拦截</p>
+            </content>
+          </td>
+          <td id="bFi">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(201, 48, 44, 1)">
+              <p>模型层</p>
+            </content>
+          </td>
+          <td id="brE">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+              <p>分模型信号量 + 指数退避 + 提示词降级重试</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="35">
+          <td id="brC">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>6</p>
+            </content>
+          </td>
+          <td id="bFe">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)">
+              <p>登录 8 小时掉线 + 刷新风暴</p>
+            </content>
+          </td>
+          <td id="bFn">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)">
+              <p>工程层</p>
+            </content>
+          </td>
+          <td id="bFJ">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+              <p>时区统一 + 刷新单飞 + 长连接前预刷新</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="35">
+          <td id="brp">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>7</p>
+            </content>
+          </td>
+          <td id="brL">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)">
+              <p>架构升级撞上存量数据</p>
+            </content>
+          </td>
+          <td id="bFb">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(139, 90, 43, 1)">
+              <p>数据层</p>
+            </content>
+          </td>
+          <td id="bFO">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+              <p>可空外键 + 幂等启动迁移 + 无竞态回填</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="30">
+          <td id="bFT">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>8</p>
+            </content>
+          </td>
+          <td id="brI">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)">
+              <p>单镜头逐个点，效率太低</p>
+            </content>
+          </td>
+          <td id="brg">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(76, 122, 90, 1)">
+              <p>体验层</p>
+            </content>
+          </td>
+          <td id="bFv">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+              <p>批量模式 + 成本确认 + 失败聚合重试 + 合成预检</p>
+            </content>
+          </td>
+        </tr>
+      </table>
+    </data>
+    <note id="bFs">
+      <content>
+        <p>用 20 秒过一遍这张表，让评委知道问题的&quot;分布&quot;：两个在模型层、五个在工程层、一个在数据层、一个在体验层。然后说：&quot;我挑其中四个最有代表性的展开。&quot;</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYe">
+    <style>
+      <fill id="fYe">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="bFk">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第三部分　问题及解决方案 ★ 重点</p>
+        </content>
+      </shape>
+      <shape width="800" height="50" topLeftX="80" topLeftY="80" type="text" id="bFp">
+        <content textType="title" fontSize="26" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>问题一：角色跨镜头不一致</p>
+        </content>
+      </shape>
+      <line id="bFK" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="380" height="80" topLeftX="80" topLeftY="155" presetHandlers="6" type="rect" id="bFt">
+        <fill>
+          <fillColor color="rgba(201, 48, 44, 0.08)"/>
+        </fill>
+        <border color="rgba(201, 48, 44, 0.3)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="350" height="22" topLeftX="95" topLeftY="165" type="text" id="bFu">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(201, 48, 44, 1)" bold="true">
+          <p>现象</p>
+        </content>
+      </shape>
+      <shape width="350" height="40" topLeftX="95" topLeftY="190" type="text" id="bFW">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>同一角色不同分镜里脸型、发型、服装、画风都会漂移，抽十张能用的只有两三张</p>
+        </content>
+      </shape>
+      <shape width="390" height="80" topLeftX="490" topLeftY="155" presetHandlers="6" type="rect" id="bFm">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 0.06)"/>
+        </fill>
+        <border color="rgba(13, 19, 38, 0.2)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="22" topLeftX="505" topLeftY="165" type="text" id="bFX">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>根因分析</p>
+        </content>
+      </shape>
+      <shape width="360" height="40" topLeftX="505" topLeftY="190" type="text" id="bFS">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>文生图模型对文字描述的理解是概率性的，纯文本无法锁定视觉特征；每个镜头独立生成，缺少共享锚点</p>
+        </content>
+      </shape>
+      <shape width="800" height="28" topLeftX="80" topLeftY="255" type="text" id="bFw">
+        <content textType="headline" fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>五层递进方案</p>
+        </content>
+      </shape>
+      <shape width="155" height="90" topLeftX="80" topLeftY="290" presetHandlers="4" type="rect" id="bFQ">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="135" height="20" topLeftX="90" topLeftY="298" type="text" id="bFD">
+        <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>方案一</p>
+        </content>
+      </shape>
+      <shape width="135" height="55" topLeftX="90" topLeftY="320" type="text" id="bFY">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>角色设定沉淀为结构化提示词模板，出图按角色名自动注入</p>
+        </content>
+      </shape>
+      <shape width="155" height="90" topLeftX="245" topLeftY="290" presetHandlers="4" type="rect" id="bFP">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.12)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="135" height="20" topLeftX="255" topLeftY="298" type="text" id="bFg">
+        <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>方案二</p>
+        </content>
+      </shape>
+      <shape width="135" height="55" topLeftX="255" topLeftY="320" type="text" id="bFH">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>风格作为可复用的正/负向词包叠加，锁死画风</p>
+        </content>
+      </shape>
+      <shape width="155" height="90" topLeftX="410" topLeftY="290" presetHandlers="4" type="rect" id="bFZ">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.14)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="135" height="20" topLeftX="420" topLeftY="298" type="text" id="bFI">
+        <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>方案三</p>
+        </content>
+      </shape>
+      <shape width="135" height="55" topLeftX="420" topLeftY="320" type="text" id="bFU">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>先产多角度定妆照，视频阶段以参考图为准，让模型&quot;照着画&quot;</p>
+        </content>
+      </shape>
+      <shape width="155" height="90" topLeftX="575" topLeftY="290" presetHandlers="4" type="rect" id="bFR">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.16)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="135" height="20" topLeftX="585" topLeftY="298" type="text" id="bFl">
+        <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>方案四</p>
+        </content>
+      </shape>
+      <shape width="135" height="55" topLeftX="585" topLeftY="320" type="text" id="bFN">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>关键镜头固定 seed，结果可复现、可对比</p>
+        </content>
+      </shape>
+      <shape width="140" height="90" topLeftX="740" topLeftY="290" presetHandlers="4" type="rect" id="bFC">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="120" height="20" topLeftX="750" topLeftY="298" type="text" id="bFB">
+        <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>方案五</p>
+        </content>
+      </shape>
+      <shape width="120" height="55" topLeftX="750" topLeftY="320" type="text" id="bFq">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" lineSpacing="multiple:1.3">
+          <p>同镜头多版本抽卡，质检淘汰崩坏结果</p>
+        </content>
+      </shape>
+      <shape width="800" height="100" topLeftX="80" topLeftY="400" presetHandlers="6" type="rect" id="bFL">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="760" height="28" topLeftX="100" topLeftY="415" type="text" id="bFG">
+        <content textType="headline" fontSize="16" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>效果</p>
+        </content>
+      </shape>
+      <shape width="760" height="45" topLeftX="100" topLeftY="448" type="text" id="bFE">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)">
+          <p>角色一致性从&quot;看运气&quot;变成可控的工程流程。核心思路：把视觉特征从&quot;文字描述&quot;转成&quot;视觉锚点&quot;——一次生成对一个能看的，是从抽卡开始的。</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bFd">
+      <content>
+        <p>重点页。讲法建议：先说根因（概率性生成 vs 视觉锁定），再层层递进讲五层方案——这个&quot;层层加码&quot;的叙述本身就体现了你的思考深度。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYU">
+    <style>
+      <fill id="fYU">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="bjz">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第三部分　问题及解决方案 ★ 重点</p>
+        </content>
+      </shape>
+      <shape width="800" height="50" topLeftX="80" topLeftY="80" type="text" id="bjH">
+        <content textType="title" fontSize="26" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>问题二：长耗时任务把前后端一起拖死</p>
+        </content>
+      </shape>
+      <line id="bje" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="380" height="75" topLeftX="80" topLeftY="155" presetHandlers="6" type="rect" id="bjF">
+        <fill>
+          <fillColor color="rgba(201, 48, 44, 0.08)"/>
+        </fill>
+        <border color="rgba(201, 48, 44, 0.3)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="350" height="22" topLeftX="95" topLeftY="163" type="text" id="bjO">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(201, 48, 44, 1)" bold="true">
+          <p>现象</p>
+        </content>
+      </shape>
+      <shape width="350" height="38" topLeftX="95" topLeftY="187" type="text" id="bjV">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>图像生成 10 秒起，视频轮询数分钟。同步等待 → 接口超时、前端白屏、用户反复点击</p>
+        </content>
+      </shape>
+      <shape width="390" height="75" topLeftX="490" topLeftY="155" presetHandlers="6" type="rect" id="bjf">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 0.06)"/>
+        </fill>
+        <border color="rgba(13, 19, 38, 0.2)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="22" topLeftX="505" topLeftY="163" type="text" id="bjJ">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>根因</p>
+        </content>
+      </shape>
+      <shape width="360" height="38" topLeftX="505" topLeftY="187" type="text" id="bja">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>长耗时 I/O（模型排队 + 轮询）与 HTTP 请求生命周期不匹配</p>
+        </content>
+      </shape>
+      <shape width="800" height="28" topLeftX="80" topLeftY="250" type="text" id="bFo">
+        <content textType="headline" fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>四步方案</p>
+        </content>
+      </shape>
+      <shape width="190" height="100" topLeftX="80" topLeftY="285" presetHandlers="4" type="rect" id="bjA">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="160" height="22" topLeftX="95" topLeftY="293" type="text" id="bjj">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>1. 异步化提交</p>
+        </content>
+      </shape>
+      <shape width="160" height="60" topLeftX="95" topLeftY="318" type="text" id="bjn">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>提交接口只做&quot;鉴权+落任务表+入队+返回 task_id&quot;，立即响应</p>
+        </content>
+      </shape>
+      <shape width="190" height="100" topLeftX="285" topLeftY="285" presetHandlers="4" type="rect" id="bji">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.12)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="160" height="22" topLeftX="300" topLeftY="293" type="text" id="bjB">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>2. Worker 消费</p>
+        </content>
+      </shape>
+      <shape width="160" height="60" topLeftX="300" topLeftY="318" type="text" id="bjv">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>4 个并发 Worker；阻塞式 HTTP 轮询放进线程池，不卡事件循环</p>
+        </content>
+      </shape>
+      <shape width="190" height="100" topLeftX="490" topLeftY="285" presetHandlers="4" type="rect" id="bjh">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.14)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="160" height="22" topLeftX="505" topLeftY="293" type="text" id="bjM">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>3. 全流程执行</p>
+        </content>
+      </shape>
+      <shape width="160" height="60" topLeftX="505" topLeftY="318" type="text" id="bjy">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>Worker 完成&quot;提交→轮询→下载落盘→写回结果&quot;，结果回写数据库</p>
+        </content>
+      </shape>
+      <shape width="185" height="100" topLeftX="695" topLeftY="285" presetHandlers="4" type="rect" id="bjc">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="155" height="22" topLeftX="710" topLeftY="293" type="text" id="bjR">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>4. 实时推送</p>
+        </content>
+      </shape>
+      <shape width="155" height="60" topLeftX="710" topLeftY="318" type="text" id="bjb">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" lineSpacing="multiple:1.3">
+          <p>进程内事件总线推 SSE，前端从&quot;等&quot;变成&quot;看&quot;（跨线程用 call_soon_threadsafe）</p>
+        </content>
+      </shape>
+      <shape width="800" height="95" topLeftX="80" topLeftY="405" presetHandlers="6" type="rect" id="bjr">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="760" height="28" topLeftX="100" topLeftY="418" type="text" id="bjx">
+        <content textType="headline" fontSize="16" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>效果</p>
+        </content>
+      </shape>
+      <shape width="760" height="42" topLeftX="100" topLeftY="450" type="text" id="bjs">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)">
+          <p>提交类接口响应从分钟级降到毫秒级，用户随时能看见任务在跑。批量出图/出视频天然复用同一引擎，前端只需给聚合入口。</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bjT">
+      <content>
+        <p>如果评委追问&quot;线程池会不会有并发问题&quot;，答：事件从工作线程回主循环时用 call_soon_threadsafe 调度，避免 asyncio 对象跨线程使用——这个细节足以证明你真踩过。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYR">
+    <style>
+      <fill id="fYR">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="bjp">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第三部分　问题及解决方案 ★ 重点</p>
+        </content>
+      </shape>
+      <shape width="800" height="50" topLeftX="80" topLeftY="80" type="text" id="bjL">
+        <content textType="title" fontSize="26" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>问题三：任务重复、失败、重启后&quot;消失&quot;</p>
+        </content>
+      </shape>
+      <line id="bMb" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="800" height="24" topLeftX="80" topLeftY="150" type="text" id="bjG">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>涉及付费接口，一处都不能含糊</p>
+        </content>
+      </shape>
+      <shape width="255" height="80" topLeftX="80" topLeftY="180" presetHandlers="4" type="rect" id="bjE">
+        <fill>
+          <fillColor color="rgba(201, 48, 44, 0.08)"/>
+        </fill>
+        <border color="rgba(201, 48, 44, 0.3)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="225" height="20" topLeftX="95" topLeftY="188" type="text" id="bjC">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(201, 48, 44, 1)" bold="true">
+          <p>现象一 · 重复提交</p>
+        </content>
+      </shape>
+      <shape width="225" height="45" topLeftX="95" topLeftY="210" type="text" id="bMe">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>用户手抖点两次 → 同一镜头生成两遍 → 重复计费</p>
+        </content>
+      </shape>
+      <shape width="255" height="80" topLeftX="352" topLeftY="180" presetHandlers="4" type="rect" id="bjX">
+        <fill>
+          <fillColor color="rgba(201, 48, 44, 0.08)"/>
+        </fill>
+        <border color="rgba(201, 48, 44, 0.3)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="225" height="20" topLeftX="367" topLeftY="188" type="text" id="bjS">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(201, 48, 44, 1)" bold="true">
+          <p>现象二 · 失败卡死</p>
+        </content>
+      </shape>
+      <shape width="225" height="45" topLeftX="367" topLeftY="210" type="text" id="bjK">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>网络抖动导致任务失败 → 任务永远卡在&quot;运行中&quot;</p>
+        </content>
+      </shape>
+      <shape width="255" height="80" topLeftX="625" topLeftY="180" presetHandlers="4" type="rect" id="bjm">
+        <fill>
+          <fillColor color="rgba(201, 48, 44, 0.08)"/>
+        </fill>
+        <border color="rgba(201, 48, 44, 0.3)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="225" height="20" topLeftX="640" topLeftY="188" type="text" id="bjt">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(201, 48, 44, 1)" bold="true">
+          <p>现象三 · 重启丢失</p>
+        </content>
+      </shape>
+      <shape width="225" height="45" topLeftX="640" topLeftY="210" type="text" id="bju">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>后端重启 → 队列任务全部变孤儿，进度条停在半路</p>
+        </content>
+      </shape>
+      <shape width="800" height="28" topLeftX="80" topLeftY="280" type="text" id="bjd">
+        <content textType="headline" fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>四件套方案</p>
+        </content>
+      </shape>
+      <shape width="190" height="95" topLeftX="80" topLeftY="315" presetHandlers="4" type="rect" id="bjo">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="160" height="22" topLeftX="95" topLeftY="323" type="text" id="bjZ">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>幂等</p>
+        </content>
+      </shape>
+      <shape width="160" height="55" topLeftX="95" topLeftY="348" type="text" id="bjw">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>任务表建幂等键唯一约束，重复提交直接返回已有任务，不再消耗额度</p>
+        </content>
+      </shape>
+      <shape width="190" height="95" topLeftX="285" topLeftY="315" presetHandlers="4" type="rect" id="bjQ">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.12)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="160" height="22" topLeftX="300" topLeftY="323" type="text" id="bjY">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>重试</p>
+        </content>
+      </shape>
+      <shape width="160" height="55" topLeftX="300" topLeftY="348" type="text" id="bjP">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>仅&quot;可重试&quot;类错误且次数未超限才重入队；配置错误（如未配密钥）绝不重试</p>
+        </content>
+      </shape>
+      <shape width="190" height="95" topLeftX="490" topLeftY="315" presetHandlers="4" type="rect" id="bjW">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.14)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="160" height="22" topLeftX="505" topLeftY="323" type="text" id="bjD">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>取消</p>
+        </content>
+      </shape>
+      <shape width="160" height="55" topLeftX="505" topLeftY="348" type="text" id="bjq">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>出图逐版本、视频轮询、删分镜等长流程埋检查点，协作式取消，取消后不继续写库</p>
+        </content>
+      </shape>
+      <shape width="185" height="95" topLeftX="695" topLeftY="315" presetHandlers="4" type="rect" id="bjN">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="155" height="22" topLeftX="710" topLeftY="323" type="text" id="bjU">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>恢复</p>
+        </content>
+      </shape>
+      <shape width="155" height="55" topLeftX="710" topLeftY="348" type="text" id="bjl">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" lineSpacing="multiple:1.3">
+          <p>启动扫描遗留任务：排队中重入队，运行中直接判失败 —— 宁可手动重试，也不重复调付费接口</p>
+        </content>
+      </shape>
+      <shape width="800" height="70" topLeftX="80" topLeftY="430" presetHandlers="6" type="rect" id="bjI">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="760" height="70" topLeftX="100" topLeftY="430" type="text" id="bjg">
+        <content textType="headline" fontSize="16" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>凡是花钱的操作，都做三件事：幂等、重试上限、启动不补跑</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bjk">
+      <content>
+        <p>重点页，这句收尾可以直接说：&quot;凡是花钱的操作，我们都做三件事：幂等、重试上限、启动不补跑。&quot;这是工程态度的体现。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYX">
+    <style>
+      <fill id="fYX">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="bMj">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第三部分　问题及解决方案</p>
+        </content>
+      </shape>
+      <shape width="800" height="50" topLeftX="80" topLeftY="80" type="text" id="bMn">
+        <content textType="title" fontSize="26" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>问题四：成片音画不同步、末段黑屏静音</p>
+        </content>
+      </shape>
+      <line id="bMf" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="380" height="75" topLeftX="80" topLeftY="155" presetHandlers="6" type="rect" id="bMJ">
+        <fill>
+          <fillColor color="rgba(201, 48, 44, 0.08)"/>
+        </fill>
+        <border color="rgba(201, 48, 44, 0.3)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="350" height="22" topLeftX="95" topLeftY="163" type="text" id="bMR">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(201, 48, 44, 1)" bold="true">
+          <p>现象</p>
+        </content>
+      </shape>
+      <shape width="350" height="38" topLeftX="95" topLeftY="187" type="text" id="bMX">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>拼接后越到后面越不同步；最后一段黑屏；没有配音的镜头整段静音</p>
+        </content>
+      </shape>
+      <shape width="390" height="75" topLeftX="490" topLeftY="155" presetHandlers="6" type="rect" id="bMA">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 0.06)"/>
+        </fill>
+        <border color="rgba(13, 19, 38, 0.2)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="22" topLeftX="505" topLeftY="163" type="text" id="bMF">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>根因</p>
+        </content>
+      </shape>
+      <shape width="360" height="38" topLeftX="505" topLeftY="187" type="text" id="bMO">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>多段拼接要求每段时长严格一致。图片没有天然时长、静音没有音轨，不显式补齐就会累积误差</p>
+        </content>
+      </shape>
+      <shape width="800" height="28" topLeftX="80" topLeftY="250" type="text" id="bMV">
+        <content textType="headline" fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>四步方案 —— 每段素材进拼接前必须被规整到完全等长</p>
+        </content>
+      </shape>
+      <shape width="190" height="100" topLeftX="80" topLeftY="285" presetHandlers="4" type="rect" id="bMT">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="160" height="22" topLeftX="95" topLeftY="293" type="text" id="bMB">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>规格统一</p>
+        </content>
+      </shape>
+      <shape width="160" height="60" topLeftX="95" topLeftY="318" type="text" id="bMY">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>统一 1080×1920 / 30fps / yuv420p；scale + pad 归一并防变形</p>
+        </content>
+      </shape>
+      <shape width="190" height="100" topLeftX="285" topLeftY="285" presetHandlers="4" type="rect" id="bMr">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.12)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="160" height="22" topLeftX="300" topLeftY="293" type="text" id="bMx">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>视频对齐</p>
+        </content>
+      </shape>
+      <shape width="160" height="60" topLeftX="300" topLeftY="318" type="text" id="bMs">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>末帧克隆（tpad）+ 精确裁剪（trim），把每段拉到与时间线严格一致</p>
+        </content>
+      </shape>
+      <shape width="190" height="100" topLeftX="490" topLeftY="285" presetHandlers="4" type="rect" id="bMc">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.14)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="160" height="22" topLeftX="505" topLeftY="293" type="text" id="bMa">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>音频对齐</p>
+        </content>
+      </shape>
+      <shape width="160" height="60" topLeftX="505" topLeftY="318" type="text" id="bMH">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>补静音（apad）+ 裁剪对齐（atrim）；无音轨段落生成静音底，避免整段无声</p>
+        </content>
+      </shape>
+      <shape width="185" height="100" topLeftX="695" topLeftY="285" presetHandlers="4" type="rect" id="bMh">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="155" height="22" topLeftX="710" topLeftY="293" type="text" id="bMM">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>预检机制</p>
+        </content>
+      </shape>
+      <shape width="155" height="60" topLeftX="710" topLeftY="318" type="text" id="bMy">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" lineSpacing="multiple:1.3">
+          <p>合成前返回&quot;缺视频镜头清单&quot;，点名提示会跳过哪几幕，而不是失败后才报错</p>
+        </content>
+      </shape>
+      <shape width="800" height="95" topLeftX="80" topLeftY="405" presetHandlers="6" type="rect" id="bMi">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="760" height="28" topLeftX="100" topLeftY="418" type="text" id="bMz">
+        <content textType="headline" fontSize="16" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>效果与教训</p>
+        </content>
+      </shape>
+      <shape width="760" height="42" topLeftX="100" topLeftY="450" type="text" id="bMt">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)">
+          <p>成片不再出现音画漂移与黑屏，合成成功率稳定。最大的教训：多个片段拼接，时长只要差一点，误差就会累积 —— 所以每段素材进拼接前必须被规整到完全等长。</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bMv">
+      <content>
+        <p>这页讲&quot;为什么会累积误差&quot;比讲命令更有价值。可以补一句：&quot;所以我们的原则是——每段素材进拼接前都必须被规整到完全等长。&quot;</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYg">
+    <style>
+      <fill id="fYg">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="bMp">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第三部分　问题及解决方案 ★ 升华</p>
+        </content>
+      </shape>
+      <shape width="800" height="50" topLeftX="80" topLeftY="80" type="text" id="bML">
+        <content textType="title" fontSize="28" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>小结：解决这类问题的通用套路</p>
+        </content>
+      </shape>
+      <line id="bxb" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="800" height="24" topLeftX="80" topLeftY="150" type="text" id="bME">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>从八个具体问题上升到一套可复用的判断方法</p>
+        </content>
+      </shape>
+      <shape width="390" height="75" topLeftX="80" topLeftY="185" presetHandlers="4" type="rect" id="bMC">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="40" height="59" topLeftX="95" topLeftY="193" type="text" id="bxe">
+        <content textType="headline" fontSize="28" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>1</p>
+        </content>
+      </shape>
+      <shape width="310" height="24" topLeftX="145" topLeftY="197" type="text" id="bMS">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>定性</p>
+        </content>
+      </shape>
+      <shape width="310" height="35" topLeftX="145" topLeftY="222" type="text" id="bMK">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>先判断是模型问题、工程问题还是流程问题 —— AI 应用里大部分坑不在模型，而在工程</p>
+        </content>
+      </shape>
+      <shape width="390" height="75" topLeftX="490" topLeftY="185" presetHandlers="4" type="rect" id="bMm">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="40" height="59" topLeftX="505" topLeftY="193" type="text" id="bxF">
+        <content textType="headline" fontSize="28" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>2</p>
+        </content>
+      </shape>
+      <shape width="310" height="24" topLeftX="555" topLeftY="197" type="text" id="bMu">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>分工</p>
+        </content>
+      </shape>
+      <shape width="310" height="35" topLeftX="555" topLeftY="222" type="text" id="bMd">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>不确定的交给&quot;重试+抽卡+人工挑选&quot;，确定的交给&quot;确定性工程&quot;（如 FFmpeg 合成）</p>
+        </content>
+      </shape>
+      <shape width="390" height="75" topLeftX="80" topLeftY="275" presetHandlers="4" type="rect" id="bMo">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="40" height="59" topLeftX="95" topLeftY="283" type="text" id="bMZ">
+        <content textType="headline" fontSize="28" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>3</p>
+        </content>
+      </shape>
+      <shape width="310" height="24" topLeftX="145" topLeftY="287" type="text" id="bMw">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>兜底</p>
+        </content>
+      </shape>
+      <shape width="310" height="35" topLeftX="145" topLeftY="312" type="text" id="bMQ">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>凡是花钱的操作，一律做幂等 + 重试上限 + 启动不补跑</p>
+        </content>
+      </shape>
+      <shape width="390" height="75" topLeftX="490" topLeftY="275" presetHandlers="4" type="rect" id="bxh">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="40" height="59" topLeftX="505" topLeftY="283" type="text" id="bMq">
+        <content textType="headline" fontSize="28" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>4</p>
+        </content>
+      </shape>
+      <shape width="310" height="24" topLeftX="555" topLeftY="287" type="text" id="bMP">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>可止损</p>
+        </content>
+      </shape>
+      <shape width="310" height="35" topLeftX="555" topLeftY="312" type="text" id="bMW">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>长流程必须埋取消检查点，让用户能主动终止，而不是干等</p>
+        </content>
+      </shape>
+      <shape width="390" height="75" topLeftX="80" topLeftY="365" presetHandlers="4" type="rect" id="bMD">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="40" height="59" topLeftX="95" topLeftY="373" type="text" id="bxr">
+        <content textType="headline" fontSize="28" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>5</p>
+        </content>
+      </shape>
+      <shape width="310" height="24" topLeftX="145" topLeftY="377" type="text" id="bMl">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>不改数据</p>
+        </content>
+      </shape>
+      <shape width="310" height="35" topLeftX="145" topLeftY="402" type="text" id="bMN">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>能做幂等迁移就不要写一次性脚本，让系统每次启动都在自我修复</p>
+        </content>
+      </shape>
+      <shape width="390" height="75" topLeftX="490" topLeftY="365" presetHandlers="4" type="rect" id="bMU">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="40" height="59" topLeftX="505" topLeftY="373" type="text" id="bxA">
+        <content textType="headline" fontSize="28" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>6</p>
+        </content>
+      </shape>
+      <shape width="310" height="24" topLeftX="555" topLeftY="377" type="text" id="bMk">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>先告知</p>
+        </content>
+      </shape>
+      <shape width="310" height="35" topLeftX="555" topLeftY="402" type="text" id="bMI">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" lineSpacing="multiple:1.3">
+          <p>任何会造成数据丢失的操作，先明确告诉用户会失去什么</p>
+        </content>
+      </shape>
+      <shape width="800" height="55" topLeftX="80" topLeftY="460" presetHandlers="6" type="rect" id="bMg">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.1)"/>
+        </fill>
+        <border color="rgba(37, 99, 235, 0.3)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="760" height="55" topLeftX="100" topLeftY="460" type="text" id="bxv">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" lineSpacing="multiple:1.4" textAlign="center">
+          <p><strong>核心认知：</strong>做 AI 产品和做传统软件最大的区别是 —— 你必须为&quot;模型会犯错&quot;设计产品流程</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bMG">
+      <content>
+        <p>这页是答辩的&quot;升华点&quot;。如果时间只够讲一页，就讲这页 + 角色一致性那页。它把八个具体问题收敛成一套可复用的判断方法，评委会记住这个。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYq">
+    <style>
+      <fill id="fYq">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="bxs">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第四部分　项目完成后的收获</p>
+        </content>
+      </shape>
+      <shape width="700" height="50" topLeftX="80" topLeftY="80" type="text" id="bxc">
+        <content textType="title" fontSize="28" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>技术能力收获</p>
+        </content>
+      </shape>
+      <line id="bxa" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="800" height="24" topLeftX="80" topLeftY="150" type="text" id="bxY">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>从&quot;会调 API&quot;到&quot;会设计系统&quot;</p>
+        </content>
+      </shape>
+      <shape width="390" height="80" topLeftX="80" topLeftY="185" presetHandlers="4" type="rect" id="bxM">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="22" topLeftX="95" topLeftY="193" type="text" id="bxy">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>AI 应用工程</p>
+        </content>
+      </shape>
+      <shape width="360" height="42" topLeftX="95" topLeftY="218" type="text" id="bxi">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>理解了 Provider 抽象、异步任务状态机、幂等与重试、事件驱动这些&quot;地基&quot;，才是把模型真正用起来的关键</p>
+        </content>
+      </shape>
+      <shape width="390" height="80" topLeftX="490" topLeftY="185" presetHandlers="4" type="rect" id="bxz">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="22" topLeftX="505" topLeftY="193" type="text" id="bxH">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>多模态生成手法</p>
+        </content>
+      </shape>
+      <shape width="360" height="42" topLeftX="505" topLeftY="218" type="text" id="bxj">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>掌握结构化提示词、负向提示词、参考图约束、固定 seed、多版本抽卡、审核对抗等可复用技巧</p>
+        </content>
+      </shape>
+      <shape width="390" height="80" topLeftX="80" topLeftY="280" presetHandlers="4" type="rect" id="bxn">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="22" topLeftX="95" topLeftY="288" type="text" id="bxf">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>音视频工程</p>
+        </content>
+      </shape>
+      <shape width="360" height="42" topLeftX="95" topLeftY="313" type="text" id="bxJ">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>掌握 FFmpeg 时长对齐、流拼接、字幕烧录，理解了&quot;确定性工程&quot;与&quot;生成式产出&quot;的边界该划在哪</p>
+        </content>
+      </shape>
+      <shape width="390" height="80" topLeftX="490" topLeftY="280" presetHandlers="4" type="rect" id="bxR">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="22" topLeftX="505" topLeftY="288" type="text" id="bxO">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>后端与前端能力</p>
+        </content>
+      </shape>
+      <shape width="360" height="42" topLeftX="505" topLeftY="313" type="text" id="bxV">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>FastAPI 依赖注入、JWT 双令牌、SSE 推送、SQLAlchemy 建模；Vue 3 + Pinia 状态流转、请求拦截与无感刷新、长连接消费</p>
+        </content>
+      </shape>
+      <shape width="800" height="120" topLeftX="80" topLeftY="375" presetHandlers="6" type="rect" id="bxT">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="760" height="28" topLeftX="100" topLeftY="390" type="text" id="bxB">
+        <content textType="headline" fontSize="16" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>工程化意识</p>
+        </content>
+      </shape>
+      <shape width="760" height="60" topLeftX="100" topLeftY="423" type="text" id="bxX">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" lineSpacing="multiple:1.6">
+          <p>单元测试覆盖率 93%（认证约 30 项、多集模块 18 项、风格预设 9 项），并建立了真实数据库冒烟 + 真实模型端到端的三层验证习惯。</p>
+          <p><strong><span color="rgba(255, 255, 255, 1)">比如第 21 页那个幂等问题，让我第一次真正理解&quot;幂等&quot;不是背概念，而是省下的真金白银。</span></strong></p>
+        </content>
+      </shape>
+    </data>
+    <note id="bxx">
+      <content>
+        <p>讲收获要配合前面的问题讲：&quot;比如第 21 页那个幂等问题，让我第一次真正理解&apos;幂等&apos;不是背概念，而是省下的真金白银。&quot;</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYA">
+    <style>
+      <fill id="fYA">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="bOy">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第四部分　项目完成后的收获</p>
+        </content>
+      </shape>
+      <shape width="700" height="50" topLeftX="80" topLeftY="80" type="text" id="bOi">
+        <content textType="title" fontSize="28" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>工程与协作能力收获</p>
+        </content>
+      </shape>
+      <line id="bOb" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="800" height="24" topLeftX="80" topLeftY="150" type="text" id="bOh">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>让项目&quot;可维护&quot;比&quot;能跑&quot;更难</p>
+        </content>
+      </shape>
+      <shape width="800" height="70" topLeftX="80" topLeftY="185" presetHandlers="4" type="rect" id="bOx">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="200" height="54" topLeftX="95" topLeftY="193" type="text" id="bOs">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>测试分层思维</p>
+        </content>
+      </shape>
+      <shape width="560" height="54" topLeftX="305" topLeftY="193" type="text" id="bOc">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>单元测试（内存数据库 + 依赖替换）做回归 → 真实数据库冒烟脚本验证环境 → 真实模型端到端打通全链路，三者互补</p>
+        </content>
+      </shape>
+      <shape width="800" height="70" topLeftX="80" topLeftY="265" presetHandlers="4" type="rect" id="bOe">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="200" height="54" topLeftX="95" topLeftY="273" type="text" id="bOr">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>文档驱动开发</p>
+        </content>
+      </shape>
+      <shape width="560" height="54" topLeftX="305" topLeftY="273" type="text" id="bOO">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>产品需求文档定稿 + 设计文档 + 模块实施说明与测试报告，让&quot;改了什么、为什么这么改&quot;全程可追溯</p>
+        </content>
+      </shape>
+      <shape width="800" height="70" topLeftX="80" topLeftY="345" presetHandlers="4" type="rect" id="bOV">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="200" height="54" topLeftX="95" topLeftY="353" type="text" id="bOT">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>取舍能力</p>
+        </content>
+      </shape>
+      <shape width="560" height="54" topLeftX="305" topLeftY="353" type="text" id="bOA">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.4">
+          <p>自研任务引擎还是引入成熟消息队列 —— 阶段性选择轻量方案，并把代价写进文档、列入改进项，而不是假装没有</p>
+        </content>
+      </shape>
+      <shape width="390" height="70" topLeftX="80" topLeftY="425" presetHandlers="4" type="rect" id="bOF">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="120" height="54" topLeftX="95" topLeftY="433" type="text" id="bOn">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>兼容意识</p>
+        </content>
+      </shape>
+      <shape width="235" height="54" topLeftX="225" topLeftY="433" type="text" id="bOf">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p>用增量扩展代替重构，用可空外键代替数据迁移，老接口自动路由，保证存量用户无感</p>
+        </content>
+      </shape>
+      <shape width="390" height="70" topLeftX="490" topLeftY="425" presetHandlers="4" type="rect" id="bOJ">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="120" height="54" topLeftX="505" topLeftY="433" type="text" id="bOv">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>可观测意识</p>
+        </content>
+      </shape>
+      <shape width="235" height="54" topLeftX="635" topLeftY="433" type="text" id="bOj">
+        <content textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" lineSpacing="multiple:1.3">
+          <p>任务运行日志记录每次的耗时、token 与费用，让成本可查、问题可溯</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bOM">
+      <content>
+        <p>这页的关键词是&quot;可维护&quot;。可以说：&quot;这个项目最初的目标是跑通，但真正让我成长的是——我开始为&apos;三个月后的自己和别人&apos;写代码和文档。&quot;</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYZ">
+    <style>
+      <fill id="fYZ">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="bxU">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第四部分　项目完成后的收获 ★</p>
+        </content>
+      </shape>
+      <shape width="800" height="50" topLeftX="80" topLeftY="80" type="text" id="bxm">
+        <content textType="title" fontSize="26" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>产品与业务认知 + 不足与下一步</p>
+        </content>
+      </shape>
+      <line id="bxG" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="380" height="24" topLeftX="80" topLeftY="150" type="text" id="bxE">
+        <content textType="headline" fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>技术之外的收获</p>
+        </content>
+      </shape>
+      <shape width="380" height="55" topLeftX="80" topLeftY="180" presetHandlers="4" type="rect" id="bxS">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.08)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="350" height="55" topLeftX="95" topLeftY="180" type="text" id="bxN">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p><strong><span color="rgba(13, 19, 38, 1)">AI 生成天然不确定：</span></strong>产品必须是&quot;人机协作&quot;——AI 出初稿，人做挑选与把关，不追求全自动黑箱</p>
+        </content>
+      </shape>
+      <shape width="380" height="55" topLeftX="80" topLeftY="245" presetHandlers="4" type="rect" id="bxK">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.08)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="350" height="55" topLeftX="95" topLeftY="245" type="text" id="bxg">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p><strong><span color="rgba(13, 19, 38, 1)">效率的关键：</span></strong>不在&quot;单次生成多快&quot;，而在&quot;批量能力 + 失败可恢复&quot;</p>
+        </content>
+      </shape>
+      <shape width="380" height="55" topLeftX="80" topLeftY="310" presetHandlers="4" type="rect" id="bxo">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.08)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="350" height="55" topLeftX="95" topLeftY="310" type="text" id="bxt">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p><strong><span color="rgba(13, 19, 38, 1)">成本是产品约束：</span></strong>项目预算 + 用户额度 + 并发上限三级治理，抽卡版本数默认控制在 2-4</p>
+        </content>
+      </shape>
+      <shape width="380" height="55" topLeftX="80" topLeftY="375" presetHandlers="4" type="rect" id="bxq">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="350" height="55" topLeftX="95" topLeftY="375" type="text" id="bxI">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" lineSpacing="multiple:1.3">
+          <p><strong><span color="rgba(255, 255, 255, 1)">数据安全高于功能：</span></strong>任何&quot;重新生成&quot;都要先告诉用户会删掉什么 —— 功能可以后补，用户成果丢了找不回来</p>
+        </content>
+      </shape>
+      <shape width="390" height="24" topLeftX="490" topLeftY="150" type="text" id="bxd">
+        <content textType="headline" fontSize="15" fontFamily="思源黑体" color="rgba(201, 48, 44, 1)" bold="true">
+          <p>不足与下一步规划</p>
+        </content>
+      </shape>
+      <shape width="390" height="48" topLeftX="490" topLeftY="180" presetHandlers="4" type="rect" id="bxL">
+        <fill>
+          <fillColor color="rgba(201, 48, 44, 0.06)"/>
+        </fill>
+        <border color="rgba(201, 48, 44, 0.2)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="48" topLeftX="505" topLeftY="180" type="text" id="bxQ">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p><strong>不足一：</strong>任务队列进程内，重启不持久化 → 计划接入 Redis / 成熟任务队列</p>
+        </content>
+      </shape>
+      <shape width="390" height="48" topLeftX="490" topLeftY="238" presetHandlers="4" type="rect" id="bxl">
+        <fill>
+          <fillColor color="rgba(201, 48, 44, 0.06)"/>
+        </fill>
+        <border color="rgba(201, 48, 44, 0.2)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="48" topLeftX="505" topLeftY="238" type="text" id="bxu">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p><strong>不足二：</strong>角色与分镜靠&quot;文本匹配角色名&quot;关联，较脆弱 → 计划做结构化多对多关联</p>
+        </content>
+      </shape>
+      <shape width="390" height="48" topLeftX="490" topLeftY="296" presetHandlers="4" type="rect" id="bxP">
+        <fill>
+          <fillColor color="rgba(201, 48, 44, 0.06)"/>
+        </fill>
+        <border color="rgba(201, 48, 44, 0.2)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="48" topLeftX="505" topLeftY="296" type="text" id="bxp">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p><strong>不足三：</strong>模型与密钥硬编码在配置里 → 计划做配置入库 + 设置页 + 连通性测试</p>
+        </content>
+      </shape>
+      <shape width="390" height="48" topLeftX="490" topLeftY="354" presetHandlers="4" type="rect" id="bxw">
+        <fill>
+          <fillColor color="rgba(201, 48, 44, 0.06)"/>
+        </fill>
+        <border color="rgba(201, 48, 44, 0.2)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="48" topLeftX="505" topLeftY="354" type="text" id="bxC">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.3">
+          <p><strong>不足四：</strong>缺少缩略图管线与磁盘回收，素材目录已增长到 300MB 以上 → 计划补缩略图与磁盘清理</p>
+        </content>
+      </shape>
+      <shape width="390" height="88" topLeftX="490" topLeftY="412" presetHandlers="6" type="rect" id="bxD">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="24" topLeftX="505" topLeftY="420" type="text" id="bxk">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>下一步优先级</p>
+        </content>
+      </shape>
+      <shape width="360" height="48" topLeftX="505" topLeftY="446" type="text" id="bxZ">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" lineSpacing="multiple:1.4">
+          <p>① 配置入库 ② 结构化角色关联（直接提升成片一致性）③ 缩略图与磁盘治理 ④ 队列持久化</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bxW">
+      <content>
+        <p>主动说不足反而是加分项，但一定要紧跟着给&quot;优先级和理由&quot;，否则就变成自我批评。最后一句可以收在：&quot;所以这个项目对我不是结束，是一份清晰的待办清单。&quot;</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYy">
+    <style>
+      <fill id="fYy">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="bOt">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第五部分　项目演示</p>
+        </content>
+      </shape>
+      <shape width="700" height="50" topLeftX="80" topLeftY="80" type="text" id="bOl">
+        <content textType="title" fontSize="28" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>演示环境与准备清单</p>
+        </content>
+      </shape>
+      <line id="bOu" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="800" height="24" topLeftX="80" topLeftY="150" type="text" id="bOI">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>演示前 10 分钟逐项打勾 —— 宁可少演示几个功能，也不要中途卡住</p>
+        </content>
+      </shape>
+      <shape width="800" height="55" topLeftX="80" topLeftY="185" presetHandlers="4" type="rect" id="bOd">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="770" height="55" topLeftX="95" topLeftY="185" type="text" id="bOR">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" lineSpacing="multiple:1.4">
+          <p><strong>一键启动：</strong>运行 start.ps1 → 后端 http://localhost:8010（/health 健康检查、/docs 在线接口文档）、前端 http://localhost:5173</p>
+        </content>
+      </shape>
+      <shape width="390" height="60" topLeftX="80" topLeftY="250" presetHandlers="4" type="rect" id="bOX">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="22" topLeftX="95" topLeftY="255" type="text" id="bOq">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>① 服务检查</p>
+        </content>
+      </shape>
+      <shape width="360" height="25" topLeftX="95" topLeftY="280" type="text" id="bOS">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>后端健康检查返回 ok，前端首页可正常打开</p>
+        </content>
+      </shape>
+      <shape width="390" height="60" topLeftX="490" topLeftY="250" presetHandlers="4" type="rect" id="bON">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="22" topLeftX="505" topLeftY="255" type="text" id="bOK">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>② 账号检查</p>
+        </content>
+      </shape>
+      <shape width="360" height="25" topLeftX="505" topLeftY="280" type="text" id="bOB">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>准备好已注册账号，提前登录一次，避免现场输密码出错</p>
+        </content>
+      </shape>
+      <shape width="390" height="60" topLeftX="80" topLeftY="320" presetHandlers="4" type="rect" id="bOY">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="22" topLeftX="95" topLeftY="325" type="text" id="bOG">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>③ 网络检查</p>
+        </content>
+      </shape>
+      <shape width="360" height="25" topLeftX="95" topLeftY="350" type="text" id="bOP">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>确认能访问模型服务（文本/图像/视频）与语音合成服务</p>
+        </content>
+      </shape>
+      <shape width="390" height="60" topLeftX="490" topLeftY="320" presetHandlers="4" type="rect" id="bOE">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="22" topLeftX="505" topLeftY="325" type="text" id="bOW">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>④ 兜底素材</p>
+        </content>
+      </shape>
+      <shape width="360" height="25" topLeftX="505" topLeftY="350" type="text" id="bOa">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>提前跑好一个&quot;完整项目&quot;（剧本/角色/画面/配音/成片俱全）</p>
+        </content>
+      </shape>
+      <shape width="800" height="55" topLeftX="80" topLeftY="390" presetHandlers="4" type="rect" id="bOH">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 210, 225, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="770" height="22" topLeftX="95" topLeftY="395" type="text" id="bOk">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>⑤ 兜底脚本</p>
+        </content>
+      </shape>
+      <shape width="770" height="20" topLeftX="95" topLeftY="420" type="text" id="bOZ">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>备好本地素材驱动合成的验证脚本，可在不出网的情况下演示成片合成能力</p>
+        </content>
+      </shape>
+      <shape width="800" height="55" topLeftX="80" topLeftY="460" presetHandlers="6" type="rect" id="bOp">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="760" height="55" topLeftX="100" topLeftY="460" type="text" id="bOw">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" lineSpacing="multiple:1.4">
+          <p><strong><span color="rgba(255, 255, 255, 1)">演示原则：</span></strong>所有耗时（视频生成、成片合成）必须提前跑好成品，现场只做&quot;触发 + 展示结果&quot;。建议总时长 3-5 分钟。</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bOz">
+      <content>
+        <p>演示的本质是可控。可以说一句：&quot;为了不浪费大家时间，耗时较长的生成我已经提前跑好了，现场演示的是提交、实时进度和结果。&quot;这样评委反而更认可你的准备程度。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pYi">
+    <style>
+      <fill id="fYi">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="40" topLeftX="80" topLeftY="50" type="text" id="bOU">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>第五部分　项目演示</p>
+        </content>
+      </shape>
+      <shape width="700" height="50" topLeftX="80" topLeftY="80" type="text" id="bOm">
+        <content textType="title" fontSize="28" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>演示脚本：七步走</p>
+        </content>
+      </shape>
+      <line id="bnA" startX="80" startY="135" endX="120.01249804748511" endY="135">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="800" height="24" topLeftX="80" topLeftY="150" type="text" id="bnr">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>按顺序做，每步一句话说清&quot;我在证明什么&quot;</p>
+        </content>
+      </shape>
+      <shape width="800" height="42" topLeftX="80" topLeftY="185" presetHandlers="4" type="rect" id="bnx">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.08)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="50" height="42" topLeftX="95" topLeftY="185" type="text" id="bns">
+        <content textType="headline" fontSize="18" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>1</p>
+        </content>
+      </shape>
+      <shape width="720" height="42" topLeftX="145" topLeftY="185" type="text" id="bni">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)">
+          <p><strong>架构先行：</strong>打开 /docs 接口文档，展示 9 组路由 —— 证明这是一个完整系统，不是单点 Demo</p>
+        </content>
+      </shape>
+      <shape width="800" height="42" topLeftX="80" topLeftY="235" presetHandlers="4" type="rect" id="bOC">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(220, 225, 235, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="50" height="42" topLeftX="95" topLeftY="235" type="text" id="bOD">
+        <content textType="headline" fontSize="18" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>2</p>
+        </content>
+      </shape>
+      <shape width="720" height="42" topLeftX="145" topLeftY="235" type="text" id="bne">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)">
+          <p><strong>注册登录：</strong>现场注册并登录，一句话带过双令牌与登录保护策略</p>
+        </content>
+      </shape>
+      <shape width="800" height="42" topLeftX="80" topLeftY="285" presetHandlers="4" type="rect" id="bnh">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.08)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="50" height="42" topLeftX="95" topLeftY="285" type="text" id="bnM">
+        <content textType="headline" fontSize="18" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>3</p>
+        </content>
+      </shape>
+      <shape width="720" height="42" topLeftX="145" topLeftY="285" type="text" id="bny">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)">
+          <p><strong>风格预设：</strong>新建「国潮工笔」→ 停用 → 删除 —— 证明完整增删改查、重名校验与数据隔离</p>
+        </content>
+      </shape>
+      <shape width="800" height="42" topLeftX="80" topLeftY="335" presetHandlers="4" type="rect" id="bOL">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(220, 225, 235, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="50" height="42" topLeftX="95" topLeftY="335" type="text" id="bOQ">
+        <content textType="headline" fontSize="18" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>4</p>
+        </content>
+      </shape>
+      <shape width="720" height="42" topLeftX="145" topLeftY="335" type="text" id="bnb">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)">
+          <p><strong>创作：</strong>输入一句话灵感 → 选择风格与画面比例 → 新建项目 —— 证明入口极简</p>
+        </content>
+      </shape>
+      <shape width="800" height="42" topLeftX="80" topLeftY="385" presetHandlers="4" type="rect" id="bnj">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.08)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="50" height="42" topLeftX="95" topLeftY="385" type="text" id="bnn">
+        <content textType="headline" fontSize="18" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>5</p>
+        </content>
+      </shape>
+      <shape width="720" height="42" topLeftX="145" topLeftY="385" type="text" id="bnf">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)">
+          <p><strong>剧本与角色：</strong>生成剧本 → 展示结构化分镜表（景别/画面/台词/情绪）；展示&quot;重提角色不删分镜&quot;</p>
+        </content>
+      </shape>
+      <shape width="800" height="42" topLeftX="80" topLeftY="435" presetHandlers="4" type="rect" id="bOg">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="50" height="42" topLeftX="95" topLeftY="435" type="text" id="bOo">
+        <content textType="headline" fontSize="18" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>6</p>
+        </content>
+      </shape>
+      <shape width="720" height="42" topLeftX="145" topLeftY="435" type="text" id="bnv">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)">
+          <p><strong><span color="rgba(255, 255, 255, 1)">工作台全流程 ★ 高潮：</span></strong>剧本 → 角色定妆照 → 画面（批量出图+抽卡选版）→ 配音（试听）→ 成片（合成预检→合成→导出）</p>
+        </content>
+      </shape>
+      <shape width="800" height="40" topLeftX="80" topLeftY="485" presetHandlers="4" type="rect" id="bnF">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 0.15)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="50" height="40" topLeftX="95" topLeftY="485" type="text" id="bnO">
+        <content textType="headline" fontSize="18" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>7</p>
+        </content>
+      </shape>
+      <shape width="720" height="40" topLeftX="145" topLeftY="485" type="text" id="bnV">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)">
+          <p><strong>任务与收尾：</strong>展示任务中心实时进度、失败重试与取消；回到接口文档，一句话收尾&quot;这就是从灵感到成片的完整闭环&quot;</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bnc">
+      <content>
+        <p>第 6 步是全场高潮，建议提前把抽卡结果留 2-3 个候选版本现场选，让评委看到&quot;多版本对比挑选&quot;这个动作——这是人机协作最直观的体现。</p>
+      </content>
+    </note>
+  </slide>
+</presentation>

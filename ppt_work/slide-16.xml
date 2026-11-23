@@ -1,0 +1,83 @@
+<slide>
+  <style><fill><fillColor color="rgb(242,244,248)"/></fill></style>
+  <data>
+    <shape type="text" topLeftX="80" topLeftY="50" width="600" height="40">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true"><p>第三部分　问题及解决方案 ★ 重点</p></content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="80" width="800" height="50">
+      <content textType="title" fontSize="26" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>问题二：长耗时任务把前后端一起拖死</p></content>
+    </shape>
+    <line startX="80" startY="135" endX="120" endY="135"><border color="rgba(37,99,235,1)" width="3"/></line>
+    <shape type="rect" topLeftX="80" topLeftY="155" width="380" height="75" presetHandlers="6">
+      <fill><fillColor color="rgba(201,48,44,0.08)"/></fill>
+      <border color="rgba(201,48,44,0.3)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="163" width="350" height="22">
+      <content textType="body" fontSize="13" color="rgba(201,48,44,1)" fontFamily="思源黑体" bold="true"><p>现象</p></content>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="187" width="350" height="38">
+      <content textType="body" fontSize="12" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.4"><p>图像生成 10 秒起，视频轮询数分钟。同步等待 → 接口超时、前端白屏、用户反复点击</p></content>
+    </shape>
+    <shape type="rect" topLeftX="490" topLeftY="155" width="390" height="75" presetHandlers="6">
+      <fill><fillColor color="rgba(13,19,38,0.06)"/></fill>
+      <border color="rgba(13,19,38,0.2)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="505" topLeftY="163" width="360" height="22">
+      <content textType="body" fontSize="13" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>根因</p></content>
+    </shape>
+    <shape type="text" topLeftX="505" topLeftY="187" width="360" height="38">
+      <content textType="body" fontSize="12" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.4"><p>长耗时 I/O（模型排队 + 轮询）与 HTTP 请求生命周期不匹配</p></content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="250" width="800" height="28">
+      <content textType="headline" fontSize="15" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>四步方案</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="285" width="190" height="100" presetHandlers="4">
+      <fill><fillColor color="rgba(37,99,235,0.1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="293" width="160" height="22">
+      <content textType="body" fontSize="12" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true"><p>1. 异步化提交</p></content>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="318" width="160" height="60">
+      <content textType="caption" fontSize="10" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.3"><p>提交接口只做"鉴权+落任务表+入队+返回 task_id"，立即响应</p></content>
+    </shape>
+    <shape type="rect" topLeftX="285" topLeftY="285" width="190" height="100" presetHandlers="4">
+      <fill><fillColor color="rgba(37,99,235,0.12)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="300" topLeftY="293" width="160" height="22">
+      <content textType="body" fontSize="12" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true"><p>2. Worker 消费</p></content>
+    </shape>
+    <shape type="text" topLeftX="300" topLeftY="318" width="160" height="60">
+      <content textType="caption" fontSize="10" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.3"><p>4 个并发 Worker；阻塞式 HTTP 轮询放进线程池，不卡事件循环</p></content>
+    </shape>
+    <shape type="rect" topLeftX="490" topLeftY="285" width="190" height="100" presetHandlers="4">
+      <fill><fillColor color="rgba(37,99,235,0.14)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="505" topLeftY="293" width="160" height="22">
+      <content textType="body" fontSize="12" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true"><p>3. 全流程执行</p></content>
+    </shape>
+    <shape type="text" topLeftX="505" topLeftY="318" width="160" height="60">
+      <content textType="caption" fontSize="10" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.3"><p>Worker 完成"提交→轮询→下载落盘→写回结果"，结果回写数据库</p></content>
+    </shape>
+    <shape type="rect" topLeftX="695" topLeftY="285" width="185" height="100" presetHandlers="4">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="710" topLeftY="293" width="155" height="22">
+      <content textType="body" fontSize="12" color="rgba(255,255,255,1)" fontFamily="思源黑体" bold="true"><p>4. 实时推送</p></content>
+    </shape>
+    <shape type="text" topLeftX="710" topLeftY="318" width="155" height="60">
+      <content textType="caption" fontSize="10" color="rgba(191,215,255,1)" fontFamily="思源黑体" lineSpacing="multiple:1.3"><p>进程内事件总线推 SSE，前端从"等"变成"看"（跨线程用 call_soon_threadsafe）</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="405" width="800" height="95" presetHandlers="6">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="100" topLeftY="418" width="760" height="28">
+      <content textType="headline" fontSize="16" color="rgba(255,255,255,1)" fontFamily="思源黑体" bold="true"><p>效果</p></content>
+    </shape>
+    <shape type="text" topLeftX="100" topLeftY="450" width="760" height="42">
+      <content textType="body" fontSize="13" color="rgba(191,215,255,1)" fontFamily="思源黑体" lineSpacing="multiple:1.5">
+        <p>提交类接口响应从分钟级降到毫秒级，用户随时能看见任务在跑。批量出图/出视频天然复用同一引擎，前端只需给聚合入口。</p>
+      </content>
+    </shape>
+  </data>
+  <note><content textType="body"><p>如果评委追问"线程池会不会有并发问题"，答：事件从工作线程回主循环时用 call_soon_threadsafe 调度，避免 asyncio 对象跨线程使用——这个细节足以证明你真踩过。</p></content></note>
+</slide>

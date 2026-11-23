@@ -1,0 +1,203 @@
+/* ============================================
+   AI 漫剧平台 · Design Tokens
+   严格对齐参考稿 app.html（Apple 深色设计语言）
+   深色为默认（:root / [data-theme="dark"]）
+   浅色 [data-theme="light"] 为等价适配
+   ============================================ */
+
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  /* ---------- 表面 ---------- */
+  --bg: #000000;
+  --surface: #1c1c1e;
+  --surface-raised: #2c2c2e;
+  --surface-hover: rgba(255, 255, 255, 0.06);
+  --card: #1c1c1e;
+  --card-2: #2c2c2e;
+  --card-hover: #232326;
+  --bg-2: #0d0d12;
+  --bg-soft: #0d0d12;
+  --input: #1c1c1e;
+  --overlay: #1c1c1e;
+
+  /* ---------- 文字 ---------- */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-tertiary: rgba(255, 255, 255, 0.4);
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.4);
+
+  /* ---------- 描边 ---------- */
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --divider: rgba(255, 255, 255, 0.08);
+
+  /* ---------- 主色（Apple 蓝） ---------- */
+  --primary: #0071e3;
+  --primary-hover: #0077ed;
+  --primary-press: #0062c4;
+  --primary-active: #0062c4;
+  --primary-soft: rgba(0, 113, 227, 0.15);
+  --primary-ring: rgba(0, 113, 227, 0.2);
+  --primary-glow: rgba(0, 113, 227, 0.35);
+  --accent: #5ac8fa;
+  --brand-grad: linear-gradient(135deg, #0071e3, #42a5f5);
+
+  /* ---------- 语义色 ---------- */
+  --success: #34c759;
+  --success-soft: rgba(52, 199, 89, 0.15);
+  --error: #ff3b30;
+  --danger: #ff3b30;
+  --warning: #ff9f0a;
+  --warning-soft: rgba(255, 159, 10, 0.15);
+  --info: #5ac8fa;
+  --neutral: rgba(255, 255, 255, 0.45);
+
+  /* ---------- 阴影（参考稿四级） ---------- */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
+  --shadow-card: var(--shadow-sm);
+  --shadow-pop: var(--shadow-xl);
+
+  /* ---------- 磨砂玻璃 ---------- */
+  --glass-bg: rgba(0, 0, 0, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: blur(20px) saturate(180%);
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  /* ---------- 表面 ---------- */
+  --bg: #f5f5f7;
+  --surface: #ffffff;
+  --surface-raised: #f5f5f7;
+  --surface-hover: rgba(0, 0, 0, 0.04);
+  --card: #ffffff;
+  --card-2: #f5f5f7;
+  --card-hover: #fbfbfd;
+  --bg-2: #ebebef;
+  --bg-soft: #ebebef;
+  --input: #ffffff;
+  --overlay: #ffffff;
+
+  /* ---------- 文字 ---------- */
+  --text-primary: #1d1d1f;
+  --text-secondary: rgba(29, 29, 31, 0.62);
+  --text-tertiary: rgba(29, 29, 31, 0.45);
+  --text: #1d1d1f;
+  --text-muted: rgba(29, 29, 31, 0.45);
+
+  /* ---------- 描边 ---------- */
+  --border: rgba(29, 29, 31, 0.08);
+  --border-strong: rgba(29, 29, 31, 0.14);
+  --divider: rgba(29, 29, 31, 0.08);
+
+  /* ---------- 主色 ---------- */
+  --primary: #0071e3;
+  --primary-hover: #0077ed;
+  --primary-press: #0062c4;
+  --primary-active: #0062c4;
+  --primary-soft: rgba(0, 113, 227, 0.1);
+  --primary-ring: rgba(0, 113, 227, 0.18);
+  --primary-glow: rgba(0, 113, 227, 0.28);
+  --accent: #0071e3;
+  --brand-grad: linear-gradient(135deg, #0071e3, #42a5f5);
+
+  /* ---------- 语义色 ---------- */
+  --success: #248a3d;
+  --success-soft: rgba(36, 138, 61, 0.12);
+  --error: #d70015;
+  --danger: #d70015;
+  --warning: #cf7f00;
+  --warning-soft: rgba(207, 127, 0, 0.12);
+  --info: #0071e3;
+  --neutral: rgba(29, 29, 31, 0.45);
+
+  /* ---------- 阴影 ---------- */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.16);
+  --shadow-card: var(--shadow-sm);
+  --shadow-pop: var(--shadow-xl);
+
+  /* ---------- 磨砂玻璃 ---------- */
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(29, 29, 31, 0.08);
+  --glass-blur: blur(20px) saturate(180%);
+}
+
+/* ============ 与主题无关的共享令牌 ============ */
+:root {
+  /* ---------- 间距 ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* ---------- 字号 type scale ---------- */
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-md: 17px;
+  --text-lg: 20px;
+  --text-xl: 26px;
+  --text-2xl: 34px;
+  --text-3xl: 44px;
+  --text-4xl: 56px;
+  /* 参考稿 page-title 流式大标题 */
+  --text-hero: clamp(28px, 4vw, 40px);
+
+  /* ---------- 字体（参考稿：Inter + Noto Sans SC） ---------- */
+  --font-ui: 'Inter', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei',
+    -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: var(--font-ui);
+  --font-mono: 'SF Mono', SFMono-Regular, ui-monospace, Menlo, Consolas,
+    monospace;
+
+  /* ---------- 圆角（参考稿五级） ---------- */
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-pill: 980px;
+  --radius-card: var(--radius-lg);
+  --radius-ctrl: var(--radius);
+
+  /* ---------- 层级 ---------- */
+  --z-bar: 1000;
+  --z-pop: 1500;
+  --z-modal: 2000;
+  --z-toast: 3000;
+
+  /* ---------- 动效（参考稿缓动曲线） ---------- */
+  --dur-fast: 0.15s;
+  --dur-base: 0.2s;
+  --dur-slow: 0.3s;
+  --dur-reveal: 0.8s;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ---------- 封面色板（参考稿 GRADS，高饱和 135° 渐变） ---------- */
+  --grad-1: linear-gradient(135deg, #ff5e7d, #ff9a9e);
+  --grad-2: linear-gradient(135deg, #a18cd1, #fbc2eb);
+  --grad-3: linear-gradient(135deg, #00d2ff, #3a7bd5);
+  --grad-4: linear-gradient(135deg, #ffecd2, #fcb69f);
+  --grad-5: linear-gradient(135deg, #5ee7df, #b490ca);
+  --grad-6: linear-gradient(135deg, #667eea, #764ba2);
+  --grad-7: linear-gradient(135deg, #f093fb, #f5576c);
+  --grad-8: linear-gradient(135deg, #4facfe, #00f2fe);
+
+  /* ---------- 占位缩略图底色（参考稿 project-thumb） ---------- */
+  --thumb-bg: linear-gradient(135deg, #2a2a35, #1a1a25);
+}

@@ -1,0 +1,68 @@
+<slide>
+  <style><fill><fillColor color="rgb(242,244,248)"/></fill></style>
+  <data>
+    <shape type="text" topLeftX="80" topLeftY="50" width="600" height="40">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true"><p>第四部分　项目完成后的收获</p></content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="80" width="700" height="50">
+      <content textType="title" fontSize="28" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>技术能力收获</p></content>
+    </shape>
+    <line startX="80" startY="135" endX="120" endY="135"><border color="rgba(37,99,235,1)" width="3"/></line>
+    <shape type="text" topLeftX="80" topLeftY="150" width="800" height="24">
+      <content textType="body" fontSize="13" color="rgba(83,97,116,1)" fontFamily="思源黑体"><p>从"会调 API"到"会设计系统"</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="185" width="390" height="80" presetHandlers="4">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(200,210,225,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="193" width="360" height="22">
+      <content textType="body" fontSize="14" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true"><p>AI 应用工程</p></content>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="218" width="360" height="42">
+      <content textType="caption" fontSize="11" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.4"><p>理解了 Provider 抽象、异步任务状态机、幂等与重试、事件驱动这些"地基"，才是把模型真正用起来的关键</p></content>
+    </shape>
+    <shape type="rect" topLeftX="490" topLeftY="185" width="390" height="80" presetHandlers="4">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(200,210,225,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="505" topLeftY="193" width="360" height="22">
+      <content textType="body" fontSize="14" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true"><p>多模态生成手法</p></content>
+    </shape>
+    <shape type="text" topLeftX="505" topLeftY="218" width="360" height="42">
+      <content textType="caption" fontSize="11" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.4"><p>掌握结构化提示词、负向提示词、参考图约束、固定 seed、多版本抽卡、审核对抗等可复用技巧</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="280" width="390" height="80" presetHandlers="4">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(200,210,225,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="288" width="360" height="22">
+      <content textType="body" fontSize="14" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true"><p>音视频工程</p></content>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="313" width="360" height="42">
+      <content textType="caption" fontSize="11" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.4"><p>掌握 FFmpeg 时长对齐、流拼接、字幕烧录，理解了"确定性工程"与"生成式产出"的边界该划在哪</p></content>
+    </shape>
+    <shape type="rect" topLeftX="490" topLeftY="280" width="390" height="80" presetHandlers="4">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(200,210,225,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="505" topLeftY="288" width="360" height="22">
+      <content textType="body" fontSize="14" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true"><p>后端与前端能力</p></content>
+    </shape>
+    <shape type="text" topLeftX="505" topLeftY="313" width="360" height="42">
+      <content textType="caption" fontSize="11" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.4"><p>FastAPI 依赖注入、JWT 双令牌、SSE 推送、SQLAlchemy 建模；Vue 3 + Pinia 状态流转、请求拦截与无感刷新、长连接消费</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="375" width="800" height="120" presetHandlers="6">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="100" topLeftY="390" width="760" height="28">
+      <content textType="headline" fontSize="16" color="rgba(255,255,255,1)" fontFamily="思源黑体" bold="true"><p>工程化意识</p></content>
+    </shape>
+    <shape type="text" topLeftX="100" topLeftY="423" width="760" height="60">
+      <content textType="body" fontSize="13" color="rgba(191,215,255,1)" fontFamily="思源黑体" lineSpacing="multiple:1.6">
+        <p>单元测试覆盖率 93%（认证约 30 项、多集模块 18 项、风格预设 9 项），并建立了真实数据库冒烟 + 真实模型端到端的三层验证习惯。</p>
+        <p><span bold="true" color="rgba(255,255,255,1)">比如第 21 页那个幂等问题，让我第一次真正理解"幂等"不是背概念，而是省下的真金白银。</span></p>
+      </content>
+    </shape>
+  </data>
+  <note><content textType="body"><p>讲收获要配合前面的问题讲："比如第 21 页那个幂等问题，让我第一次真正理解'幂等'不是背概念，而是省下的真金白银。"</p></content></note>
+</slide>

@@ -1,0 +1,94 @@
+<slide>
+  <style>
+    <fill><fillColor color="rgb(242,244,248)"/></fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="80" topLeftY="50" width="600" height="40">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true"><p>第一部分　个人介绍与项目介绍</p></content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="80" width="800" height="50">
+      <content textType="title" fontSize="28" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>项目定位：输入是灵感，输出是成片</p></content>
+    </shape>
+    <line startX="80" startY="135" endX="120" endY="135"><border color="rgba(37,99,235,1)" width="3"/></line>
+    <shape type="rect" topLeftX="80" topLeftY="160" width="810" height="70" presetHandlers="6">
+      <fill><fillColor color="rgba(37,99,235,0.08)"/></fill>
+      <border color="rgba(37,99,235,0.3)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="100" topLeftY="172" width="770" height="50">
+      <content textType="body" fontSize="15" color="rgba(13,19,38,1)" fontFamily="思源黑体" lineSpacing="multiple:1.5" verticalAlign="middle">
+        <p><span bold="true">一句话定位：</span>一个 AI 漫剧智能制作平台——输入一句话灵感 / 一段小说，自动产出剧本、分镜、角色、画面、动效、配音与最终成片</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="250" width="380" height="28">
+      <content textType="headline" fontSize="16" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>产品形态</p></content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="278" width="380" height="50">
+      <content textType="body" fontSize="13" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.5"><p>SaaS 化的 Web「导演工作台」，多用户可上线，支持单项目半自动 / 全自动生产</p></content>
+    </shape>
+    <shape type="text" topLeftX="500" topLeftY="250" width="390" height="28">
+      <content textType="headline" fontSize="16" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>核心主张</p></content>
+    </shape>
+    <shape type="text" topLeftX="500" topLeftY="278" width="390" height="50">
+      <content textType="body" fontSize="13" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.5"><p>AI 负责批量生产初稿，人负责抽卡、挑选与把关 —— 人机协作，而不是全自动黑箱</p></content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="350" width="800" height="28">
+      <content textType="headline" fontSize="16" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>单集闭环流水线</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="385" width="95" height="50" presetHandlers="4">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="385" width="95" height="50">
+      <content textType="body" fontSize="12" color="rgba(255,255,255,1)" fontFamily="思源黑体" textAlign="center" verticalAlign="middle" bold="true"><p>灵感</p></content>
+    </shape>
+    <line startX="178" startY="410" endX="195" endY="410"><border color="rgba(37,99,235,1)" width="2"/><endArrow type="arrow"/></line>
+    <shape type="rect" topLeftX="198" topLeftY="385" width="95" height="50" presetHandlers="4">
+      <fill><fillColor color="rgba(37,99,235,0.85)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="198" topLeftY="385" width="95" height="50">
+      <content textType="body" fontSize="12" color="rgba(255,255,255,1)" fontFamily="思源黑体" textAlign="center" verticalAlign="middle" bold="true"><p>剧本</p></content>
+    </shape>
+    <line startX="296" startY="410" endX="313" endY="410"><border color="rgba(37,99,235,1)" width="2"/><endArrow type="arrow"/></line>
+    <shape type="rect" topLeftX="316" topLeftY="385" width="95" height="50" presetHandlers="4">
+      <fill><fillColor color="rgba(37,99,235,0.7)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="316" topLeftY="385" width="95" height="50">
+      <content textType="body" fontSize="12" color="rgba(255,255,255,1)" fontFamily="思源黑体" textAlign="center" verticalAlign="middle" bold="true"><p>角色</p></content>
+    </shape>
+    <line startX="414" startY="410" endX="431" endY="410"><border color="rgba(37,99,235,1)" width="2"/><endArrow type="arrow"/></line>
+    <shape type="rect" topLeftX="434" topLeftY="385" width="95" height="50" presetHandlers="4">
+      <fill><fillColor color="rgba(37,99,235,0.55)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="434" topLeftY="385" width="95" height="50">
+      <content textType="body" fontSize="12" color="rgba(255,255,255,1)" fontFamily="思源黑体" textAlign="center" verticalAlign="middle" bold="true"><p>分镜画面</p></content>
+    </shape>
+    <line startX="532" startY="410" endX="549" endY="410"><border color="rgba(37,99,235,1)" width="2"/><endArrow type="arrow"/></line>
+    <shape type="rect" topLeftX="552" topLeftY="385" width="95" height="50" presetHandlers="4">
+      <fill><fillColor color="rgba(37,99,235,0.45)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="552" topLeftY="385" width="95" height="50">
+      <content textType="body" fontSize="12" color="rgba(255,255,255,1)" fontFamily="思源黑体" textAlign="center" verticalAlign="middle" bold="true"><p>动效</p></content>
+    </shape>
+    <line startX="650" startY="410" endX="667" endY="410"><border color="rgba(37,99,235,1)" width="2"/><endArrow type="arrow"/></line>
+    <shape type="rect" topLeftX="670" topLeftY="385" width="95" height="50" presetHandlers="4">
+      <fill><fillColor color="rgba(37,99,235,0.35)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="670" topLeftY="385" width="95" height="50">
+      <content textType="body" fontSize="12" color="rgba(255,255,255,1)" fontFamily="思源黑体" textAlign="center" verticalAlign="middle" bold="true"><p>配音</p></content>
+    </shape>
+    <line startX="768" startY="410" endX="785" endY="410"><border color="rgba(37,99,235,1)" width="2"/><endArrow type="arrow"/></line>
+    <shape type="rect" topLeftX="788" topLeftY="385" width="102" height="50" presetHandlers="4">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="788" topLeftY="385" width="102" height="50">
+      <content textType="body" fontSize="12" color="rgba(255,255,255,1)" fontFamily="思源黑体" textAlign="center" verticalAlign="middle" bold="true"><p>FFmpeg合成</p></content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="455" width="810" height="24">
+      <content textType="caption" fontSize="11" color="rgba(120,135,160,1)" fontFamily="思源黑体"><p>质检贯穿全流程，每环节支持抽卡选版与回滚</p></content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>"人机协作"这句一定要说，这是评委会追问的设计立场。可以补一句："AI 生成天生有不确定性，所以我们不假装它能一次到位，而是把它设计成可抽卡、可挑拣、可回滚。"</p>
+    </content>
+  </note>
+</slide>

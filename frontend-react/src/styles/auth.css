@@ -1,0 +1,571 @@
+/* ============================================
+   登录页样式（移植自 AuthView / AuthLeftPanel / AuthRightPanel / LoginForm）
+   Vue 版的 <style scoped> 改为「父选择器作用域」，避免 .logo/.title 等
+   通用类名跨组件串味——这是 SFC scoped 在 React 里最直接的替代方案。
+   ============================================ */
+
+.auth-screen {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+/* ---------------- 左侧品牌面板 ---------------- */
+.auth-left {
+  position: relative;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-8) var(--space-7);
+  overflow: hidden;
+  border-right: 1px solid var(--border);
+  background:
+    radial-gradient(680px 420px at 20% 0%, rgba(0, 113, 227, 0.14), transparent 70%),
+    radial-gradient(520px 360px at 100% 100%, rgba(0, 113, 227, 0.1), transparent 65%),
+    var(--bg);
+}
+
+@media (min-width: 1024px) {
+  .auth-left {
+    display: flex;
+    width: 46%;
+    max-width: 620px;
+  }
+}
+
+.auth-left .left-top-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 15%,
+    color-mix(in srgb, var(--primary) 60%, transparent) 50%,
+    transparent 85%
+  );
+}
+
+.auth-left .left-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 420px;
+  animation: fadeUp 0.6s var(--ease-out) both;
+}
+
+.auth-left .logo {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-lg);
+  background: var(--brand-grad);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+.auth-left .logo svg {
+  width: 26px;
+  height: 26px;
+}
+
+.auth-left .title {
+  margin: var(--space-5) 0 var(--space-2);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  color: var(--text-primary);
+}
+
+.auth-left .slogan {
+  margin: 0 0 var(--space-7);
+  color: var(--text-secondary);
+  font-size: var(--text-base);
+}
+
+.auth-left .features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.auth-left .features li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.auth-left .features .dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  margin-top: 7px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-soft);
+}
+
+.auth-left .features strong {
+  display: block;
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.auth-left .features em {
+  display: block;
+  margin-top: 2px;
+  font-style: normal;
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+}
+
+.auth-left .left-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ---------------- 右侧表单容器 ---------------- */
+.auth-right {
+  position: relative;
+  flex: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.auth-right .right-top-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 15%,
+    color-mix(in srgb, var(--primary) 60%, transparent) 50%,
+    transparent 85%
+  );
+  pointer-events: none;
+}
+
+.auth-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(640px 380px at 50% -8%, rgba(0, 113, 227, 0.08), transparent 70%),
+    radial-gradient(520px 320px at 88% 108%, rgba(0, 113, 227, 0.06), transparent 65%);
+}
+
+.auth-right .auth-wrap {
+  position: relative;
+  z-index: 1;
+  width: 420px;
+  max-width: calc(100vw - var(--space-7));
+  padding: var(--space-7) 0;
+}
+
+.auth-right .brand-mobile {
+  text-align: center;
+  margin-bottom: var(--space-6);
+  animation: fadeUp 0.5s var(--ease-out) both;
+}
+
+@media (min-width: 1024px) {
+  .auth-right .brand-mobile {
+    display: none;
+  }
+}
+
+.auth-right .brand-mobile .logo {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius);
+  background: var(--brand-grad);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+.auth-right .brand-mobile .logo svg {
+  width: 22px;
+  height: 22px;
+}
+
+.auth-right .brand-mobile .name {
+  margin: var(--space-3) 0 var(--space-1);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--text-primary);
+}
+
+.auth-right .brand-mobile .slogan {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.auth-card {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-xl);
+  padding: var(--space-6);
+  animation: fadeUp 0.5s var(--ease-out) 0.1s both;
+}
+
+/* 胶囊 Tab */
+.auth-card .tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-1);
+  padding: 4px;
+  margin-bottom: var(--space-5);
+  border-radius: var(--radius-pill);
+  background: var(--surface-hover);
+}
+
+.auth-card .tab {
+  height: 36px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--dur-base) var(--ease-smooth);
+}
+
+.auth-card .tab:hover {
+  color: var(--text-primary);
+}
+
+.auth-card .tab.active {
+  background: var(--surface-raised);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.auth-right .foot {
+  text-align: center;
+  margin-top: var(--space-4);
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  animation: fadeUp 0.5s var(--ease-out) 0.2s both;
+}
+
+/* ---------------- 登录表单 ---------------- */
+.login-form .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: calc(-1 * var(--space-2)) 0 var(--space-4);
+}
+
+.link-btn {
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+  transition: color var(--dur-base) var(--ease-smooth);
+}
+
+.link-btn:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+.login-form .submit {
+  width: 100%;
+  margin-top: var(--space-1);
+}
+
+.login-form .switch-tip {
+  margin-top: var(--space-4);
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+/* Tab 切换入场（替代 Vue 的 <Transition name="pane">） */
+.pane-enter {
+  animation: fadeUp 0.2s var(--ease-smooth) both;
+}
+
+/* ---------------- 待迁移占位 ---------------- */
+.pending-pane {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5) 0 var(--space-3);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+}
+
+.pending-pane h3 {
+  margin: 0;
+  font-size: var(--text-md);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.pending-pane code,
+.pending-note code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: var(--surface-hover);
+  color: var(--accent);
+}
+
+.pending-note {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.8;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .auth-right .auth-wrap {
+    width: auto;
+    max-width: none;
+    margin: 0 var(--space-4);
+    padding: var(--space-5) 0;
+  }
+
+  .auth-card {
+    padding: var(--space-5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auth-screen *,
+  .pane-enter {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   注册表单：密码强度条 + 条款行
+   ============================================ */
+.register-form .strength {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  margin: calc(-1 * var(--space-3)) 0 var(--space-3);
+}
+
+.strength-track {
+  flex: 1;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-hover);
+  overflow: hidden;
+}
+
+.strength-bar {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width var(--dur-slow) var(--ease-smooth),
+    background var(--dur-slow) var(--ease-smooth);
+}
+
+.strength-label {
+  flex: none;
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.terms-text {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.terms-link-row {
+  margin: calc(-1 * var(--space-4)) 0 var(--space-4) 24px;
+}
+
+.terms-link {
+  font-size: var(--text-sm);
+  color: var(--primary);
+}
+
+.register-form .submit,
+.login-form .submit {
+  width: 100%;
+  margin-top: var(--space-1);
+}
+
+.register-form .switch-tip {
+  margin-top: var(--space-4);
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   找回密码弹窗（antd Modal 渲染在 body 下的 portal 里，
+   因此不能挂在 .auth-right 作用域内）
+   ============================================ */
+.forget-dialog .ant-modal-content {
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-xl);
+}
+
+.forget-dialog .ant-modal-title {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.fp-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.fp-step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-tertiary);
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.fp-step.active {
+  color: var(--text-secondary);
+}
+
+.fp-step.current {
+  color: var(--primary);
+}
+
+.fp-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  background: var(--surface-hover);
+  border: 1px solid var(--border);
+  transition: all var(--dur-base) var(--ease-smooth);
+}
+
+.fp-step.current .fp-dot {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.fp-step.active:not(.current) .fp-dot {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.fp-line {
+  width: 28px;
+  height: 1px;
+  margin-left: var(--space-2);
+  background: var(--border-strong);
+}
+
+.fp-pane {
+  animation: fadeUp 0.3s var(--ease-out);
+}
+
+.fp-hint {
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.fp-hint strong {
+  color: var(--text-primary);
+  margin-left: 4px;
+}
+
+.fp-dev-hint {
+  margin: calc(-1 * var(--space-2)) 0 var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--warning);
+}
+
+.fp-dev-hint code {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.fp-error {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-xs);
+  color: var(--danger);
+}
+
+.fp-code-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-1);
+}
+
+.fp-submit {
+  width: 100%;
+  margin-top: var(--space-5);
+}
+
+.fp-strength {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  margin: calc(-1 * var(--space-3)) 0 var(--space-3);
+}
+
+.fp-strength-track {
+  flex: 1;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-hover);
+  overflow: hidden;
+}
+
+.fp-strength-bar {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width var(--dur-slow) var(--ease-smooth),
+    background var(--dur-slow) var(--ease-smooth);
+}
+
+.fp-strength-label {
+  flex: none;
+  font-size: var(--text-xs);
+  font-weight: 600;
+}

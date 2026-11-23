@@ -1,0 +1,104 @@
+<slide>
+  <style><fill><fillColor color="rgb(242,244,248)"/></fill></style>
+  <data>
+    <shape type="text" topLeftX="80" topLeftY="50" width="600" height="40">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true"><p>第二部分　重点模块 ★ 核心</p></content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="80" width="800" height="50">
+      <content textType="title" fontSize="26" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>模块五：角色一致性与抽卡选版</p></content>
+    </shape>
+    <line startX="80" startY="135" endX="120" endY="135"><border color="rgba(37,99,235,1)" width="3"/></line>
+    <shape type="text" topLeftX="80" topLeftY="150" width="800" height="24">
+      <content textType="body" fontSize="13" color="rgba(83,97,116,1)" fontFamily="思源黑体"><p>AI 生成的头号顽疾 —— 五层策略把"看运气"变成可复现的工程流程</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="185" width="160" height="130" presetHandlers="6">
+      <fill><fillColor color="rgba(37,99,235,0.15)"/></fill>
+      <border color="rgba(37,99,235,0.4)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="195" width="160" height="30">
+      <content textType="headline" fontSize="24" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true" textAlign="center"><p>1</p></content>
+    </shape>
+    <shape type="text" topLeftX="90" topLeftY="230" width="140" height="24">
+      <content textType="body" fontSize="12" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true" textAlign="center"><p>结构化提示词</p></content>
+    </shape>
+    <shape type="text" topLeftX="90" topLeftY="256" width="140" height="50">
+      <content textType="caption" fontSize="10" color="rgba(83,97,116,1)" fontFamily="思源黑体" textAlign="center" lineSpacing="multiple:1.3"><p>角色设定落库为模板，出图按角色名自动注入，描述词组逐字一致</p></content>
+    </shape>
+    <shape type="rect" topLeftX="255" topLeftY="185" width="160" height="130" presetHandlers="6">
+      <fill><fillColor color="rgba(37,99,235,0.12)"/></fill>
+      <border color="rgba(37,99,235,0.35)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="255" topLeftY="195" width="160" height="30">
+      <content textType="headline" fontSize="24" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true" textAlign="center"><p>2</p></content>
+    </shape>
+    <shape type="text" topLeftX="265" topLeftY="230" width="140" height="24">
+      <content textType="body" fontSize="12" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true" textAlign="center"><p>风格词包</p></content>
+    </shape>
+    <shape type="text" topLeftX="265" topLeftY="256" width="140" height="50">
+      <content textType="caption" fontSize="10" color="rgba(83,97,116,1)" fontFamily="思源黑体" textAlign="center" lineSpacing="multiple:1.3"><p>正/负向词包作为可复用预设叠加，锁定画风不漂移</p></content>
+    </shape>
+    <shape type="rect" topLeftX="430" topLeftY="185" width="160" height="130" presetHandlers="6">
+      <fill><fillColor color="rgba(37,99,235,0.1)"/></fill>
+      <border color="rgba(37,99,235,0.3)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="430" topLeftY="195" width="160" height="30">
+      <content textType="headline" fontSize="24" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true" textAlign="center"><p>3</p></content>
+    </shape>
+    <shape type="text" topLeftX="440" topLeftY="230" width="140" height="24">
+      <content textType="body" fontSize="12" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true" textAlign="center"><p>多角度参考图</p></content>
+    </shape>
+    <shape type="text" topLeftX="440" topLeftY="256" width="140" height="50">
+      <content textType="caption" fontSize="10" color="rgba(83,97,116,1)" fontFamily="思源黑体" textAlign="center" lineSpacing="multiple:1.3"><p>先产定妆照，视频阶段以图为准（参考图模式），让模型"照着画"</p></content>
+    </shape>
+    <shape type="rect" topLeftX="605" topLeftY="185" width="160" height="130" presetHandlers="6">
+      <fill><fillColor color="rgba(37,99,235,0.08)"/></fill>
+      <border color="rgba(37,99,235,0.25)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="605" topLeftY="195" width="160" height="30">
+      <content textType="headline" fontSize="24" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true" textAlign="center"><p>4</p></content>
+    </shape>
+    <shape type="text" topLeftX="615" topLeftY="230" width="140" height="24">
+      <content textType="body" fontSize="12" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true" textAlign="center"><p>固定 seed</p></content>
+    </shape>
+    <shape type="text" topLeftX="615" topLeftY="256" width="140" height="50">
+      <content textType="caption" fontSize="10" color="rgba(83,97,116,1)" fontFamily="思源黑体" textAlign="center" lineSpacing="multiple:1.3"><p>关键镜头记录 seed，结果可复现、可对比、可回滚</p></content>
+    </shape>
+    <shape type="rect" topLeftX="780" topLeftY="185" width="100" height="130" presetHandlers="6">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="780" topLeftY="195" width="100" height="30">
+      <content textType="headline" fontSize="24" color="rgba(255,255,255,1)" fontFamily="思源黑体" bold="true" textAlign="center"><p>5</p></content>
+    </shape>
+    <shape type="text" topLeftX="785" topLeftY="230" width="90" height="24">
+      <content textType="body" fontSize="11" color="rgba(255,255,255,1)" fontFamily="思源黑体" bold="true" textAlign="center"><p>抽卡选版</p></content>
+    </shape>
+    <shape type="text" topLeftX="785" topLeftY="256" width="90" height="50">
+      <content textType="caption" fontSize="9" color="rgba(191,215,255,1)" fontFamily="思源黑体" textAlign="center" lineSpacing="multiple:1.3"><p>同镜头批量出 2-4 版，人工挑选或自动淘汰崩坏结果</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="335" width="370" height="170" presetHandlers="8">
+      <fill><fillColor color="rgba(220,228,240,1)"/></fill>
+      <border color="rgba(180,195,220,1)" width="1" dashArray="dash"/>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="400" width="370" height="40">
+      <content textType="body" fontSize="13" color="rgba(120,135,160,1)" fontFamily="思源黑体" textAlign="center" verticalAlign="middle">
+        <p>【角色一致性对比图占位】</p>
+        <p>左：未使用策略 / 右：五层策略后</p>
+      </content>
+    </shape>
+    <shape type="rect" topLeftX="475" topLeftY="335" width="405" height="170" presetHandlers="6">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="495" topLeftY="350" width="365" height="28">
+      <content textType="headline" fontSize="16" color="rgba(255,255,255,1)" fontFamily="思源黑体" bold="true"><p>核心思路</p></content>
+    </shape>
+    <shape type="text" topLeftX="495" topLeftY="380" width="365" height="120">
+      <content textType="body" fontSize="12" color="rgba(191,215,255,1)" fontFamily="思源黑体" lineSpacing="multiple:1.5">
+        <p>把视觉特征从"文字描述"转成"视觉锚点"</p>
+        <p>文生图模型对文字理解是概率性的，纯文本无法锁定视觉特征</p>
+        <p>每个镜头独立生成缺少共享锚点 → 用定妆照+参考图建立锚点</p>
+        <p><span bold="true" color="rgba(255,255,255,1)">效果：角色可用率显著提升，从"抽十张能用两三张"到"批量出片可挑选"</span></p>
+      </content>
+    </shape>
+  </data>
+  <note><content textType="body"><p>一致性是漫剧的命门，这页一定要讲。可以用对比感强的说法收尾："一次生成对一个能看的，是从抽卡开始的。"</p></content></note>
+</slide>

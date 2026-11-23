@@ -1,0 +1,36 @@
+<slide>
+  <style><fill><fillColor color="rgb(242,244,248)"/></fill></style>
+  <data>
+    <shape type="text" topLeftX="80" topLeftY="50" width="600" height="40">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true"><p>第二部分　重点模块 · 界面展示</p></content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="80" width="800" height="50">
+      <content textType="title" fontSize="28" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>任务中心与实时进度</p></content>
+    </shape>
+    <line startX="80" startY="135" endX="120" endY="135"><border color="rgba(37,99,235,1)" width="3"/></line>
+    <shape type="rect" topLeftX="80" topLeftY="160" width="560" height="340" presetHandlers="8">
+      <fill><fillColor color="rgba(220,228,240,1)"/></fill>
+      <border color="rgba(180,195,220,1)" width="1" dashArray="dash"/>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="300" width="560" height="60">
+      <content textType="body" fontSize="14" color="rgba(120,135,160,1)" fontFamily="思源黑体" textAlign="center" verticalAlign="middle" lineSpacing="multiple:1.6">
+        <p>【项目界面截图占位】</p>
+        <p>任务中心：实时进度 / 状态流转 / 失败重试 / 取消任务</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="670" topLeftY="165" width="220" height="28">
+      <content textType="headline" fontSize="15" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>截图要点</p></content>
+    </shape>
+    <line startX="670" startY="198" endX="880" endY="198"><border color="rgba(200,210,225,1)" width="1"/></line>
+    <shape type="text" topLeftX="670" topLeftY="210" width="220" height="280">
+      <content textType="body" fontSize="12" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.9">
+        <p>任务状态六态流转</p>
+        <p>SSE 实时进度推送</p>
+        <p>失败任务一键重试</p>
+        <p>进行中任务可取消</p>
+        <p>批量任务聚合展示</p>
+      </content>
+    </shape>
+  </data>
+  <note><content textType="body"><p>这一页对应异步任务引擎模块。重点让评委看到任务不是"转圈等待"，而是有明确状态、实时进度、失败可重试、运行可取消的完整生命周期。</p></content></note>
+</slide>

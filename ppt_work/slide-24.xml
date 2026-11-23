@@ -1,0 +1,81 @@
+<slide>
+  <style><fill><fillColor color="rgb(242,244,248)"/></fill></style>
+  <data>
+    <shape type="text" topLeftX="80" topLeftY="50" width="600" height="40">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true"><p>第五部分　项目演示</p></content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="80" width="700" height="50">
+      <content textType="title" fontSize="28" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>演示脚本：七步走</p></content>
+    </shape>
+    <line startX="80" startY="135" endX="120" endY="135"><border color="rgba(37,99,235,1)" width="3"/></line>
+    <shape type="text" topLeftX="80" topLeftY="150" width="800" height="24">
+      <content textType="body" fontSize="13" color="rgba(83,97,116,1)" fontFamily="思源黑体"><p>按顺序做，每步一句话说清"我在证明什么"</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="185" width="800" height="42" presetHandlers="4">
+      <fill><fillColor color="rgba(37,99,235,0.08)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="185" width="50" height="42">
+      <content textType="headline" fontSize="18" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true" verticalAlign="middle"><p>1</p></content>
+    </shape>
+    <shape type="text" topLeftX="145" topLeftY="185" width="720" height="42">
+      <content textType="body" fontSize="12" color="rgba(13,19,38,1)" fontFamily="思源黑体" verticalAlign="middle"><p><span bold="true">架构先行：</span>打开 /docs 接口文档，展示 9 组路由 —— 证明这是一个完整系统，不是单点 Demo</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="235" width="800" height="42" presetHandlers="4">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(220,225,235,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="235" width="50" height="42">
+      <content textType="headline" fontSize="18" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true" verticalAlign="middle"><p>2</p></content>
+    </shape>
+    <shape type="text" topLeftX="145" topLeftY="235" width="720" height="42">
+      <content textType="body" fontSize="12" color="rgba(13,19,38,1)" fontFamily="思源黑体" verticalAlign="middle"><p><span bold="true">注册登录：</span>现场注册并登录，一句话带过双令牌与登录保护策略</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="285" width="800" height="42" presetHandlers="4">
+      <fill><fillColor color="rgba(37,99,235,0.08)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="285" width="50" height="42">
+      <content textType="headline" fontSize="18" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true" verticalAlign="middle"><p>3</p></content>
+    </shape>
+    <shape type="text" topLeftX="145" topLeftY="285" width="720" height="42">
+      <content textType="body" fontSize="12" color="rgba(13,19,38,1)" fontFamily="思源黑体" verticalAlign="middle"><p><span bold="true">风格预设：</span>新建「国潮工笔」→ 停用 → 删除 —— 证明完整增删改查、重名校验与数据隔离</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="335" width="800" height="42" presetHandlers="4">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(220,225,235,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="335" width="50" height="42">
+      <content textType="headline" fontSize="18" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true" verticalAlign="middle"><p>4</p></content>
+    </shape>
+    <shape type="text" topLeftX="145" topLeftY="335" width="720" height="42">
+      <content textType="body" fontSize="12" color="rgba(13,19,38,1)" fontFamily="思源黑体" verticalAlign="middle"><p><span bold="true">创作：</span>输入一句话灵感 → 选择风格与画面比例 → 新建项目 —— 证明入口极简</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="385" width="800" height="42" presetHandlers="4">
+      <fill><fillColor color="rgba(37,99,235,0.08)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="385" width="50" height="42">
+      <content textType="headline" fontSize="18" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true" verticalAlign="middle"><p>5</p></content>
+    </shape>
+    <shape type="text" topLeftX="145" topLeftY="385" width="720" height="42">
+      <content textType="body" fontSize="12" color="rgba(13,19,38,1)" fontFamily="思源黑体" verticalAlign="middle"><p><span bold="true">剧本与角色：</span>生成剧本 → 展示结构化分镜表（景别/画面/台词/情绪）；展示"重提角色不删分镜"</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="435" width="800" height="42" presetHandlers="4">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="435" width="50" height="42">
+      <content textType="headline" fontSize="18" color="rgba(255,255,255,1)" fontFamily="思源黑体" bold="true" verticalAlign="middle"><p>6</p></content>
+    </shape>
+    <shape type="text" topLeftX="145" topLeftY="435" width="720" height="42">
+      <content textType="body" fontSize="12" color="rgba(191,215,255,1)" fontFamily="思源黑体" verticalAlign="middle"><p><span bold="true" color="rgba(255,255,255,1)">工作台全流程 ★ 高潮：</span>剧本 → 角色定妆照 → 画面（批量出图+抽卡选版）→ 配音（试听）→ 成片（合成预检→合成→导出）</p></content>
+    </shape>
+    <shape type="rect" topLeftX="80" topLeftY="485" width="800" height="40" presetHandlers="4">
+      <fill><fillColor color="rgba(37,99,235,0.15)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="95" topLeftY="485" width="50" height="40">
+      <content textType="headline" fontSize="18" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true" verticalAlign="middle"><p>7</p></content>
+    </shape>
+    <shape type="text" topLeftX="145" topLeftY="485" width="720" height="40">
+      <content textType="body" fontSize="12" color="rgba(13,19,38,1)" fontFamily="思源黑体" verticalAlign="middle"><p><span bold="true">任务与收尾：</span>展示任务中心实时进度、失败重试与取消；回到接口文档，一句话收尾"这就是从灵感到成片的完整闭环"</p></content>
+    </shape>
+  </data>
+  <note><content textType="body"><p>第 6 步是全场高潮，建议提前把抽卡结果留 2-3 个候选版本现场选，让评委看到"多版本对比挑选"这个动作——这是人机协作最直观的体现。</p></content></note>
+</slide>

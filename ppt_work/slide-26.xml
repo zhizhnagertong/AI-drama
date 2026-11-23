@@ -1,0 +1,36 @@
+<slide>
+  <style><fill><fillColor color="rgb(242,244,248)"/></fill></style>
+  <data>
+    <shape type="text" topLeftX="80" topLeftY="50" width="600" height="40">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" fontFamily="思源黑体" bold="true"><p>第二部分　重点模块 · 界面展示</p></content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="80" width="800" height="50">
+      <content textType="title" fontSize="28" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>剧本与分镜编辑界面</p></content>
+    </shape>
+    <line startX="80" startY="135" endX="120" endY="135"><border color="rgba(37,99,235,1)" width="3"/></line>
+    <shape type="rect" topLeftX="80" topLeftY="160" width="560" height="340" presetHandlers="8">
+      <fill><fillColor color="rgba(220,228,240,1)"/></fill>
+      <border color="rgba(180,195,220,1)" width="1" dashArray="dash"/>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="300" width="560" height="60">
+      <content textType="body" fontSize="14" color="rgba(120,135,160,1)" fontFamily="思源黑体" textAlign="center" verticalAlign="middle" lineSpacing="multiple:1.6">
+        <p>【项目界面截图占位】</p>
+        <p>结构化分镜表：景别 / 画面描述 / 台词 / 情绪，支持表格化编辑与拖拽排序</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="670" topLeftY="165" width="220" height="28">
+      <content textType="headline" fontSize="15" color="rgba(13,19,38,1)" fontFamily="思源黑体" bold="true"><p>截图要点</p></content>
+    </shape>
+    <line startX="670" startY="198" endX="880" endY="198"><border color="rgba(200,210,225,1)" width="1"/></line>
+    <shape type="text" topLeftX="670" topLeftY="210" width="220" height="280">
+      <content textType="body" fontSize="12" color="rgba(83,97,116,1)" fontFamily="思源黑体" lineSpacing="multiple:1.9">
+        <p>AI 生成的结构化分镜表</p>
+        <p>景别 / 画面 / 台词 / 情绪列</p>
+        <p>可直接编辑、拖拽排序</p>
+        <p>可编辑梗概重新生成</p>
+        <p>"重提角色"不删分镜</p>
+      </content>
+    </shape>
+  </data>
+  <note><content textType="body"><p>这一页展示智能体编排的最终产物长什么样：大模型输出的自然语言被转成了可编辑、可入库、可重跑的结构化分镜表。现场可以点开一个单元格演示编辑。</p></content></note>
+</slide>
