@@ -11,6 +11,7 @@ import random
 import traceback
 
 from sqlalchemy import func
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 from sqlalchemy.orm.exc import StaleDataError
 
@@ -128,7 +129,20 @@ def submit_task(
         idempotency_key=idempotency_key,
     )
     db.add(task)
-    db.commit()
+    try:
+        db.commit()
+    except IntegrityError:
+        # 并发重复提交：唯一索引挡下后回退为“返回已有任务”，而不是 500
+        db.rollback()
+        if idempotency_key:
+            existing = (
+                db.query(models.GenTask)
+                .filter_by(idempotency_key=idempotency_key)
+                .first()
+            )
+            if existing is not None:
+                return existing
+        raise
     db.refresh(task)
     _publish(task)
     _enqueue(task.id)
@@ -505,7 +519,6 @@ def _handle_script(db: Session, task: models.GenTask) -> dict:
     for sb in old_sbs:
         db.delete(sb)
     db.flush()
-    purge_asset_files(stale_urls)
 
     # 角色：同名更新，否则新建
     for c in data.get("characters", []):
@@ -574,6 +587,9 @@ def _handle_script(db: Session, task: models.GenTask) -> dict:
                 {"storyboard_id": sb.id, "count": 2, "retryable": True},
             )
     db.commit()
+    # 物理文件必须在事务提交**之后**再删：否则后续步骤失败回滚时，
+    # 旧分镜/版本行会回来，而它们的图片/视频文件已经不可恢复地删掉了。
+    purge_asset_files(stale_urls)
     return {
         "title": data.get("title"),
         "logline": data.get("logline"),
@@ -650,8 +666,14 @@ def _handle_image(db: Session, task: models.GenTask) -> dict:
             version_ids.append(version.id)
             update_progress(db, task, int((i + 1) / count * 95))
     except BaseException:
-        # 失败/取消时把分镜从 generating 拉回 pending，避免状态永久卡死
-        sb.status = models.StoryboardStatus.pending
+        # 失败/取消：必须先回滚，丢弃本次已 flush 的 ShotVersion/Asset 半成品，
+        # 否则 commit 会把“生成到一半”的版本写进库（原实现即如此）。
+        # 复位分镜状态用独立 UPDATE，避免依赖已过期的 ORM 实例。
+        sb_id = sb.id
+        db.rollback()
+        db.query(models.Storyboard).filter(models.Storyboard.id == sb_id).update(
+            {"status": models.StoryboardStatus.pending}, synchronize_session=False
+        )
         db.commit()
         raise
 
@@ -861,49 +883,59 @@ def _handle_video(db: Session, task: models.GenTask) -> dict:
     image_ref = remote_url or version.image_url
 
     version.status = models.ShotVersionStatus.running
+    version_id = version.id
     db.commit()
     _publish(task)
 
-    video_id = agnes.create_video(
-        prompt=prompt,
-        images=[image_ref] if image_ref else None,
-        mode="reference" if image_ref else "text",
-        seconds=seconds,
-        aspect_ratio=project.aspect_ratio or "9:16",
-    )
-
-    # 轮询：间隔 10s，最长 10 分钟
-    start = _time.time()
-    deadline = start + 600
-    while True:
-        check_canceled(db, task.id)
-        info = agnes.query_video(video_id)
-        status = info["status"]
-        if status in agnes.VIDEO_DONE_STATES:
-            if not info["video_url"]:
-                raise RuntimeError(f"视频生成完成但未返回地址: {str(info['raw'])[:500]}")
-            break
-        if status in agnes.VIDEO_FAIL_STATES:
-            raise RuntimeError(f"视频生成失败: {str(info['raw'])[:500]}")
-        if _time.time() > deadline:
-            raise RuntimeError("视频生成超时（超过 10 分钟）")
-        update_progress(db, task, min(90, 10 + int((_time.time() - start) / 600 * 80)))
-        _time.sleep(10)
-
-    remote_video = info["video_url"]
-    local_video = storage.save_from_url(remote_video, "videos")
-    version.video_url = local_video
-    version.status = models.ShotVersionStatus.succeeded
-    shot.video_url = local_video
-    db.add(
-        models.Asset(
-            project_id=task.project_id,
-            type=models.AssetType.video,
-            url=local_video,
-            meta={"shot_id": shot.id, "shot_version_id": version.id, "remote_url": remote_video, "video_id": video_id},
+    # 取消 / 超时 / 上游失败都必须把版本从 running 复位，否则前端永久转圈
+    try:
+        video_id = agnes.create_video(
+            prompt=prompt,
+            images=[image_ref] if image_ref else None,
+            mode="reference" if image_ref else "text",
+            seconds=seconds,
+            aspect_ratio=project.aspect_ratio or "9:16",
         )
-    )
-    db.commit()
+
+        # 轮询：间隔 10s，最长 10 分钟
+        start = _time.time()
+        deadline = start + 600
+        while True:
+            check_canceled(db, task.id)
+            info = agnes.query_video(video_id)
+            status = info["status"]
+            if status in agnes.VIDEO_DONE_STATES:
+                if not info["video_url"]:
+                    raise RuntimeError(f"视频生成完成但未返回地址: {str(info['raw'])[:500]}")
+                break
+            if status in agnes.VIDEO_FAIL_STATES:
+                raise RuntimeError(f"视频生成失败: {str(info['raw'])[:500]}")
+            if _time.time() > deadline:
+                raise RuntimeError("视频生成超时（超过 10 分钟）")
+            update_progress(db, task, min(90, 10 + int((_time.time() - start) / 600 * 80)))
+            _time.sleep(10)
+
+        remote_video = info["video_url"]
+        local_video = storage.save_from_url(remote_video, "videos")
+        version.video_url = local_video
+        version.status = models.ShotVersionStatus.succeeded
+        shot.video_url = local_video
+        db.add(
+            models.Asset(
+                project_id=task.project_id,
+                type=models.AssetType.video,
+                url=local_video,
+                meta={"shot_id": shot.id, "shot_version_id": version.id, "remote_url": remote_video, "video_id": video_id},
+            )
+        )
+        db.commit()
+    except BaseException:
+        db.rollback()
+        db.query(models.ShotVersion).filter(models.ShotVersion.id == version_id).update(
+            {"status": models.ShotVersionStatus.failed}, synchronize_session=False
+        )
+        db.commit()
+        raise
     return {"video_url": local_video, "video_id": video_id}
 
 
@@ -917,14 +949,18 @@ def _handle_composite(db: Session, task: models.GenTask) -> dict:
     project = db.get(models.Project, task.project_id)
 
     timeline.status = models.TimelineStatus.compositing
+    timeline_id = timeline.id
     db.commit()
     _publish(task)
     try:
         output_url = compositor.composite(project, timeline)
-    except Exception:
-        timeline.status = models.TimelineStatus.failed
+    except BaseException:
+        # 取消、超时、ffmpeg 失败：必须复位，否则时间线永久卡在 compositing
+        db.rollback()
+        db.query(models.Timeline).filter(models.Timeline.id == timeline_id).update(
+            {"status": models.TimelineStatus.failed}, synchronize_session=False
+        )
         db.commit()
-        _publish(task)
         raise
     timeline.output_url = output_url
     timeline.status = models.TimelineStatus.completed

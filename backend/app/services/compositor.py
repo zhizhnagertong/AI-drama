@@ -7,6 +7,7 @@
 """
 import shutil
 import subprocess
+import uuid
 from pathlib import Path
 
 import ffmpeg
@@ -98,6 +99,9 @@ def composite(project, timeline) -> str:
     items = timeline.items or []
     if not items:
         raise RuntimeError("时间线为空，无法合成")
+    # 片段数上限：防止超长时间线把 ffmpeg 命令行撑爆（Windows 单条命令上限 32767 字符）
+    if len(items) > 200:
+        raise RuntimeError(f"时间线片段过多（{len(items)}），单次最多 200 个片段")
 
     width, height = _parse_ratio(project.aspect_ratio or "9:16")
     fps = 30
@@ -108,7 +112,12 @@ def composite(project, timeline) -> str:
         media_url = str(item.get("media_url") or "").strip()
         if not media_url:
             raise RuntimeError(f"第 {idx + 1} 个片段缺少 media_url")
-        duration = max(0.5, float(item.get("duration_sec") or 5))
+        try:
+            duration = float(item.get("duration_sec") or 5)
+        except (TypeError, ValueError):
+            duration = 5.0
+        # 单段时长夹在 0.5~600 秒：脏数据不应让合成跑到超时
+        duration = min(600.0, max(0.5, duration))
         is_video = Path(media_url.split("?")[0]).suffix.lower() in VIDEO_EXTS
         src = _resolve_media(media_url, "videos" if is_video else "images")
 
@@ -180,13 +189,16 @@ def composite(project, timeline) -> str:
 
     joined = ffmpeg.concat(*segment_streams, v=1, a=1)
 
-    out_name = f"timeline_{timeline.id}.mp4"
+    # 文件名带随机串：/static 无鉴权，可枚举的 timeline_{id}.mp4 会被跨用户抓取
+    out_name = f"timeline_{timeline.id}_{uuid.uuid4().hex[:12]}.mp4"
     out_path = get_settings().storage_path / "composites" / out_name
     out_path.parent.mkdir(parents=True, exist_ok=True)
+    # 先写临时文件再原子替换，避免失败时在正式路径留下半截可播放的坏文件
+    tmp_path = out_path.with_name(out_path.name + ".part.mp4")
 
     out = ffmpeg.output(
         joined,
-        str(out_path),
+        str(tmp_path),
         vcodec="libx264",
         acodec="aac",
         pix_fmt="yuv420p",
@@ -196,12 +208,17 @@ def composite(project, timeline) -> str:
     )
     cmd = ffmpeg.compile(out, overwrite_output=True)
 
-    proc = subprocess.run(
-        [_find_ffmpeg()] + cmd[1:],
-        capture_output=True,
-        text=True,
-        timeout=900,
-    )
-    if proc.returncode != 0:
-        raise RuntimeError(f"ffmpeg 合成失败: {proc.stderr[-800:]}")
+    try:
+        proc = subprocess.run(
+            [_find_ffmpeg()] + cmd[1:],
+            capture_output=True,
+            text=True,
+            timeout=900,
+        )
+        if proc.returncode != 0:
+            raise RuntimeError(f"ffmpeg 合成失败: {proc.stderr[-800:]}")
+        tmp_path.replace(out_path)
+    except BaseException:
+        tmp_path.unlink(missing_ok=True)
+        raise
     return f"/static/composites/{out_name}"

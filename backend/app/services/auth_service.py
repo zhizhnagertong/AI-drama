@@ -245,6 +245,18 @@ def refresh(db: Session, refresh_token: str, request: Request) -> dict:
 
 
 # ---------------- 登出 ----------------
+def revoke_all_refresh_tokens(db: Session, user_id: int) -> int:
+    """吊销该用户全部未撤销的 refresh 令牌（改密 / 重置密码后强制下线）。
+
+    只标记不提交，由调用方在同一事务里 commit，保证改密与下线原子生效。
+    """
+    return (
+        db.query(RefreshToken)
+        .filter_by(user_id=user_id, revoked=False)
+        .update({RefreshToken.revoked: True}, synchronize_session=False)
+    )
+
+
 def logout(db: Session, user: User | None, refresh_token: str | None) -> dict:
     revoked = False
     if refresh_token:
@@ -299,18 +311,16 @@ def send_code(db: Session, username: str) -> dict:
         )
     )
     db.commit()
-    # 安全：验证码绝不能随 HTTP 响应回显（否则任何人可凭用户名重置任意账号）。
-    # 无邮箱的历史账号（channel=none）无其他通道，保留站内回显走通流程；
-    # 邮箱通道默认不输出验证码，仅当 LOG_RESET_CODE=true（本地调试）时打印到服务端日志，
-    # 待接入邮件发送后应彻底移除该分支。
-    if channel == "none":
+    # 安全：验证码绝不能随 HTTP 响应回显——send-code 是**未鉴权**接口，
+    # 一旦回显，任何人只要知道用户名就能重置该账号密码（完整账号接管）。
+    # 仅当 LOG_RESET_CODE=true（本地调试）时才把验证码打到服务端日志，
+    # 并同样以 code_hint 返回，方便无邮件通道的演示环境走通流程。
+    code_hint = None
+    if settings.LOG_RESET_CODE:
         code_hint = code
-    else:
-        code_hint = None
-        if settings.LOG_RESET_CODE:
-            logger.warning(
-                "[auth] 找回密码验证码（调试模式）username=%s code=%s", user.username, code
-            )
+        logger.warning(
+            "[auth] 找回密码验证码（调试模式）username=%s code=%s", user.username, code
+        )
     return {
         "sent": True,
         "channel": channel,
@@ -376,6 +386,6 @@ def reset_password(db: Session, username: str, code: str, new_password: str) -> 
     user.locked_until = None
     record.used = True
     # 使全部旧 refresh 令牌失效（异地重置场景强制下线）
-    db.query(RefreshToken).filter_by(user_id=user.id, revoked=False).update({RefreshToken.revoked: True})
+    revoke_all_refresh_tokens(db, user.id)
     db.commit()
     return {"username": user.username}

@@ -79,8 +79,10 @@ def change_password(
     if not verify_password(body.old_password, user.password_hash):
         raise auth_service.AuthError(400, "OLD_PASSWORD_WRONG", "原密码错误")
     user.password_hash = hash_password(body.new_password)
+    # 改密后吊销全部旧 refresh 令牌，避免已被窃取的会话继续续期
+    auth_service.revoke_all_refresh_tokens(db, user.id)
     db.commit()
-    return {"ok": True, "message": "密码已更新"}
+    return {"ok": True, "message": "密码已更新，请重新登录"}
 
 
 # ---------------- 找回密码（三步） ----------------

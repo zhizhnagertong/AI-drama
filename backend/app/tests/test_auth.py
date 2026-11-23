@@ -379,3 +379,41 @@ def test_change_password(client, db_session):
             json={"old_password": GOOD_PWD, "new_password": "NewPwd1234"},
         )
         assert r.status_code == 200
+
+
+# ---------------- 回归：安全问题（代码审查发现） ----------------
+def test_send_code_never_echoes_code_without_email(client):
+    """send-code 是未鉴权接口：无 email 的历史账号也不得回显验证码。
+
+    回归点：曾经 channel=="none" 时把验证码明文放进响应 code_hint，
+    任何人凭用户名即可重置任意无邮箱账号（完整账号接管）。
+    """
+    _register(client)  # 不传 email → channel == "none"
+    r = client.post(f"{API}/password/send-code", json={"username": "alice01"})
+    assert r.status_code == 200
+    body = r.json()
+    assert body["channel"] == "none"
+    assert body["code_hint"] is None
+
+
+def test_change_password_revokes_refresh_tokens(client, db_session):
+    """改密后必须吊销全部旧 refresh 令牌，否则被窃取的会话可无限续期。"""
+    from app.models import User
+
+    _register(client)
+    tokens = _login(client).json()
+    user = db_session.query(User).filter_by(username="alice01").first()
+    app = _build_app()
+    app.dependency_overrides[get_db] = lambda: db_session
+    app.dependency_overrides[get_current_user] = lambda: user
+    with TestClient(app) as c:
+        r = c.put(
+            f"{API}/me/password",
+            json={"old_password": GOOD_PWD, "new_password": "NewPwd1234"},
+        )
+        assert r.status_code == 200
+    # 旧 refresh 已被吊销
+    r2 = client.post(f"{API}/refresh", json={"refresh_token": tokens["refresh_token"]})
+    assert r2.status_code == 401
+    # 新密码可正常登录
+    assert _login(client, password="NewPwd1234").status_code == 200

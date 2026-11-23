@@ -80,9 +80,14 @@ export function persistSession({ access, refresh, user, expiresIn, refreshExpire
     if (expiresIn) store.setItem(`${ACCESS_KEY}.exp`, String(now + expiresIn * 1000))
     if (refreshExpiresIn) store.setItem(`${REFRESH_KEY}.exp`, String(now + refreshExpiresIn * 1000))
     // 切换记住我策略时清掉另一侧的会话，避免双份登录态
+    // 注意：必须连过期时间键一起清，否则 restoreSession 会读到旧会话残留的
+    // auth.*.exp，把有效会话误判为已过期（刷新页面即被强制登出）
     other.removeItem(ACCESS_KEY)
     other.removeItem(REFRESH_KEY)
     other.removeItem(USER_KEY)
+    other.removeItem(REMEMBER_KEY)
+    other.removeItem(`${ACCESS_KEY}.exp`)
+    other.removeItem(`${REFRESH_KEY}.exp`)
   } catch {
     /* 隐私模式下 localStorage 可能不可写，仅保留内存态 */
   }
@@ -94,19 +99,24 @@ export function persistSession({ access, refresh, user, expiresIn, refreshExpire
 }
 
 /** 仅更新令牌（无感刷新后调用），沿用当前存储策略 */
-export function updateTokens({ access, refresh, expiresIn }) {
+export function updateTokens({ access, refresh, expiresIn, refreshExpiresIn }) {
   const remember = readRemember()
   const store = storageFor(remember)
+  const now = Date.now()
   try {
     if (access) store.setItem(ACCESS_KEY, access)
     if (refresh) store.setItem(REFRESH_KEY, refresh)
-    if (expiresIn) store.setItem(`${ACCESS_KEY}.exp`, String(Date.now() + expiresIn * 1000))
+    if (expiresIn) store.setItem(`${ACCESS_KEY}.exp`, String(now + expiresIn * 1000))
+    // 服务端每次刷新都会轮换 refresh 并延长有效期，这里必须同步更新过期时间，
+    // 否则续期后仍按最初登录时的 7 天判死，到期被强制登出
+    if (refreshExpiresIn) store.setItem(`${REFRESH_KEY}.exp`, String(now + refreshExpiresIn * 1000))
   } catch {
     /* ignore */
   }
   if (access) accessToken.value = access
   if (refresh) refreshToken.value = refresh
-  if (expiresIn) accessExpiresAt.value = Date.now() + expiresIn * 1000
+  if (expiresIn) accessExpiresAt.value = now + expiresIn * 1000
+  if (refreshExpiresIn) refreshExpiresAt.value = now + refreshExpiresIn * 1000
 }
 
 export function setUser(user) {
@@ -142,16 +152,29 @@ export function restoreSession() {
   let user = null
   let accessExp = 0
   let refreshExp = 0
+  // 只在真正存放令牌的那个 store 里读它的过期时间：
+  // 若两边各取“第一个非 0 值”，会读到上一次登录策略残留的旧 exp
+  let source = null
   for (const store of [localStorage, sessionStorage]) {
     try {
-      if (!access) access = store.getItem(ACCESS_KEY) || ''
-      if (!refresh) refresh = store.getItem(REFRESH_KEY) || ''
-      if (!user) {
-        const raw = store.getItem(USER_KEY)
-        user = raw ? JSON.parse(raw) : null
+      if (!refresh) {
+        const candidate = store.getItem(REFRESH_KEY) || ''
+        if (candidate) {
+          refresh = candidate
+          source = store
+        }
       }
-      if (!accessExp) accessExp = Number(store.getItem(`${ACCESS_KEY}.exp`) || 0)
-      if (!refreshExp) refreshExp = Number(store.getItem(`${REFRESH_KEY}.exp`) || 0)
+    } catch {
+      /* ignore */
+    }
+  }
+  if (source) {
+    try {
+      access = source.getItem(ACCESS_KEY) || ''
+      const raw = source.getItem(USER_KEY)
+      user = raw ? JSON.parse(raw) : null
+      accessExp = Number(source.getItem(`${ACCESS_KEY}.exp`) || 0)
+      refreshExp = Number(source.getItem(`${REFRESH_KEY}.exp`) || 0)
     } catch {
       /* ignore */
     }

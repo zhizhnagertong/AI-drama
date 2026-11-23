@@ -23,12 +23,19 @@ def ensure_dirs() -> None:
 
 
 def local_path(url: str) -> Path:
-    """把 /static/... URL 映射回本地文件路径；非 /static 输入原样拼接。"""
-    base = get_settings().storage_path
+    """把 /static/... URL 映射回本地文件路径；非 /static 输入按相对路径拼接。
+
+    安全：结果必须落在 storage 目录内，防止 `../../` 路径穿越读取任意本地文件。
+    """
+    base = get_settings().storage_path.resolve()
     if "/static/" in url:
         rel = url.split("/static/", 1)[1].lstrip("/")
-        return base / rel
-    return base / url.lstrip("/")
+    else:
+        rel = url.lstrip("/")
+    path = (base / rel).resolve()
+    if not path.is_relative_to(base):
+        raise ValueError(f"非法存储路径: {url}")
+    return path
 
 
 def save_bytes(data: bytes, subdir: str, ext: str | None = None) -> str:

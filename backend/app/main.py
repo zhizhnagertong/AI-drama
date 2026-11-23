@@ -1,5 +1,6 @@
 """AI 漫剧智能制作平台 - FastAPI 后端入口。"""
 import asyncio
+import logging
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
@@ -15,8 +16,19 @@ from .core.db import init_db
 from .services import event_bus, storage, task_engine
 from .services.auth_service import AuthError
 
+logger = logging.getLogger(__name__)
+
 settings = get_settings()
 storage.ensure_dirs()  # /static 挂载前确保目录存在
+
+# 弱密钥自检：JWT_SECRET 仍是模板默认值（或过短）时任何人可伪造令牌
+_WEAK_SECRETS = {"change-me", "please_change_me_to_a_random_string", ""}
+if settings.JWT_SECRET in _WEAK_SECRETS or len(settings.JWT_SECRET) < 32:
+    logger.warning(
+        "JWT_SECRET 使用默认值或长度不足（%d 字符），任何拿到源码的人都能伪造登录令牌，"
+        "请在 backend/.env 中替换为随机串：python -c \"import secrets;print(secrets.token_urlsafe(48))\"",
+        len(settings.JWT_SECRET),
+    )
 
 
 @asynccontextmanager

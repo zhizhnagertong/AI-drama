@@ -51,7 +51,8 @@ export function refreshOnce() {
       updateTokens({
         access: data.access_token,
         refresh: data.refresh_token,
-        expiresIn: data.expires_in
+        expiresIn: data.expires_in,
+        refreshExpiresIn: data.refresh_expires_in
       })
       return data.access_token
     })
@@ -66,9 +67,34 @@ export function refreshOnce() {
   return refreshing
 }
 
+// 登录/注册/找回密码等“免登”接口：错误交给表单自行回显，不弹全局 toast、不触发刷新。
+// 用精确白名单而非正则：正则 /auth/(...|password|...)/ 会把 /auth/me/password 也误命中，
+// 导致改密失败完全静默（既无 toast 也不走 401 分支）。
+const AUTH_FREE_PATHS = [
+  '/auth/login',
+  '/auth/register',
+  '/auth/verify-user',
+  '/auth/password/send-code',
+  '/auth/password/verify-code',
+  '/auth/password/reset',
+  '/auth/refresh'
+]
+
+function isAuthFree(config) {
+  const url = config.url || ''
+  return AUTH_FREE_PATHS.some((p) => url.includes(p))
+}
+
+// 会话失效只提示一次：并发多个 401 时避免重复弹窗与多次 router.push
+let sessionExpiredNotified = false
+
 function handleSessionExpired() {
   clearSession()
-  emitSessionExpired('会话已失效，请重新登录')
+  if (!sessionExpiredNotified) {
+    sessionExpiredNotified = true
+    emitSessionExpired('会话已失效，请重新登录')
+    setTimeout(() => { sessionExpiredNotified = false }, 3000)
+  }
   if (router.currentRoute.value.path !== '/login') {
     router.push({ path: '/login', query: { redirect: router.currentRoute.value.fullPath } })
   }
@@ -90,7 +116,7 @@ api.interceptors.response.use(
         : detail?.msg || err.message || '请求失败'
 
     // 登录/注册/找回密码接口的错误交给表单自行回显，不弹全局 toast、不触发刷新
-    const isAuthEndpoint = /\/auth\/(login|register|verify-user|password|refresh)/.test(config.url || '')
+    const isAuthEndpoint = isAuthFree(config)
 
     // 401：尝试无感刷新后重放原请求（仅一次）。刷新统一走 refreshOnce（裸 axios），
     // 失败只抛错不清会话，是否登出由本拦截器下方的明确失效分支决定。

@@ -29,6 +29,8 @@ watch(
 const rules = loginRules()
 
 async function submit() {
+  // 防重复提交：表单级 @keyup.enter 不受按钮 disabled 约束，连续回车会并发多次登录
+  if (loading.value) return
   fieldErrors.username = ''
   fieldErrors.password = ''
   try {
