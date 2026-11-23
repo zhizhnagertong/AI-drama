@@ -49,6 +49,7 @@ storage/
 output/
 logs/
 *.pid
+.run.pids
 .DS_Store
 Thumbs.db
 
