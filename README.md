@@ -61,7 +61,7 @@ drama/
 ### 1. 环境要求
 
 - Python **3.10+**
-- Node.js **18+**（Vue 版用 npm / React 版用 pnpm）
+- Node.js **18+**（Vue 版用 npm / React 版用 pnpm；**pnpm 11 需 Node ≥ 22.13**，CI 使用 Node 22）
 - MySQL **8.x**，已启动并知道 root 密码
 - Windows PowerShell 5.1+（`start.ps1` 依赖 PowerShell）
 
